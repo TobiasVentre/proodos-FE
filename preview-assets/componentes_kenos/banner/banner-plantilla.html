@@ -1,0 +1,60 @@
+<section class="banner-main">
+    <div class="banner-container">
+        <div class="text-wrapper">
+            <div class="tag">{tag}</div>
+            <div class="title">{title}</div>
+            <div class="description">{description}</div>
+            <div class="action-wrapper">
+                <div class="formulario formulario-banner">
+                    <form class="form-group banner-input form-ic-c2c" autocomplete="off" id="form-banner" data-ic-form="form_c2c_0" novalidate="novalidate">
+                        <div class="inputs_general">
+                            <div class="inputs_box">
+                                <div class="custom-input">
+                                    <div class="label-phone">Celular de contacto</div>
+                                    <input id="ani2" type="tel" maxlength="10" pattern="\d{10}" name="phone" placeholder="Celular de contacto" required data-ic-form-field="phone" class="anictc" onfocus="phoneInputFocus(this)"/>
+                                    <span class="icono-input telefono"></span>
+                                    <input id="codigoOrigenModal" type="hidden" name="Codigo_Origen" value="" class="orig" />
+                                    <input id="codigoCampanaModal" type="hidden" name="Codigo_Campana" value="" class="camp" />
+                                    <input id="infoModal" type="hidden" name="Codigo_Descripcion" value="" class="desc" />
+                                    <input id="horarioModal" type="hidden" name="Franja_Horaria" data-ic-form-field="scheduleTime" value="">
+                                    <input id="SessionID" type="hidden" name="SessionID" value="1" class="orig">                 
+                                </div>
+                                <div class="input-focus-hint">Ingresalo con cód. de área, sin 0 ni 15.</div>
+                            </div>
+                            <div class="inputs_box">
+                                <div class="custom-input">
+                                    <span class="icono-select"></span>
+                                    <select name="operadoras" id="operadoras" required title="Seleccione una operadora" onfocus="operadorasInputFocus(this)">
+                                        <option value="" disabled selected>Compañía actual</option>
+                                        <option value="Claro">Claro</option>
+                                        <option value="Personal">Personal</option>
+                                        <option value="Tuenti">Tuenti</option>
+                                        <option value="Movistar">Movistar</option>
+                                        <option value="Imowi">Imowi</option>
+                                    </select>
+                                </div>
+                                <div class="select-focus-hint"></div> 
+                                <div class="label-operadora">Compañía actual</div>
+                            </div>
+                            <button
+                                type="submit"
+                                class="form-ic-c2c-submit btn-primary-kenos full-width"
+                                data-valor-plan="" data-cod-campana="Movil_Portabilidad"
+                                data-form-ic-c2c-send="true"
+                                >
+                                {btn}
+                            </button>
+                        </div>
+                    </form> 
+                </div>
+                <div class="button-group">
+                    <div class="btn-link">Link button</div>
+                    <div class="btn-primary-kenos">Primary button</div>
+                </div> 
+            </div>
+        </div>
+        <div class="img-wrapper">
+            <img src="/imagenes/banners/banner/generic-img-secondary-hero.png" alt="Imagen del banner">
+        </div>
+    </div>
+</section>

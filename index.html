@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proodos FE</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div id="app">
+    <section id="loginScreen" class="screen screen-login">
+      <div class="card login-card">
+        <h1>Proodos</h1>
+        <p class="muted">Ingresá con tus credenciales para acceder al panel.</p>
+        <form id="loginForm" class="form">
+          <label>
+            Usuario
+            <input type="text" name="username" placeholder="usuario" required>
+          </label>
+          <label>
+            Contraseña
+            <input type="password" name="password" placeholder="******" required>
+          </label>
+          <button id="loginBtn" type="submit">Iniciar sesión</button>
+        </form>
+        <p id="loginMessage" class="status"></p>
+      </div>
+    </section>
+
+    <section id="appScreen" class="screen screen-app hidden">
+      <header class="app-header">
+        <div class="app-brand">
+          <p class="eyebrow">Proodos</p>
+          <h2>Consola interna</h2>
+          <p class="muted">Tester de endpoints, catálogo de landings y componentes en una sola interfaz.</p>
+        </div>
+
+        <div class="app-header-meta">
+          <p id="userInfo" class="muted"></p>
+          <button id="logoutBtn" class="secondary">Cerrar sesión</button>
+        </div>
+      </header>
+
+      <nav class="app-nav" aria-label="Navegación principal">
+        <button
+          id="navApiTesterBtn"
+          type="button"
+          class="nav-link is-active"
+          data-view="api-tester"
+        >
+          API Tester
+        </button>
+        <button
+          id="navLandingsBtn"
+          type="button"
+          class="nav-link"
+          data-view="landings"
+        >
+          Landings
+        </button>
+        <button
+          id="navComponentsBtn"
+          type="button"
+          class="nav-link"
+          data-view="componentes"
+        >
+          Componentes
+        </button>
+      </nav>
+
+      <main class="app-main">
+        <section id="apiTesterView" class="app-view" data-view="api-tester">
+          <div class="view-heading">
+            <div>
+              <h3>API Tester</h3>
+              <p class="muted">
+                Ejecutá requests manuales contra `BE` y `Auth` con o sin bearer token.
+              </p>
+            </div>
+          </div>
+
+          <div class="content">
+            <article class="card">
+              <h3>Request</h3>
+              <form id="requestForm" class="form">
+                <div class="grid2">
+                  <label>
+                    Servicio
+                    <select name="base">
+                      <option value="BE">BE</option>
+                      <option value="AUTH">AUTH</option>
+                    </select>
+                  </label>
+                  <label>
+                    Método
+                    <select name="method">
+                      <option>GET</option>
+                      <option>POST</option>
+                      <option>PUT</option>
+                      <option>PATCH</option>
+                      <option>DELETE</option>
+                    </select>
+                  </label>
+                </div>
+
+                <label>
+                  Path
+                  <input type="text" name="path" value="/health">
+                </label>
+
+                <label>
+                  Body (JSON)
+                  <textarea name="body" rows="8" placeholder='{"key":"value"}'></textarea>
+                </label>
+
+                <label class="inline">
+                  <input id="includeToken" type="checkbox" checked>
+                  Enviar token bearer
+                </label>
+
+                <button id="requestBtn" type="submit">Ejecutar</button>
+              </form>
+            </article>
+
+            <article class="card">
+              <h3>Response</h3>
+              <pre id="responseOutput"></pre>
+            </article>
+          </div>
+        </section>
+
+        <section id="landingsView" class="app-view hidden" data-view="landings">
+          <div class="view-heading">
+            <div>
+              <h3>Landings</h3>
+              <p class="muted">
+                Consulta las landings disponibles en `BE` y usalas como punto de entrada al preview.
+              </p>
+            </div>
+            <button id="loadLandingsBtn" type="button" class="secondary">Actualizar listado</button>
+          </div>
+
+          <article class="card landings-card">
+            <p id="landingsStatus" class="status"></p>
+            <div id="landingListContainer" class="landing-list"></div>
+          </article>
+        </section>
+
+        <section id="componentsView" class="app-view hidden" data-view="componentes">
+          <div class="view-heading">
+            <div>
+              <h3>Componentes</h3>
+              <p class="muted">
+                Consulta los componentes disponibles en `BE` con su estado y relaciones principales.
+              </p>
+            </div>
+            <button id="loadComponentsBtn" type="button" class="secondary">Actualizar listado</button>
+          </div>
+
+          <div class="components-layout">
+            <article class="card components-card">
+              <p id="componentsStatus" class="status"></p>
+              <div id="componentListContainer" class="component-list"></div>
+            </article>
+
+            <aside class="card component-detail-card">
+              <div class="component-detail-heading">
+                <div>
+                  <h4>Detalle del componente</h4>
+                  <p class="muted">
+                    Seleccioná un componente del listado para ver sus relaciones y metadatos.
+                  </p>
+                </div>
+              </div>
+              <p id="componentDetailStatus" class="status"></p>
+              <div id="componentDetailContainer" class="component-detail-container"></div>
+            </aside>
+          </div>
+        </section>
+
+        <section id="previewView" class="app-view hidden" data-view="preview-landing">
+          <div class="view-heading">
+            <div>
+              <h3>Preview de Landing</h3>
+              <p class="muted">
+                Ingresá un ID de landing y generá una vista previa usando los componentes asociados.
+              </p>
+            </div>
+          </div>
+
+          <section class="preview-section">
+            <article class="card preview-card">
+              <form id="previewForm" class="form preview-form">
+                <div class="preview-controls">
+                  <label>
+                    ID Landing
+                    <input
+                      id="landingIdInput"
+                      type="number"
+                      name="landingId"
+                      min="1"
+                      placeholder="Ej: 12"
+                      required
+                    >
+                  </label>
+                  <button id="previewBtn" type="submit">Generar preview</button>
+                </div>
+                <p id="previewStatus" class="status"></p>
+              </form>
+
+              <div class="preview-container">
+                <iframe
+                  id="previewFrame"
+                  class="preview-frame"
+                  title="Preview de landing"
+                  loading="lazy"
+                  sandbox=""
+                  referrerpolicy="no-referrer"
+                ></iframe>
+              </div>
+
+              <div class="preview-debug">
+                <h4>Logs de preview</h4>
+                <pre id="previewDebugOutput" class="preview-debug-output"></pre>
+              </div>
+            </article>
+          </section>
+        </section>
+      </main>
+    </section>
+  </div>
+
+  <script src="./src/config.js?v=20260310-6"></script>
+  <script type="module" src="./src/app.js?v=20260311-1"></script>
+</body>
+</html>
