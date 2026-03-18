@@ -1,0 +1,46 @@
+@use 'general-kenos' as tokens;
+
+#hcard-coder-house {
+    background-color: var(--backgroundAlternative);
+    padding-bottom: 48px;
+    .contenedor {
+        max-width: 1252px;
+        padding: 0 15px;
+        margin: 0 auto;
+    }
+    .hcard-coder-house__box {
+        background-color: var(--background);
+        border-radius: 8px;
+        border: 1px solid var(--border);
+        padding: 20px 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 808px;
+        margin: 0 auto;
+        gap: 15px;
+        .box-texto {
+            p {
+                @include tokens.text-preset-responsive(2);
+                @include tokens.roboto-regular;
+                color: var(--textSecondary);
+            }
+            .titulo {
+                @include tokens.text-preset-responsive(4);
+                color: var(--textPrimary);
+                margin-bottom: 8px;
+            }
+        }
+        picture {
+            source, img {
+                max-width: 88px;
+                object-fit: contain;
+            }
+        }
+    }
+    @media (max-width: 768px) {
+        .hcard-coder-house__box {
+            padding: 24px 16px;
+        }
+    }
+}

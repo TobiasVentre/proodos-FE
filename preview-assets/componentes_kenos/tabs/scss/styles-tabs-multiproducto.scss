@@ -1,0 +1,190 @@
+@use 'general-kenos' as tokens;
+
+#navbar-multiproducto {
+  nav {    
+    border-bottom: 1px solid var(--divider);
+    position: fixed;
+    top: 0;
+    background-color: var(--background);
+    width: 100%;
+    z-index: 999;
+
+    .tabs-container{
+      @include tokens.text-preset-responsive(1);
+      @include tokens.roboto-regular;
+      display: flex;
+      align-items: center;
+      padding: 16px 32px;
+      gap: 16px;
+      color: var(--textPrimary);
+      height: 80px;
+
+      .logo-movistar {
+        margin-right: 16px;
+
+      }
+
+      .item-button {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        padding: 13px 8px;
+
+        img {
+          width: 16px;
+        }
+        
+        .submenu-container {
+          visibility: hidden;
+          @include tokens.text-preset-responsive(2);
+          display: flex;
+          flex-direction: column;
+          text-wrap: nowrap;
+          padding: 32px;
+          background-color: var(--background);   
+          position: absolute;
+          top: 30%;
+          margin-left: -45px;
+          gap: 16px;
+          z-index: 50;
+          
+          .subitem-button {
+            @include tokens.roboto-regular;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 0;
+
+            img {
+              width: 24px;
+            }
+
+            span {
+              @include tokens.text-preset-responsive(1);
+              @include tokens.regular;
+              color: var(--textSecondary);
+              position: absolute;
+              margin-left: 32px;
+              margin-top: 38px;
+            }
+          }
+        }
+      }  
+      .submenu {
+        position: relative;
+      }   
+      .submenu:hover {
+        padding: 32px 8px;
+      }
+       .submenu:hover .submenu-container  {
+        visibility: visible;   
+        top: 99%;      
+      }
+      .submenu:hover.active {
+        padding: 30px 7px 25px;
+      }
+      .submenu:hover.active .submenu-container{
+        top: 107%; 
+      }
+     
+      .active {
+        @include tokens.roboto-bold;      
+        border-bottom: var(--controlActivated) 4px solid;  
+        padding: 0 7px;
+        padding-bottom: 25px;
+        padding-top: 30px;
+        
+      }
+    }
+  }
+}
+/* Ocultar todos los tabs inicialmente todos aparecen acá: B2C y B2B */
+#celulares,
+#internet,
+#portabilidad,
+#alta-nueva-linea,
+#cambio-de-plan,
+#prepago,
+#television,
+#plan-con-factura,
+#internet-fibra,
+#internet-fibra-empresarial,
+#movistar-con-todo,
+#alta-de-linea {
+  display: none;
+}
+
+.button-navigations {
+  @include tokens.roboto-regular;
+
+  .active {
+    @include tokens.roboto-bold;
+  }
+}
+
+@media (max-width: 992px) {
+  #navbar-multiproducto {
+
+    nav {
+      border: none;
+
+      .tabs-container {
+        display: none;
+      }
+
+      .buttons-container {
+        display: flex;
+        flex-direction: column;
+        padding: 8.5px 16px;
+        overflow-x: scroll;
+        scrollbar-width: none; 
+
+        .logo-movistar{
+          width: 40px;
+          position: fixed;
+        }
+
+        .button-navigations {
+          display: flex;
+          margin-top: 50px;
+          align-items: center;
+          position: relative;
+          left: -8px;
+          gap: 8px;
+          margin-right: 8px;
+
+          .button-tab {
+            
+            color: var(--textPrimary);
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            padding: 8px 16px;
+            text-wrap-mode: nowrap;
+          }
+
+          .active{            
+            color: var(--textPrimaryInverse);
+            border: none;
+            background-color: var(--buttonPrimaryBackground);
+          }
+        }
+      }
+    }
+  }
+}
+
+// ICONOS SVG
+
+%icon-mask-grey-tabs {
+  min-width: 16px;
+  height: 16px;
+  background-color: var(--neutralMedium);
+  mask-size: cover;
+  display: block;
+}
+
+.chevron-down-regular-tabs {
+  @extend %icon-mask-grey-tabs;
+  mask-image: url(/imagenes/icons-Kenos/regular/chevron-down-regular.svg);
+}

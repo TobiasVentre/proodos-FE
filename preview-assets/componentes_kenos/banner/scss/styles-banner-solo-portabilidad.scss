@@ -1,0 +1,177 @@
+@use 'general-kenos'as tokens;
+
+@mixin flexCenter($direct) {
+    display: flex;
+    flex-direction: $direct;
+    justify-content: center;
+    align-items: center;
+}
+
+#portabilidad #banner__porta {
+    margin-top: 80px
+}
+
+#banner__porta {
+    margin-top: 124px;
+
+    .contenido {
+        height: 330px;
+        @include flexCenter(row);
+        gap: 0px;
+
+        .texto-container {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            max-width: 496px;
+
+            .pre_titulo {
+                @include tokens.text-preset-responsive(1, 2);
+                @include tokens.roboto-medium;
+                color: var(--highlightHigh);
+                background-color: var(--highlightLow);
+                border-radius: 4px;
+                padding: 5px;
+                width: fit-content;
+                margin: 0;
+                font-weight: normal;
+            }
+
+            .titulo {
+                @include tokens.text-preset-responsive(7, 6);
+                @include tokens.regular;
+                color: var(--textPrimary);
+            }
+
+            .bajada {
+                @include tokens.text-preset-responsive(3);
+                @include tokens.roboto-regular;
+                color: var(--textSecondary);
+            }
+        }
+
+        .contenedor-promo {
+            width: 704px;
+            height: 266px;
+            border-radius: 32px;
+            background-color: #FFC5A8;
+            border:16px solid #fffaf5;
+            box-sizing: border-box;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            @include flexCenter(column);
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 16px 45px;
+            position: relative;
+
+            .contenedor-texto {
+                @include tokens.movistar-bold;
+                @include tokens.text-preset-responsive(7,6);
+                line-height: 40px;
+                color: #0066FF;
+                text-align: left;
+            }
+            .img-cupido{
+                width: 240px;
+                height: 250px;
+                transform: translate(315px, -15px);
+                z-index: 1;
+                position: absolute;
+
+                img{
+                    width: 100%;
+                    height: auto;
+                }
+            }
+            .cucarda {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+                margin: 5px;
+            
+                span:first-child {
+                    text-align: left;
+                    @include tokens.movistar-medium;
+                    @include tokens.text-preset-responsive(4,3);
+                    color: #262423;
+                }
+                span:nth-child(2) {
+                    text-align: left;
+                    @include tokens.movistar-bold;
+                    @include tokens.text-preset-responsive(9);
+                    line-height: 50px;
+                    color: #262423;
+                }
+                span:nth-child(3) {
+                    text-align: left;
+                    @include tokens.movistar-medium;
+                    @include tokens.text-preset-responsive(4,1);
+                    color: #262423;
+                    padding: 3px;
+                    background-color: #FFFAF5;
+                }
+            }
+            .img-cupido{
+                width: 240px;
+                height: 250px;
+                transform: translate(315px, -15px);
+                z-index: 1;
+                position: absolute;
+            }
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    #banner__porta {
+        margin-top: 90px;
+
+        .contenido {
+            padding: 16px;
+            height: 380px;
+            flex-direction: column-reverse;
+            gap: 24px;
+
+            .texto-container {
+
+                .titulo {
+                    margin-top: 0
+                }
+            }
+
+            .contenedor-promo {
+                height: 180px;
+                width: 100%;
+                background-repeat: no-repeat, no-repeat;
+                background-position: center;
+                background-size: cover;
+                border-radius: 16px;
+                border:8px solid #fffaf5;
+                padding: 6px 15px;
+                justify-content: center;
+                gap: 8px;
+
+                .contenedor-texto {
+                    line-height: 25px;
+                }
+                .cucarda {
+                    span:first-child {
+                        line-height: 20px;
+                    }
+                    span:nth-child(2) {
+                        line-height: 34px;
+                    }
+                }
+                .img-cupido{
+                    width: 180px;
+                    height: auto;
+                    transform: translate(140px, -7px);
+                }
+            }
+        }
+    }
+}
+

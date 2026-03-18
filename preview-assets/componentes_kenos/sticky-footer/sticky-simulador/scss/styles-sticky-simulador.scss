@@ -1,0 +1,85 @@
+@use 'general-kenos' as tokens;
+
+#sticky-footer-guru {
+    height: 65px;
+    backdrop-filter: blur(10px);
+    z-index: 998;
+    display: flex;
+    justify-content: center;  
+    align-items: center;  
+    width: 100%;
+    background-color: rgba(0,0,0,.85);
+    color: var(--blanco);
+  }
+
+  #sticky-footer-guru .sticky-footer {
+        justify-content: center;
+        display: flex;
+        align-items: baseline;
+        padding-bottom: 5px;
+    }
+
+    #sticky-footer-guru .sticky-footer p {
+         width: fit-content;
+        margin: 0px;
+        padding-top: 15px;
+        @include tokens.text-preset-responsive(2);
+         @include tokens.roboto-medium;
+    }
+
+    #sticky-footer-guru .sticky-footer p span {
+    @include tokens.roboto-medium;
+    }
+ 
+    #sticky-footer-guru .sticky-footer .btn-sticky {
+        margin-left: 24px !important;
+        padding: 10px 25px !important;           
+        border-radius: 50px !important;
+    }
+
+    #sticky-footer-guru .sticky-footer .btn-sticky a {
+        color: var(--textButtonPrimary);
+        @include tokens.text-preset-responsive(3);
+    @include tokens.roboto-medium;
+    }
+
+    #sticky-footer-guru .section_sticky_footer_container:hover {
+        background-color: var(--azul-oscuro);
+
+        & .sticky-footer .btn-sticky {
+            background-color: transparent;
+            border: solid 1.5px #019BEF;
+        }
+    } 
+    
+    
+
+@media (max-width:992px) {
+
+    #sticky-footer-guru {
+        display: block;
+        height: 65px;
+    }
+    #sticky-footer-guru .sticky-footer {
+        border: none;
+        display: flex;    
+        justify-content: space-around; 
+        align-items: center;
+        padding: 6px 8px 4px 0px;
+    }
+
+    #sticky-footer-guru .sticky-footer p {
+        padding: 2px 0px 0px 10px;
+        max-width: 50%;
+    }
+
+    #sticky-footer-guru .sticky-footer .btn-sticky {
+        background-color: #019BEF;
+        padding: 12px 25px !important;
+        margin-left: 0px !important;
+    }
+    #sticky-footer-guru .sticky-footer .btn-sticky a {
+        color: var(--blanco);
+    }
+
+    }

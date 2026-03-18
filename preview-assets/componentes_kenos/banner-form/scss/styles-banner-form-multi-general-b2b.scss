@@ -1,0 +1,196 @@
+@use 'general-kenos'as tokens;
+
+@mixin flexCenter($direct) {
+  display: flex;
+  flex-direction: $direct;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner__form-b2b {
+  width: 100%;
+  margin-top: 80px;
+  background-color: var(--background);
+  padding: 16px 30px;
+
+  .contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+
+    .left-container {
+      max-width: 500px;
+
+      .tag-segmento {
+        @include tokens.text-preset-responsive(1, 2);
+        @include tokens.roboto-medium;
+        border-radius: 4px;
+        width: fit-content;
+        color: var(--brand);
+        background-color: var(--brandLow);
+        padding: 4px;
+      }
+
+      .titulo {
+        @include tokens.text-preset-responsive(6, 7);
+        @include tokens.regular;
+        color: var(--textPrimary);
+        margin-top: 8px
+      }
+    }
+
+    .right-container {
+      background-image: url("/imagenes/b2b/multiproducto/banner-form/bg-banner-form-generico-b2b-desk.png");
+      width: 100%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      border-radius: 16px;
+      max-width: 704px;
+      height: 266px;
+      color: var(--textPrimaryInverse);
+      @include flexCenter(column);
+      gap: 0px;
+      
+      .router {
+        @include flexCenter(row);
+      }
+
+      .box-1 {
+        position: relative;
+        transform: translate(22px, 39px);
+        margin-left: -20px;
+      }
+
+      .box-2 {
+        @include flexCenter(column);
+        gap: 0px;
+        padding-bottom: 11px;
+
+        .box-up {
+          width: 310px;
+          height: 73px;
+          background-color: var(--backgroundBrandSecondary);
+          color: var(--textPrimaryInverse);
+          border-top-left-radius: 10px;
+          border-top-right-radius: 10px;
+          @include flexCenter(row);
+          @include tokens.text-preset-responsive(5, 2);
+          @include tokens.regular;
+        }
+
+        .box-middle {
+          width: 115px;
+          height: auto;
+          background-color: var(--highlight);
+          color: var(--textPrimaryInverse);
+          padding: 2.5px 2.5px 1.88px 2.5px;
+          @include tokens.roboto-bold;
+          @include flexCenter(row);
+          font-size: 12.52px;
+          line-height: 17.53px;
+          position: absolute;
+          border-radius: 2.5px;
+        }
+
+        .box-down {
+          @include flexCenter(column);
+          width: 310px;
+          height: 79px;
+          background-color: var(--background);
+          color: var(--textPrimary);
+          border-bottom-left-radius: 10px;
+          border-bottom-right-radius: 10px;
+
+          .offer-price {
+            @include tokens.text-preset-responsive(5, 5);
+            @include tokens.regular;
+          }
+
+          .full-price {
+            @include tokens.text-preset-responsive(1, 1);
+            @include tokens.roboto-regular;
+            text-decoration: line-through;
+          }
+        }
+      }
+
+      .box-3 {
+        @include tokens.text-preset-responsive(3, 2);
+        @include tokens.roboto-medium;
+        color: var(--textPrimaryInverse);
+      }
+
+
+    }
+  }
+
+}
+
+
+
+@media (max-width: 992px) {
+
+  .banner__form-b2b {
+    padding: 0;
+    margin-top: 113px;
+
+    .contenedor {
+      flex-direction: column-reverse;
+      gap: 16px;
+
+      .left-container {
+        padding: 0 16px 16px;
+
+        .tag-segmento {
+          padding: 2px 4px;
+        }
+      }
+
+      .right-container {
+        background-image: url("/imagenes/b2b/multiproducto/banner-form/bg-banner-form-generico-b2b-mob.png");
+        border-radius: 8px;
+        width: 328px;
+        height: 180px;
+
+        .box-1 {
+          transform: translate(12px, 30px);
+          margin-right: -68px;
+
+          img {
+            width: 56%;
+          }
+        }
+  
+        .box-2 {
+  
+          .box-up {
+            width: 170px;
+            height: 40.03px;
+            @include tokens.roboto-regular;
+          }
+  
+          .box-middle {
+            padding: 0px;
+            font-size: 8px;
+            line-height: 17.53px;
+            width: 71px;
+            height: 12px;
+          }
+  
+          .box-down {
+            width: 170px;
+            height: 43.32px;
+
+            .full-price {
+              line-height: 8px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+}
+

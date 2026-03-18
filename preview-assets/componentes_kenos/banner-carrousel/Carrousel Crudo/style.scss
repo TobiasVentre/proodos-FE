@@ -1,0 +1,410 @@
+#banner-principal {
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,700&display=swap');
+  font-family: "Roboto", sans-serif;
+
+  /* FUENTES */
+  $telefonica: "Telefonica", sans-serif;
+
+  /* COLORES */
+  $gris-principal: #313235; 
+  $gris-secundario: #6B6C6F;
+  $gris-medio: #86888C;
+  $gris-claro: #D3D4D3;
+  $background: #F6F6F6;
+  $magenta: #DB2C75;
+  $celeste-claro: #019BEF;
+  $celeste: #008EDD;
+  $verde: #407F0F;
+  $violeta: #A13EA1;
+  $violeta-claro: #F1E2F4;
+  $violeta-hover: #642A72;
+  $azul-oscuro: #113A54;
+  $blanco: #FFF; 
+
+  background-color: $blanco;
+  padding-bottom: 30px;
+
+  .container {
+    position: relative;
+  }
+
+  a {
+    cursor: pointer;
+    text-decoration: none;
+    &:hover {
+      .btn-card {
+        background-color: var(--azul-oscuro) !important;
+        box-shadow: 0px 2px 4px 0px #00000033;
+        border: 2px solid var(--celeste) !important;
+        &.secundario {
+          background-color: var(--violeta-hover) !important;
+          border-color: #DEBCE4!important;
+        }
+        &.terciario {
+          background-color: var(--azul-oscuro) !important;
+          border-color: var(--celeste-claro) !important;
+        }
+      }
+    }
+  }
+  button {
+    &.btn-saltar-contenido {
+      border-radius: 4px;
+      border: none;
+      background-color: transparent;
+      position: absolute;
+      overflow: hidden;
+      height: 0;
+      cursor: pointer;
+      &:focus-visible, &:focus {
+        outline: 2px solid #000000;
+      }
+      &:focus-visible {
+        position: relative;
+        height: 100%;
+        padding: 12px 16px;
+        background-color: #FFF;
+      }
+    }
+    &.slick-arrow {
+      width: 36px;
+      height: 36px;
+      border-radius: 100%;
+      transition: all 100ms;
+      cursor: pointer;
+      z-index: 1;
+      border: none;
+      background: none;
+      display: grid;
+      justify-content: center;
+      &:hover {
+        background-color: #EEEEEE;
+      }
+      &:focus {
+        outline: none;
+        overflow: hidden;
+      }
+      &:focus-visible {
+        outline: 2px solid #000000;
+      }
+      &::before {
+        margin-top: .5px;
+      }
+      &.prev {
+        &::before {
+          margin-right: 3px;
+          content: url("https://www.movistar.com.ar/documents/10180/102343385/chevron_izq.svg");
+        }
+      }
+      &.next {
+        &::before {
+          margin-left: 4px;
+          content: url("https://www.movistar.com.ar/documents/10180/102343385/chevron_der.svg");
+        }
+      }
+    }
+  }
+
+  .slick-list {
+    margin: 0 -22px;
+  }
+
+  .saltar-contenido {
+    padding-top: 5px;
+  }
+  
+  
+  .banner-box {
+    margin-top: 0px;
+    background-color: $blanco;
+    margin-bottom: 16px;
+    .slider-box {
+      position: relative;
+      margin: 0 22px;
+      color: $gris-principal;
+      background-color: $blanco;
+      .informacion-principal {
+        padding: 16px 0;
+        p {
+          margin: 0;
+        }
+        .pretitulo {
+          font-size: 14px!important;
+          font-weight: 700;
+          line-height: 20px;
+          margin-bottom: 16px;
+        }
+        .titulo {
+          font-family: $telefonica;
+          font-size: 24px;
+          font-weight: 400;
+          line-height: 32px;
+          min-height: 96px;
+        }
+        .btn-card {
+          text-align: center;
+          padding: 11px 32px;
+          border-radius: 60px;
+          background-color: $celeste-claro;
+          font-family: 'Roboto', sans-serif;
+          font-size: 16px;
+          font-weight: 500;
+          line-height: 24px;
+          color: $blanco;
+          border: 2px solid $celeste-claro;
+          display: inline-block;
+          cursor: pointer;
+          width: 100%;
+          text-decoration: none;
+          transition: all 200ms ease;
+          &.secundario {
+            background-color: $violeta;
+            border-color: $violeta;
+          }
+          &.terciario {
+            background-color: #0B2739;
+            border-color: #0B2739;
+          }
+        }
+      }
+      .informacion-oferta {
+        height: 240px;
+        background-color: $blanco;
+        margin: 0 -15px;
+        margin-bottom: 64px;
+        overflow: hidden;
+      }
+    }
+  }
+  .slider-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .slide-m-dots {
+      margin: 0px 8px;
+      .slider-dots {
+        display: flex; 
+        gap: 16px; 
+        margin: 0; 
+        padding: 0; 
+        list-style: none; 
+        justify-content: center;
+        li { 
+          display: inline-flex; 
+          width: 30px;
+          height: 30px;
+          &:only-child { 
+            display:none; 
+          } 
+        }
+        .dot-item{
+          --size: 30px;
+          --dur: 7400ms;
+          --track: #DDDDDD;
+          --progress: #019BEF;
+          --circumf: 100;
+          --ring-progress-inactive: 1px;
+          --ring-progress-active: 3px;
+  
+          position: relative;
+          width: var(--size);
+          height: var(--size);
+          border-radius: 50%;
+          display: grid; 
+          place-items: center;
+          padding: 0; 
+          border: 0; 
+          background: transparent;
+          cursor: pointer;
+
+          .dot-label {
+            position: absolute; 
+            inset: 0; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font: 400 16px/1 "Roboto", sans-serif; 
+            color: #313235;  
+            user-select: none; 
+            pointer-events: none;
+            font-variant-numeric: tabular-nums lining-nums; 
+            -webkit-font-smoothing: antialiased;
+            text-rendering: geometricPrecision;
+            transform: translateY(var(--label-nudge-y));
+          }
+  
+          svg { 
+            width: 100%; 
+            height: 100%; 
+            transform: rotate(-90deg); 
+          }
+          .ring-track { 
+            stroke: var(--track); 
+            stroke-width: 1px;
+            fill: none; 
+          }
+          .ring-progress {
+            stroke: var(--progress); 
+            stroke-width: var(--ring-progress-inactive);; 
+            fill: none; 
+            stroke-linecap: round;
+            
+            animation: none;
+            transition: stroke-width 140ms ease;
+          }
+          &.is-active {
+            background: #E6F5FD;
+            .dot-label {
+              font-weight: 700;
+            }
+            .ring-progress { 
+              stroke-width: var(--ring-progress-active);
+              animation: ring-progress var(--dur) linear forwards; 
+            }
+          }
+          &.is-paused .ring-progress { 
+            animation-play-state: paused; 
+            opacity: .65; 
+          }
+        }
+      }
+    }
+    @keyframes ring-progress{
+      from { 
+        stroke-dashoffset: var(--circumf); 
+      }
+      to { 
+        stroke-dashoffset: 0; 
+      }
+    }
+  }
+  
+  @media (min-width: 576px) {
+    overflow: hidden;
+    .banner-box {
+      .slider-box {
+        .informacion-principal {
+          .titulo {
+            min-height: 64px;
+          }
+        }
+        .informacion-oferta {
+          height: 240px;
+          margin: 0;
+          margin-bottom: 64px;
+        }
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    
+  }
+
+  @media (min-width: 992px) {
+    padding-bottom: 45px;
+    .slick-list {
+      padding: 33px 0 0;
+      margin: -33px -42px 8px -74px;
+    }
+
+    .banner-box {
+      margin: 68px 0 8px;
+      .slider-box {
+        display: flex;
+        position: relative;
+        min-height: 300px;
+        border-radius: 16px;
+        border: 1px solid #DDDDDD;
+        margin: 0 58px;
+        .informacion-principal {
+          padding: 24px 16px 24px 24px;
+          max-width: 30%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          .pretitulo {
+            font-size: 16px;
+            line-height: 24px;
+            margin-bottom: 24px;
+          }
+          .titulo {
+            font-size: 24px;
+            line-height: 32px;
+            margin-bottom: 28px;
+            min-height: auto;
+          }
+          .btn-card {
+            position: relative;
+            width: fit-content;
+            font-size: 18px;
+          }
+        }
+        .informacion-oferta {
+          min-height: 300px;
+          min-width: 70%;
+          border-radius: 16px;
+          border: 1px solid #DDDDDD;
+          margin-bottom: 0px;
+          position: absolute;
+          top: -32px;
+          right: -32px;
+          transition: all 200ms ease;
+        }
+      }
+    }
+    .slider-controls {
+      .slide-m-dots {
+        .slick-dots {
+          bottom: -33px!important;
+          > li {
+            display: inline-block;
+          }
+          > li:only-child {
+              display: none;
+          }
+          li {
+            width: 32px;
+            height: 16px;
+            margin: 0 5px;
+            button {
+              width: 20px;
+              height: 20px;
+              &:before {
+                border-radius: 16px;
+                width: 16px;
+                height: 16px;
+                margin: auto;
+              }
+            }
+            &.slick-active {
+              button {
+                &:before {
+                  width: 32px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .banner-box {
+      .slider-box {
+        .informacion-principal {
+          max-width: 42%;
+          .titulo {
+            font-size: 32px;
+            line-height: 39px;
+            margin-bottom: 36px;
+          }
+        }
+        .informacion-oferta {
+          min-width: 60%;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+@use 'general-kenos' as tokens;
+
+
+/* BANNER */
+.banner-mejores-ofertas{
+    background: url("/imagenes/guru/bg-guru.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 300px; 
+    color: #fff;
+    text-align: center;
+    padding-top: 20px;
+    margin-top: 80px
+}
+.banner-mejores-ofertas .pre-title{
+    @include tokens.roboto-regular;
+    font-size: 14px;
+    line-height: 20px;
+    display: table;
+    padding: 3px 6px;
+    background-color: #E63780;
+    margin: 50px auto 0;
+    border-radius: 4px;
+}
+.banner-mejores-ofertas .title{
+    @include tokens.text-preset-responsive(7);
+    @include tokens.regular;
+    margin-top: 15px;
+}
+.banner-mejores-ofertas .sub-title{
+    @include tokens.roboto-regular;
+    @include tokens.text-preset-responsive(3);
+    margin-top: 15px;
+}
+
+/* FIN BANNER */
+
+@media (max-width: 992px) {
+    .banner-mejores-ofertas{
+        background: url("/imagenes/guru/bg-guru-mb.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .banner-mejores-ofertas .sub-title{
+        
+    }
+}

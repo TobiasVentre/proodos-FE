@@ -1,0 +1,133 @@
+@use 'general-kenos' as tokens;
+
+.formulario {
+
+  form {
+
+    input {
+      margin: -5px auto 0px !important;
+    }  
+
+    .input-focus-hint-cuit,
+    .input-focus-hint-email {
+      min-height: 20px;
+    }
+
+    .checkbox-ofertas {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 8px;
+      padding: 0 10px;
+      height: 32px;
+      margin-bottom: 8px;
+
+      input {
+        width: 18px !important;
+        margin: 0 !important;
+      }
+
+      input[type="checkbox"] {
+        accent-color: var(--controlActivated);
+      }
+
+      label {
+        @include tokens.text-preset-responsive(2);
+        @include tokens.roboto-regular;
+        color: var(--textPrimary);
+      }
+    }
+
+    .button-container {
+      align-items: center !important;
+
+      button {
+        display: flex;
+        gap: 6px;
+      }
+    }
+  }
+}
+
+section .modal.fade.in .modal-dialog .modal-content {
+  width: 688px;
+  /* height: 696px; */
+  margin: 20px auto;
+  padding-bottom: 70px;
+}
+
+section .modal.fade.in .modal-dialog .modal-content .modal-container form .label-phone,
+section .modal.fade.in .modal-dialog .modal-content .modal-container form .label-cuit,
+section .modal.fade.in .modal-dialog .modal-content .modal-container form .label-email {
+  position: relative;
+  left: 12px;
+  font-size: 14px;
+  line-height: 24px;
+  visibility: hidden;
+  transform: translateY(-5px);
+}
+
+section .modal.fade.in .modal-dialog .modal-content .modal-container {
+gap: 20px;
+}
+
+section .modal.fade.in .modal-dialog .modal-content .modal-container .bajada {
+  margin-bottom: -16px;
+}
+
+@media (max-width: 992px) {
+  section .modal.fade.in .modal-dialog .modal-content {
+    width: 328px;
+    height: auto;
+    margin: 50px 0px 14px 0px !important;
+  }
+
+
+  section .modal.fade.in .modal-dialog .modal-content .modal-container form .input-focus-hint {
+    line-height: 24px;
+    margin-top: 0px;
+    margin-bottom: 6px;
+  }
+
+  section .modal.fade.in .modal-dialog .modal-content .modal-container form .label-phone,
+  section .modal.fade.in .modal-dialog .modal-content .modal-container form .label-cuit,
+  section .modal.fade.in .modal-dialog .modal-content .modal-container form .label-email {
+    line-height: 24px;
+  }
+
+  section .modal.fade.in .modal-dialog .modal-content .modal-container form .button-container button {
+    margin: 16px 0px 0px;
+  }
+
+  form {
+
+
+    .label.phone.error-phone {
+      margin-top: -2px;
+    }
+    
+  }
+}
+
+.whatsapp-icon {
+  mask-image: url(/imagenes/icons-Kenos/regular/whatsapp-regular.svg);
+  width: 24px;
+  height: 24px;
+  background-color: #25D366;
+
+}
+
+// ICONOS SVG 
+
+%icon-mask-grey-modales {
+  min-width: 28px;
+  height: 28px;
+  mask-size: cover;
+  background-color: var(--neutralHigh);
+  display: block;
+}
+
+.close-regular-modales {
+  @extend %icon-mask-grey-modales;
+  mask-image: url("/imagenes/icons-Kenos/regular/close-regular.svg");
+}

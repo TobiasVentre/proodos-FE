@@ -1,0 +1,179 @@
+@use '_colores' as colores;
+
+:root {
+  /* Color principal */
+  --celeste: #{colores.$celeste};
+  --celeste-accesible: #{colores.$celeste-accesible};
+
+  /* Secundarios */
+  --blanco: #{colores.$blanco};
+  --azul-oscuro: #{colores.$azul-oscuro};
+
+  /* Verdes */
+  --verde-claro: #{colores.$verde-claro};
+  --verde: #{colores.$verde};
+  --verde-oscuro: #{colores.$verde-oscuro};
+  --verde-accesible: #{colores.$verde-accesible};
+
+  /* Púrpuras */
+  --purpura-claro: #{colores.$purpura-claro};
+  --purpura: #{colores.$purpura};
+  --purpura-oscuro: #{colores.$purpura-oscuro};
+
+  /* Magenta */
+  --magenta-claro: #{colores.$magenta-claro};
+  --magenta: #{colores.$magenta};
+  --magenta-oscuro: #{colores.$magenta-oscuro};
+
+  /* Naranja */
+  --naranja-claro: #{colores.$naranja-claro};
+  --naranja: #{colores.$naranja};
+  --naranja-oscuro: #{colores.$naranja-oscuro};
+
+  /* Amarillo */
+  --amarillo-claro: #{colores.$amarillo-claro};
+  --amarillo: #{colores.$amarillo};
+  --amarillo-oscuro: #{colores.$amarillo-oscuro};
+
+  /* Grises */
+  --gris-claro: #{colores.$gris-claro};
+  --gris-claro1: #{colores.$gris-claro1};
+  --gris: #{colores.$gris};
+  --gris1: #{colores.$gris1};
+  --gris-oscuro: #{colores.$gris-oscuro};
+  --gris-oscuro1: #{colores.$gris-oscuro1};
+  --gris-accesible: #{colores.$gris-accesible};
+
+  /* Hover Botones */
+  --celeste-oscuro: #{colores.$celeste-oscuro};
+
+  /* BACKGROUNDS */
+  --backgroundBrand: #{colores.$backgroundBrand};
+  --appBarBackground: #{colores.$appBarBackground};
+  --background: #{colores.$background};
+  --backgroundContainer: #{colores.$backgroundContainer};
+  --backgroundOverlay: #{colores.$backgroundOverlay};
+  --backgroundSkeleton: #{colores.$backgroundSkeleton};
+  --backgroundSkeletonInverse: #{colores.$backgroundSkeletonInverse};
+  --navigationBarBackground: #{colores.$navigationBarBackground};
+  --backgroundAlternative: #{colores.$backgroundAlternative};
+  --backgroundFeedbackBottom: #{colores.$backgroundFeedbackBottom};
+  --skeletonWave: #{colores.$skeletonWave};
+  --backgroundBrandSecondary: #{colores.$backgroundBrandSecondary};
+  --backgroundHovers: #{colores.$backgroundHovers};
+  --backgroundContainerBrandOverInverse: #{colores.$backgroundContainerBrandOverInverse};
+  --backgroundContainerHover: #{colores.$backgroundContainerHover};
+
+  /* SPECIAL */
+  --specialBackgroundBrand: #{colores.$specialBackgroundBrand};
+  --specialBackground100: #{colores.$specialBackground100};
+  --specialBackground200: #{colores.$specialBackground200};
+  --specialBackground300: #{colores.$specialBackground300};
+  --specialBackground400: #{colores.$specialBackground400};
+  --specialUnlimitedConsumption: #{colores.$specialUnlimitedConsumption};
+
+  /* BORDERS */
+  --borderLight: #{colores.$borderLight};
+  --border: #{colores.$border};
+  --borderDark: #{colores.$borderDark};
+  --borderSelected: #{colores.$borderSelected};
+  --borderHover: #{colores.$borderHover};
+
+  /* BUTTONS */
+  --buttonDangerBackground: #{colores.$buttonDangerBackground};
+  --buttonDangerBackgroundSelected: #{colores.$buttonDangerBackgroundSelected};
+  --buttonDangerBackgroundHover: #{colores.$buttonDangerBackgroundHover};
+  --buttonLinkBackgroundSelected: #{colores.$buttonLinkBackgroundSelected};
+  --buttonPrimaryBackgroundSelected: #{colores.$buttonPrimaryBackgroundSelected};
+  --buttonPrimaryBackgroundHover: #{colores.$buttonPrimaryBackgroundHover};
+  --buttonLinkBackgroundSelectedInverse: #{colores.$buttonLinkBackgroundSelectedInverse};
+  --buttonPrimaryBackground: #{colores.$buttonPrimaryBackground};
+  --buttonSecondaryBorder: #{colores.$buttonSecondaryBorder};
+  --buttonPrimaryBackgroundInverse: #{colores.$buttonPrimaryBackgroundInverse};
+  --buttonPrimaryBackgroundSelectedInverse: #{colores.$buttonPrimaryBackgroundSelectedInverse};
+  --buttonSecondaryBorderInverse: #{colores.$buttonSecondaryBorderInverse};
+  --buttonSecondaryBorderSelected: #{colores.$buttonSecondaryBorderSelected};
+  --buttonSecondaryBorderSelectedInverse: #{colores.$buttonSecondaryBorderSelectedInverse};
+  --buttonPrimaryBackgroundBrandDark: #{colores.$buttonPrimaryBackgroundBrandDark};
+  --buttonPrimaryBackgroundBrandDarkSelected: #{colores.$buttonPrimaryBackgroundBrandDarkSelected};
+  --buttonSecondaryBorderBrandDark: #{colores.$buttonSecondaryBorderBrandDark};
+  --buttonSecondaryBorderBrandDarkSelected: #{colores.$buttonSecondaryBorderBrandDarkSelected};
+
+  /* CONTROLS */
+  --control: #{colores.$control};
+  --controlActivated: #{colores.$controlActivated};
+  --controlError: #{colores.$controlError};
+  --toggleAndroidInactive: #{colores.$toggleAndroidInactive};
+  --toggleAndroidBackgroundActive: #{colores.$toggleAndroidBackgroundActive};
+  --iosControlKnob: #{colores.$iosControlKnob};
+  --loadingBar: #{colores.$loadingBar};
+  --loadingBarBackground: #{colores.$loadingBarBackground};
+  --ProgressBarBackground: #{colores.$ProgressBarBackground};
+  --controlInactive: #{colores.$controlInactive};
+
+  /* DIVIDER */
+  --divider: #{colores.$divider};
+  --dividerInverse: #{colores.$dividerInverse};
+  --navigationBarDivider: #{colores.$navigationBarDivider};
+
+  /* FEEDBACKS */
+  --badge: #{colores.$badge};
+  --feedbackErrorBackground: #{colores.$feedbackErrorBackground};
+  --feedbackInfoBackground: #{colores.$feedbackInfoBackground};
+
+  /* GLOBAL */
+  --brand: #{colores.$brand};
+  --brandLow: #{colores.$brandLow};
+  --brandHigh: #{colores.$brandHigh};
+  --neutralHigh: #{colores.$neutralHigh};
+  --neutralMedium: #{colores.$neutralMedium};
+  --neutralLow: #{colores.$neutralLow};
+  --inverse: #{colores.$inverse};
+  --info: #{colores.$info};
+  --error: #{colores.$error};
+  --success: #{colores.$success};
+  --warning: #{colores.$warning};
+  --promo: #{colores.$promo};
+  --highlight: #{colores.$highlight};
+  --successLow: #{colores.$successLow};
+  --warningLow: #{colores.$warningLow};
+  --errorLow: #{colores.$errorLow};
+  --promoLow: #{colores.$promoLow};
+  --infoLow: #{colores.$infoLow};
+  --highlightLow: #{colores.$highlightLow};
+  --successHigh: #{colores.$successHigh};
+  --warningHigh: #{colores.$warningHigh};
+  --errorHigh: #{colores.$errorHigh};
+  --promoHigh: #{colores.$promoHigh};
+  --infoHigh: #{colores.$infoHigh};
+  --highlightHigh: #{colores.$highlightHigh};
+
+  /* TEXTS - BUTTONS */
+  --textButtonPrimary: #{colores.$textButtonPrimary};
+  --textButtonPrimaryInverseSelected: #{colores.$textButtonPrimaryInverseSelected};
+  --textButtonPrimaryInverse: #{colores.$textButtonPrimaryInverse};
+  --textLinkInverse: #{colores.$textLinkInverse};
+  --textButtonSecondarySelected: #{colores.$textButtonSecondarySelected};
+  --textButtonSecondary: #{colores.$textButtonSecondary};
+  --textLinkDisabled: #{colores.$textLinkDisabled};
+  --textButtonSecondaryInverseSelected: #{colores.$textButtonSecondaryInverseSelected};
+  --textButtonSecondaryInverse: #{colores.$textButtonSecondaryInverse};
+  --textLink: #{colores.$textLink};
+  --textLinkDanger: #{colores.$textLinkDanger};
+  --textLinkSnackbar: #{colores.$textLinkSnackbar};
+
+  /* TEXTS - GLOBAL */
+  --textPrimary: #{colores.$textPrimary};
+  --textSecondary: #{colores.$textSecondary};
+  --textPrimaryInverse: #{colores.$textPrimaryInverse};
+  --textSecondaryInverse: #{colores.$textSecondaryInverse};
+  --textAmount: #{colores.$textAmount};
+
+  /* TEXTS - BAR */
+  --textNavigationBarPrimary: #{colores.$textNavigationBarPrimary};
+  --textNavigationBarSecondary: #{colores.$textNavigationBarSecondary};
+  --textNavigationSearchBarHint: #{colores.$textNavigationSearchBarHint};
+  --textNavigationSearchBarText: #{colores.$textNavigationSearchBarText};
+  --textAppBar: #{colores.$textAppBar};
+  --textAppBarSelected: #{colores.$textAppBarSelected};
+}

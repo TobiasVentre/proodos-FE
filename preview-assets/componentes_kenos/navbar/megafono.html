@@ -1,0 +1,52 @@
+
+<div class="modal__content">          
+    <div class="modal__header">
+        <p class="texto">Novedades</p>
+        <button id="close">
+            <svg class="pnt-cruz-cierre" width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M10.8413 12.353C11.1244 12.5684 11.5303 12.5469 11.7888 12.2883C12.0709 12.0062 12.0709 11.5489 11.7888 11.2668L7.02181 6.49981L11.7884 1.73317L11.8531 1.65921C12.0686 1.37609 12.047 0.970253 11.7884 0.711683C11.5064 0.429606 11.049 0.429606 10.767 0.711683L6.00032 5.47832L1.23343 0.711435L1.15946 0.646793C0.876348 0.431318 0.470511 0.452865 0.211941 0.711436C-0.0701356 0.993512 -0.0701359 1.45085 0.211941 1.73293L4.97883 6.49981L0.211557 11.2671L0.146915 11.341C-0.0685604 11.6242 -0.0470126 12.03 0.211558 12.2886C0.493634 12.5706 0.950971 12.5706 1.23305 12.2886L6.00032 7.5213L10.7673 12.2883L10.8413 12.353Z" fill="#000000"></path>
+            </svg>
+        </button>
+    </div>
+    <!-- Mostrar todos los elementos del megafono -->
+    <div class="js__data-megafono"></div>
+</div>
+
+<script>
+
+    // Función para obtener las notificaciones desde el backend
+    function obtenerNotificacionesDelBackend() {
+        fetch('http://localhost:3000/api/notificaciones') // Llamada al backend
+        .then(response => response.json())
+        .then(data => {
+            console.log('Datos de las notificaciones:', data);
+            actualizarMenu(data);  // Función que actualiza la UI
+        })
+        .catch(error => console.error('Error al obtener las notificaciones:', error));
+    }
+    
+    // Función para actualizar el menú con las notificaciones
+    function actualizarMenu(notificaciones) {
+        const menuContainer = document.querySelector('.js__data-megafono');
+        menuContainer.innerHTML = ''; // Limpiar el contenido actual antes de actualizar
+    
+        let htmlContent = '';
+        notificaciones.forEach(notificacion => {
+            htmlContent += `
+            <a class="megafono__box" href="${notificacion.link}" aria-label="${notificacion.areaLabel}" onclick="${notificacion.event}">
+                <img class="icono" src="${notificacion.imagenUrl}" alt="${notificacion.altImagen}">
+                <div class="texto">
+                    <p class="titular">${notificacion.titulo}</p>
+                    <span class="bajada">${notificacion.descripcion}</span>
+                </div>
+            </a>
+            `;
+        });
+
+        menuContainer.innerHTML = htmlContent;
+    }
+    
+    // Llamada inicial para obtener las notificaciones
+    obtenerNotificacionesDelBackend();
+    
+</script>

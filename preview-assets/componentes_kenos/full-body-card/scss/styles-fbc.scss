@@ -1,0 +1,178 @@
+@use 'general-kenos' as tokens;
+
+@mixin flexCenter($direct) {
+  display: flex;
+  flex-direction: $direct;
+  justify-content: center;
+  align-items: center;
+}
+
+#full_body_card {
+  @include flexCenter(row);
+  padding: 50px 0;
+  background-color: var(--background);
+  
+  .main__box {
+    width: 100%;
+    max-width: 1368px;
+    height: auto;
+    @include flexCenter(row);
+    gap: 70px;
+  
+    .deco__box .deco {
+      width: 600px;
+      height: 337.51px;
+      border-radius: 16px;
+      object-fit: cover;
+    }
+  
+    .wifi__oferta {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      width: 530px;
+  
+      .cucarda {
+        width: 125px;
+        height: 28px;
+        @include flexCenter(row);
+        border-radius: 4px;
+        background: #F6ECF6;
+        @include tokens.text-preset-responsive(2);
+        color: var(--promoHigh);
+        @include tokens.roboto-medium;
+      }
+      
+      .titulo {
+        @include tokens.text-preset-responsive(7,6);
+        @include tokens.regular;
+        text-align: left;
+        color: var(--textPrimary);
+        width: max-content;
+        margin-top: 8px;
+      }
+      
+      .recomendacion  {
+        @include tokens.text-preset-responsive(3,2);
+        @include tokens.roboto-regular;
+        color: var(--textSecondary);
+        text-align: left;
+        margin: 32px 0 24px;
+      }
+      
+      .listado {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        margin-bottom: 20px;
+  
+        .item {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: flex-start;
+          gap: 8px;
+          
+          .span {
+            @include tokens.text-preset-responsive(2);
+            @include tokens.roboto-regular;
+            color: var(--textSecondary);
+            text-align: left;
+            br { display: none;}
+          }
+        }
+
+      
+      }
+
+      .incluido {
+        @include tokens.text-preset-responsive(2);
+        @include tokens.roboto-regular;
+        color: var(--textSecondary);
+        text-align: left;
+        margin: 0;
+      }
+    }
+  }
+  .deco__box {
+    .price {
+      background-color: var(--promoLow);
+      color: var(--promoHigh);
+      border-radius: 4px;
+      @include tokens.text-preset-responsive(5,3);
+      @include tokens.bold;
+      width: fit-content;
+      padding: 4px 8px;
+      position: relative;
+      top: -72px;
+      z-index: 9;
+      left: 40px;
+    }
+  }
+}
+
+
+@media (max-width: 992px) {
+
+  #full_body_card {
+      padding: 0 0 10px;
+      margin: 0;
+
+ .main__box {
+      width: 100%;
+      height: auto;
+      gap: 20px;
+      padding: 10px 0 24px;
+  }
+
+.text-first {
+    flex-direction: column;
+  }
+
+ .img-first {
+    flex-direction: column-reverse;
+  }
+
+ .main__box .wifi__oferta {
+      max-width: 300px;
+  }
+
+ .main__box .deco__box .deco__span {
+      scale: .6;
+      transform: translate(-40px, 230px);
+  }
+
+.main__box .deco__box .deco {
+      width: 300px;
+      height: 185px;
+  }
+
+.main__box .wifi__oferta .titulo {
+      
+      width: 100%;
+      max-width: 300px;
+  }
+
+ .main__box .wifi__oferta .recomendacion {
+    
+      margin: 8px 0 16px;
+  }
+
+
+ .main__box .wifi__oferta .listado .item .span {
+      br { display: block;}
+  }
+  
+  
+  .deco__box {
+    .price { 
+          
+      top: -45px;
+      left: 16px;
+      padding: 2px 8px;
+    }
+  }
+}
+}

@@ -1,0 +1,223 @@
+@use 'general-kenos' as tokens;
+
+#cards-multi-descubri {
+  padding: 80px 0 136px;
+  .titulo {
+    @include tokens.text-preset-responsive(6);
+    @include tokens.regular;
+    color: var(--textPrimary);
+    margin-bottom: 8px;
+  }
+  p {
+    @include tokens.text-preset-responsive(2);
+    @include tokens.roboto-regular;
+    color: var(--textSecondary);
+    margin-bottom: 8px;
+  }
+  .contenedor {
+    max-width: 1252px;
+    padding: 0 15px;
+    margin: 0 auto;
+  }
+  .cards-multi-descubri__titulo {
+    text-align: center;
+    .titulo {
+      margin-bottom: 16px;
+    }
+    p {
+      @include tokens.text-preset-responsive(3);
+      color: var(--textSecondary);
+    }
+  }
+  .cards-multi-descubri__box {
+    margin-top: 64px;
+    .cards-box {
+      --card-min: 200px;
+      --cards-box-gap: 24px;
+      display: grid;
+      gap: var(--cards-box-gap);
+      grid-auto-flow: dense;
+      grid-template-columns: repeat(4, minmax(var(--card-min), 1fr)); 
+      .card {
+        box-sizing: border-box;
+        background: var(--background);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        overflow: hidden;
+        display: grid;
+        align-content: space-between;
+        transition: all 0.2s ease;
+        .card-titulo-small {
+          @include tokens.text-preset-responsive(5);
+        }
+        &.trescuarto {
+          grid-column: span 3;
+        }
+        &.medio {
+          grid-column: span 2;
+        }
+        &.cuarto {
+          grid-column: span 1;
+          .card-texto {
+            padding: 32px 24px;
+          }
+        }
+        &:first-child {
+          .card-texto {
+            a {
+              float: left;
+            }
+          }
+          picture {
+            background-image: url('/imagenes/multiproducto/cards-multiproducto-descubri-bg-1.jpg');
+          }
+        }
+        &:nth-child(3) {
+          picture {
+            background-image: url('/imagenes/multiproducto/cards-multiproducto-descubri-bg-2.jpg');
+          }
+        }
+        .card-texto {
+          padding: 40px 40px 32px;
+          .tag {
+            @include tokens.text-preset-responsive(1);
+            @include tokens.roboto-medium;
+            color: var(--brandHigh);
+            background-color: var(--brandLow);
+            display: inline-flex;
+            padding: 4px 6px;
+            margin-bottom: 8px; 
+            border-radius: 4px;
+          }
+          .con-icono {
+            &.chevron-right {
+              --icon-mask: url('/imagenes/icons-Kenos/regular/chevron-right-regular.svg');
+            }
+            &.checo {
+              --icon-mask: url('/imagenes/icons-Kenos/regular/api-regular.svg ');
+            }
+          }
+          .float-right {
+            float: right;
+          }
+        }
+        picture {
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          /* padding: 10px; */
+          min-height: 200px;
+          align-content: center;
+          source, img {
+            display: block;
+            width: 100%;
+            height: auto;
+            max-height: 250px;
+            max-width: 400px;
+            margin: auto;
+            object-fit: contain;
+          }
+          &.sin-alto {
+            source, img {
+              max-height: fit-content;
+            }
+          }
+          &.max-height-196px {
+            height: 196px;
+          }
+          &.con-padding {
+            padding: 30px;
+          } 
+        }
+      }
+    }
+  }
+  @media (max-width: 992px) {
+    .titulo {
+      
+    }
+    p {
+      
+    }
+    .cards-multi-descubri__titulo {
+      p {
+        
+      }
+    }
+    .cards-multi-descubri__box {
+      margin-top: 32px;
+      .cards-box {
+        --cards-box-gap: 16px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        .card {
+          &.medio,
+          &.cuarto,
+          &.trescuarto {
+            grid-column: span 1;
+          }
+          &.medio, &.trescuarto {
+            .card-texto {
+              padding: 24px 24px 32px;
+            }
+          }
+          &.cuarto {
+            .card-texto {
+              padding: 24px 24px 32px;
+            }
+          }
+          &:first-child {
+            .card-texto {
+              order: 2;
+              a {
+                float: right;
+              }
+            }
+          }
+          picture {
+            &.con-padding {
+              padding: 15px;
+            }
+          }
+        }
+      }
+    }
+  }
+  @media (max-width: 768px) {
+    padding: 32px 0;
+    .cards-multi-descubri__box {
+      .cards-box {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        .card {
+          &.trescuarto {
+            grid-column: 1 / -1;
+          }
+          &.medio {
+            grid-column: 1 / -1;
+          }
+          &.cuarto {
+            grid-column: span 1;
+          }
+          picture {
+            source, img {
+              max-height: 200px;
+            }
+          }
+        }
+      }
+    }
+  }
+  @media (max-width: 576px) {
+    .cards-multi-descubri__box {
+      .cards-box {
+        grid-template-columns: 1fr;
+        .card {
+          &.medio,
+          &.cuarto,
+          &.trescuarto {
+            grid-column: 1 / -1;
+          }
+        }
+      }
+    }
+  }
+}

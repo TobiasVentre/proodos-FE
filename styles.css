@@ -139,6 +139,13 @@ body {
   gap: 16px;
 }
 
+.view-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
 .view-heading h3 {
   margin: 0;
 }
@@ -163,11 +170,23 @@ body {
   gap: 14px;
 }
 
-.components-layout {
+.variations-card {
   display: grid;
-  grid-template-columns: minmax(340px, 1.1fr) minmax(360px, 0.9fr);
   gap: 14px;
-  align-items: start;
+}
+
+.variation-create-card {
+  display: grid;
+  gap: 14px;
+}
+
+.components-flow {
+  display: grid;
+  gap: 14px;
+}
+
+.components-list-card {
+  min-height: 420px;
 }
 
 .landing-list {
@@ -176,6 +195,11 @@ body {
 }
 
 .component-list {
+  display: grid;
+  gap: 12px;
+}
+
+.variation-list {
   display: grid;
   gap: 12px;
 }
@@ -210,6 +234,29 @@ body {
   transition: border-color 140ms ease, transform 140ms ease, box-shadow 140ms ease;
 }
 
+.variation-item {
+  display: grid;
+  gap: 12px;
+  padding: 16px 18px;
+  border: 1px solid rgba(15, 122, 95, 0.14);
+  border-radius: 16px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(244, 250, 247, 0.96));
+}
+
+.variation-item.is-editing {
+  border-color: rgba(15, 122, 95, 0.46);
+  box-shadow: 0 10px 24px rgba(15, 122, 95, 0.1);
+  background:
+    linear-gradient(180deg, rgba(240, 249, 245, 0.96), rgba(255, 255, 255, 0.96));
+}
+
+.variation-item.is-focused,
+.plan-item.is-focused {
+  border-color: rgba(13, 148, 136, 0.42);
+  box-shadow: 0 12px 28px rgba(13, 148, 136, 0.12);
+}
+
 .component-item:hover {
   border-color: rgba(15, 122, 95, 0.36);
   transform: translateY(-1px);
@@ -231,6 +278,13 @@ body {
 }
 
 .component-item-top {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.variation-item-top {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
@@ -275,6 +329,67 @@ body {
   line-height: 1.4;
 }
 
+.variation-name {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+.variation-create-heading {
+  display: grid;
+  gap: 8px;
+}
+
+.variation-create-heading h4 {
+  margin: 0;
+}
+
+.variation-create-form {
+  display: grid;
+  gap: 12px;
+}
+
+.variation-edit-form {
+  display: grid;
+  gap: 12px;
+}
+
+.variation-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.variation-form-field {
+  display: grid;
+  gap: 6px;
+}
+
+.variation-create-actions,
+.variation-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.variation-create-actions button,
+.variation-card-actions button {
+  min-width: 170px;
+}
+
+.variation-inline-status {
+  margin: 0;
+}
+
+.variation-input[readonly],
+.variation-textarea[readonly],
+.variation-select:disabled {
+  background: rgba(248, 252, 250, 0.86);
+  color: var(--text);
+  cursor: default;
+  opacity: 1;
+}
+
 .landing-meta {
   display: flex;
   flex-wrap: wrap;
@@ -297,6 +412,89 @@ body {
   white-space: nowrap;
 }
 
+.landing-component-panel {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: 12px;
+  padding-top: 6px;
+  border-top: 1px solid rgba(15, 122, 95, 0.12);
+}
+
+.landing-component-panel h4 {
+  margin: 0;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--primary);
+}
+
+.landing-associated-list {
+  display: grid;
+  gap: 10px;
+}
+
+.landing-associated-item {
+  display: grid;
+  gap: 8px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: #ffffff;
+  border: 1px solid rgba(15, 122, 95, 0.08);
+}
+
+.landing-associated-item strong {
+  font-size: 15px;
+}
+
+.landing-associated-top,
+.detail-list-item-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.landing-associated-actions,
+.detail-list-item-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.landing-associated-empty {
+  padding: 20px 16px;
+  text-align: center;
+  border: 1px dashed rgba(15, 122, 95, 0.25);
+  border-radius: 16px;
+  background: rgba(248, 252, 250, 0.8);
+  color: var(--muted);
+}
+
+.landing-association-form {
+  gap: 12px;
+}
+
+.landing-association-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.landing-association-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.landing-association-actions button {
+  min-width: 190px;
+}
+
+.landing-inline-status {
+  margin: 0;
+}
+
 .landing-empty {
   padding: 36px 20px;
   text-align: center;
@@ -315,15 +513,86 @@ body {
   color: var(--muted);
 }
 
-.component-detail-card {
+.component-detail-page {
   display: grid;
   gap: 14px;
-  position: sticky;
-  top: 24px;
 }
 
-.component-detail-heading h4 {
+.component-create-page {
+  display: grid;
+  gap: 14px;
+}
+
+.component-detail-page-heading {
+  display: grid;
+  gap: 12px;
+}
+
+.component-create-page-heading {
+  display: grid;
+  gap: 12px;
+}
+
+.component-detail-page-heading h4 {
   margin: 0 0 6px;
+}
+
+.component-create-page-heading h4 {
+  margin: 0 0 6px;
+}
+
+.component-back-btn {
+  justify-self: start;
+  min-width: 180px;
+}
+
+.component-create-form {
+  display: grid;
+  gap: 14px;
+}
+
+.component-create-actions {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.detail-edit-panel {
+  display: grid;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(15, 122, 95, 0.12);
+  background: #ffffff;
+}
+
+.detail-cross-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.detail-edit-form {
+  display: grid;
+  gap: 12px;
+}
+
+.detail-edit-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.detail-edit-actions button {
+  min-width: 170px;
+}
+
+.detail-edit-hint {
+  margin: 0;
+  font-size: 13px;
+}
+
+.component-create-actions button {
+  min-width: 220px;
 }
 
 .component-detail-container {
@@ -455,7 +724,15 @@ body {
   align-items: end;
 }
 
-.preview-controls button {
+.preview-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: end;
+}
+
+.preview-controls button,
+.preview-actions button {
   min-width: 180px;
 }
 
@@ -479,8 +756,21 @@ body {
   gap: 8px;
 }
 
+.preview-export {
+  display: grid;
+  gap: 8px;
+}
+
+.preview-export h4,
 .preview-debug h4 {
   margin: 0;
+}
+
+.preview-export-output {
+  min-height: 320px;
+  max-height: 560px;
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 
 .preview-debug-output {
@@ -497,6 +787,82 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
+}
+
+.toolbar-field {
+  display: grid;
+  gap: 6px;
+  min-width: 280px;
+}
+
+.toolbar-field select {
+  min-width: 0;
+}
+
+.plans-card {
+  display: grid;
+  gap: 1rem;
+}
+
+.plan-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.plan-item {
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 20px;
+  padding: 1.1rem;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(244, 250, 247, 0.96));
+  display: grid;
+  gap: 1rem;
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.plan-item:hover {
+  transform: translateY(-1px);
+}
+
+.plan-item-top {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: center;
+}
+
+.plan-name {
+  margin: 0;
+  color: #10281f;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.plan-item-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.plan-detail-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.plan-detail-form-grid {
+  gap: 12px;
+}
+
+.plan-detail-form input[readonly] {
+  background: rgba(248, 252, 250, 0.86);
+  color: var(--text);
+  cursor: default;
+}
+
+.plan-detail-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
 }
 
 label {
@@ -586,12 +952,36 @@ pre {
     grid-template-columns: 1fr;
   }
 
-  .components-layout {
+  .view-actions {
+    width: 100%;
+    justify-content: stretch;
+  }
+
+  .view-actions button {
+    width: 100%;
+  }
+
+  .toolbar-field {
+    width: 100%;
+  }
+
+  .detail-cross-actions,
+  .detail-cross-actions button {
+    width: 100%;
+  }
+
+  .variation-form-grid {
     grid-template-columns: 1fr;
   }
 
-  .component-detail-card {
-    position: static;
+  .variation-create-actions button,
+  .variation-card-actions button {
+    width: 100%;
+  }
+
+  .plan-item-actions button,
+  .plan-detail-actions button {
+    width: 100%;
   }
 
   .landing-item {
@@ -606,6 +996,10 @@ pre {
     width: 100%;
   }
 
+  .landing-association-actions button {
+    width: 100%;
+  }
+
   .detail-grid {
     grid-template-columns: 1fr;
   }
@@ -614,6 +1008,8 @@ pre {
     grid-template-columns: 1fr;
   }
 
+  .preview-actions,
+  .preview-actions button,
   .preview-controls button {
     width: 100%;
   }

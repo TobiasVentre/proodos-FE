@@ -1,0 +1,85 @@
+  <section id="cdp__migra-container" data-element-ga='banner' data-ga-business-team='relacionamiento' data-ga-business-mod='b2c' data-ga-creativity-format='cta'>
+
+    <div class="titulo">
+      <p class="titular">¿Ya tenés tu plan móvil en Movistar?</p>
+      <span class="bajada">Llevá tu plan a otro nivel y descubrí todo lo que tenemos para vos.</span>
+    </div>
+
+    
+    <div class="main__content">
+      <!-- Pasate a un plan con factura -->
+      <div class="box-content box__1">
+        <div class="box-up">
+          <div class="up">
+  
+            <div class="oferta">
+              <!-- $x.xxx x mes -->
+              <div class="text-1">
+                <span class="small">$</span><p class="price">4.358</p><span class="small">x mes</span>
+              </div>
+              <!-- GB Gratis por x meses -->
+                <p class="gigas"><span class="blue">+</span>10 GB gratis por 6 meses</p>
+            </div>
+            <img class="planes__img" src="/imagenes/migra-kenos/cdp-migra/planes-desde.svg" alt="Planes desde">
+  
+            <div class="sombra"></div>
+          </div>
+          
+        </div>
+
+        <div class="leyenda-sin-imp">Precio sin impuestos nacionales: $3.600</div>
+
+        <div class="box-down">
+          <p class="pre-titulo">¿Tenés un chip prepago?</p>
+          <p class="titulo">¡Pasate a un plan con factura!</p>
+          <p class="bajada">Olvidate de recargar y disfrutá los beneficios de tu nuevo plan.</p>
+          <a href="#" id="js__pasate-btn" type="button" data-target="#modal" data-toggle="modal" class="btn-primary-kenos" data-element-ga="link" data-ga-index="7">Lo quiero</a>
+        </div>
+      </div>
+
+      <!-- Elegi tu plan desde -->
+      <div class="box-content box__2">
+        <div class="box-up">
+          <!-- Cucarda Exclusiva -->
+          <p class="cucarda">Exclusivo digital</p>
+          <!-- $x.xxx x mes -->
+          <div class="oferta">
+            <p class="elegi">Elegí tu plan desde</p>
+            <div class="text">
+              <span class="peso">$</span><p class="price">11.670</p><span class="xmes">x mes</span>
+            </div>
+          </div>
+          <!-- Gigas gratis -->
+          <p class="gigas-gratis"><span class="bold">+ 3 GB gratis</span> por mes durante 6 meses en todos los planes</p>
+        </div>
+        <div class="leyenda-sin-imp2">Precio sin impuestos nacionales: $9.643</div>
+        <div class="box-down">
+          <p class="pre-titulo">¿Querés más gigas?</p>
+          <p class="titulo">Mejorá tu plan </p>
+          <p class="bajada">Cambialo y disfrutá gigas de regalo para usar en redes sociales.</p>
+          <a href="#" id="js__cambiar-plan-btn" type="button" data-target="#modal" data-toggle="modal" class="btn-primary-kenos" data-element-ga="link" data-ga-index="7">Cambiar de plan</a>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function updateButtonText() {
+        const btnPasate = document.getElementById('js__pasate-btn')
+        const btnCambiarPlan = document.getElementById('js__cambiar-plan-btn')
+        // Mobile
+        if (window.innerWidth <= 992) {
+          btnPasate.innerHTML = 'Quiero que me llamen'
+          btnCambiarPlan.innerHTML = 'Conocer más'
+        }
+        // Desktop
+        else {
+          btnPasate.innerHTML = 'Lo quiero'
+          btnCambiarPlan.innerHTML = 'Cambiar de plan'
+        } 
+    }
+
+    updateButtonText();
+    window.addEventListener('resize', updateButtonText);
+    </script>
+
+  </section>

@@ -1,0 +1,123 @@
+@use 'general-kenos'as tokens;
+
+@mixin flexCenter($direct) {
+  display: flex;
+  flex-direction: $direct;
+  justify-content: center;
+  align-items: center;
+}
+
+#banner-cta__multi-terminales {
+  padding: 32px 0;
+  background-color: var(--backgroundContainer);
+
+  .contenedor {
+    max-width: 1252px;
+    margin: 80px auto 0;
+  }
+
+  .banner-multi-terminales_box {
+    @include flexCenter(row);
+    gap: 24px;
+
+    .banner-multi-ter__texto {
+      .pretitulo {
+        @include tokens.text-preset-responsive(3);
+        @include tokens.roboto-regular;
+        color: var(--textPrimary);
+        margin-bottom: 8px;
+      }
+
+      .titulo {
+        @include tokens.text-preset-responsive(7, 6);
+        @include tokens.regular;
+        color: var(--textPrimary);
+        margin-bottom: 32px;
+      }
+    }
+
+    .banner-multi-ter__oferta {
+      min-width: 680px;
+      min-height: 266px;
+      background-image: url("/imagenes/multiproducto/banner-cta-terminales/bg-enamorados-terminales-banner-solo-desk.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+      padding: 30px;
+      border-radius: 16px;
+
+      .container-oferta {
+        transform: translate(360px, 0px);
+        @include flexCenter(column);
+        align-items: flex-start;
+        gap: 10px;
+
+        .oferta {
+          @include tokens.movistar-regular;
+          font-size: 19.61px;
+          line-height: 100%;
+          color: #262423;
+        }
+
+        .cuotas {
+          @include tokens.movistar-bold;
+          font-size: 47.06px;
+          line-height: 100%;
+          color: #022D67;
+          background-color: #FFC5A8;
+          border-radius: 7.84px;
+          padding: 2px 6px;
+        }
+
+      }
+    }
+  }
+
+  @media (max-width: 992px) {
+    padding: 0 0 32px;
+
+    .banner-multi-terminales_box {
+      flex-direction: column;
+      gap: 0px;
+
+      .banner-multi-ter__texto {
+        order: 2;
+
+        .titulo {
+          margin-bottom: 16px;
+        }
+      }
+
+      .banner-multi-ter__oferta {
+        min-width: 100%;
+        min-height: 180px;
+        padding: 150px 0px 0px;
+        border-radius: 0;
+        order: 1;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-image: url("/imagenes/multiproducto/banner-cta-terminales/bg-enamorados-terminales-banner-solo-mob.png");
+
+        .container-oferta {
+          transform: translate(10px, -34px);
+          gap: 5px;
+
+          .oferta {
+            font-size: 12px;
+          }
+
+          .cuotas {
+            font-size: 32px;
+            border-radius: 4.94px;
+            padding: 2px 4px;
+          }
+
+        }
+      }
+    }
+  }
+}

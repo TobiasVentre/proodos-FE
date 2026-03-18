@@ -1,0 +1,427 @@
+@use 'general-kenos' as tokens;
+
+p { margin: 0 !important; }
+
+#cdp__migra-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 48px;
+}
+
+// Titulo
+#cdp__migra-container .titulo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 32px auto 64px;
+  
+  .titular {
+    @include tokens.text-preset-responsive(6);
+    @include tokens.regular;
+    color: var(--textPrimary);
+  }
+  
+  .bajada {
+    @include tokens.text-preset-responsive(3,2);
+    @include tokens.roboto-regular;
+  }
+}
+
+// Contenido principal
+#cdp__migra-container .main__content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+#cdp__migra-container .main__content .box-content  {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 599px;
+  height: auto;
+  gap: 32px;
+  border-radius: 16px;
+  border: 1px solid #DDDDDD;
+  overflow: hidden;
+}
+
+// Caja izquierda
+#cdp__migra-container .main__content .box__1 {
+
+  
+  .leyenda-sin-imp{
+    @include tokens.roboto-regular;
+    @include tokens.text-preset-responsive(1);
+    color: var(--textSecondary);
+    transform: translate(166px, 307px);
+    position: absolute;
+}
+
+
+
+  .box-up {
+    height: 344px;
+    width: 599px;
+    background-image: url("/imagenes/migra-kenos/cdp-migra/bg-pasate.png");
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    .up {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+  
+      .oferta {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+  
+        .text-1 {
+          display: inline-flex;
+          align-items: baseline;
+          position: absolute;
+          transform: translateY(20px);
+          gap: 4px;
+          color: var(--specialBackground400);
+          @include tokens.regular;
+          
+          .small {
+            font-size: 40px;
+            font-weight: 400;
+            line-height: 50px;
+          }
+          
+          span:nth-child(1) {
+            align-self: center;
+          }
+          
+          .price {
+            font-size: 70px;
+            font-weight: 700;
+            line-height: 87.5px;
+          }
+        }
+        
+        .gigas {
+          display: flex;
+          align-items: center;
+          @include tokens.regular;
+          position: absolute;
+          transform: translateY(140px);
+          font-size: 24px;
+          font-weight: 700;
+          line-height: 30px;
+          color: var(--textSecondary);
+  
+          .blue {
+            font-size: 30px;
+            font-weight: 700;
+            line-height: 37.5px;
+            color: var(--textButtonPrimaryInverseSelected);
+          }
+        }
+  
+      }
+      
+      .planes__img {
+        width: 368px;
+      }
+  
+      .sombra {
+        position: relative;
+        top: 22px;
+        width: 374px;
+        height: 18px;
+        background: radial-gradient(50% 50% at 50% 50%, #050820 0%, rgba(170, 170, 170, 0) 100%);
+        opacity: 30%;
+      }
+    }
+
+
+  }
+
+
+
+  .box-down {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 40px 32px 40px;
+    color: var(--textPrimary);
+    gap: 8px;
+
+    .pre-titulo, .bajada {
+      @include tokens.text-preset-responsive(3,2);
+      @include tokens.roboto-regular;
+    }
+    
+    .titulo {
+      @include tokens.text-preset-responsive(6);
+      @include tokens.regular;
+      margin-top: -8px !important;
+    }
+
+  }
+}
+
+// Caja derecha
+#cdp__migra-container .main__content .box__2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .leyenda-sin-imp2{
+    @include tokens.roboto-regular;
+    @include tokens.text-preset-responsive(1);
+    color: var(--textSecondary);
+    transform: translate(4px, 215px);
+    position: absolute;
+  }
+
+  .box-up {
+    height: 344px;
+    width: 599px;
+    background-image: url("/imagenes/migra-kenos/cdp-migra/bg-cdp.png");
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    .cucarda {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 110px;
+      height: 28px;
+      border-radius: 4px;
+      background: var(--brandLow);
+      @include tokens.text-preset-responsive(1);
+      @include tokens.roboto-regular;
+      color: var(--brandHigh);
+    }
+
+    .oferta {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .elegi {
+        margin: 22px 0 15px 0 !important;
+        font-size: 36px;
+        font-weight: 400;
+        line-height: 20px;
+        @include tokens.guthen;
+      }
+
+      .text {
+        display: inline-flex;
+        align-items: baseline;
+        // position: absolute;
+        // transform: translateY(20px);
+        gap: 4px;
+        color: var(--specialBackgroundBrand);
+        @include tokens.regular;
+        
+        .peso {
+          font-size: 30px;
+          font-weight: 400;
+          line-height: 37.5px;
+        }
+        
+        span:nth-child(1) { align-self: center; }
+        
+        .price {
+          font-size: 50px;
+          font-weight: 700;
+          line-height: 62.5px;
+        }
+  
+        .xmes {
+          font-size: 20px;
+          font-weight: 400;
+          line-height: 25px;
+        }
+      }
+    }
+
+    .gigas-gratis {
+      @include tokens.regular;
+      @include tokens.text-preset-responsive(3,1);
+      line-height: 22.5px;
+      color: var(--textPrimary);
+      
+      .bold {
+        @include tokens.bold;
+      }
+    }
+  }
+
+  .box-up {
+    .cucarda, .oferta, .gigas-gratis {
+      position: relative;
+      top: 20px;
+    }
+  }
+
+  .box-down {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 40px 32px 40px;
+    color: var(--textPrimary);
+    gap: 8px;
+
+    .pre-titulo, .bajada {
+      @include tokens.text-preset-responsive(3,2);
+      @include tokens.roboto-regular;
+    }
+    
+    .titulo {
+      @include tokens.text-preset-responsive(6);
+      @include tokens.regular;
+      margin-top: -8px !important;
+    }
+    
+
+  }
+}
+
+
+@media (max-width: 992px) {
+
+    
+
+
+  #cdp__migra-container {
+
+    .titulo {
+      text-align: center;
+
+      .titular {
+        
+      }
+    }
+
+    .main__content {
+      .box-content {
+        width: 344px;
+  
+        &.box__1 {
+          // Arriba
+          .box-up {
+            width: 100%;
+            height: 232px;
+            background-position: center;
+            
+            .up {
+    
+              .oferta .text-1, .oferta .gigas, .planes__img, .sombra {
+                scale: .7;
+              }
+    
+              .oferta {
+                .text-1 {
+                  z-index: 9;
+                  transform: translateY(40px);
+                }
+                .gigas {
+                  z-index: 9;
+                  transform: translateY(170px);
+                }
+              }
+    
+              .sombra {
+                top: -5px;
+              }
+
+
+            }
+          }
+          .leyenda-sin-imp{
+            
+            transform: translate(58px, 211px);
+        }
+
+
+          // Abajo
+          .box-down {
+            padding: 0px 24px 24px 24px;
+    
+            .pre-titulo, .bajada {  }
+    
+            .titulo { 
+              
+              text-align: left;
+            }
+    
+          }
+        }
+  
+        &.box__2 {
+
+          .leyenda-sin-imp2{
+            
+            transform: translate(0px, 149px);
+        }
+          // Arriba
+          .box-up {
+            width: 100%;
+            height: 232px;
+            background-position: center bottom;
+
+            .cucarda {
+              scale: .8;
+              top: 10px;
+            }
+            
+            .oferta {
+              top: 5px;
+
+              .elegi {
+                scale: .8;
+                margin: 15px auto 10px !important;
+              }
+              .text {
+                scale: .8;
+                position: relative;
+                top: -10px;
+              }
+            }
+
+            .gigas-gratis {
+              text-align: center;
+              
+              top: -17px;
+            }
+          }
+          
+          // Abajo
+          .box-down {
+            padding: 0px 24px 24px 24px;
+    
+            .pre-titulo, .bajada {  }
+    
+            .titulo {
+              
+              text-align: left;
+            }
+    
+          }
+        }
+  
+      }
+    }
+  }
+}

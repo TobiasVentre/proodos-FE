@@ -1,0 +1,125 @@
+@use 'general-kenos' as tokens;
+@use './styles-cards-showcase.scss';
+@use './styles-cards.scss';
+
+
+#main__container {
+    width: 100%;
+    height: auto;
+    background: var(--backgroundAlternative);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 48px 0 !important;
+    gap: 140px;
+
+    .flex {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 16px;
+
+        .texto {
+            @include tokens.text-preset-responsive(7);
+            @include tokens.regular;
+            margin-bottom: 16px;
+        }
+
+        .item {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 8px;
+
+            img {
+                width: 18px;
+                height: 16px;
+                scale: 1.5;
+            }
+
+            span {
+                @include tokens.text-preset-responsive(2);
+                @include tokens.roboto-regular;
+                color: var(--textSecondary);
+            }
+        }
+    }
+}
+
+.carrousel-principal__box {
+    border: 2px solid #019BEF;
+    border-radius: 16px;
+    overflow: hidden !important;
+}
+
+@media (max-width: 992px) { 
+    #main__container {
+        flex-direction: column;
+        gap: 32px;
+        padding: 32px 0 !important;
+
+        .flex {
+            align-items: center;
+            gap: 8px;
+
+            .texto {
+                max-width: 275px !important;
+                margin-bottom:  8px;
+            }
+
+            .item {
+                gap: 12px;
+                span {
+                    
+                    max-width: 234px;
+                }
+            }
+
+        }
+
+    }
+}
+
+%icon-mask-blue {
+    min-width: 24px;
+    height: 24px;
+    background-color: var(--brand);
+    mask-size: cover;
+  }
+
+  %icon-mask-white {
+    min-width: 16px;
+    height: 16px;
+    background-color: var(--inverse);
+    mask-size: cover;
+  }
+
+////////////////////  
+  .check-regular {
+    @extend %icon-mask-blue;
+    mask-image: url(/imagenes/icons-Kenos/regular/check-regular.svg);
+  }
+
+  .dollar-symbol-circle-regular {
+    @extend %icon-mask-blue;
+    mask-image: url(/imagenes/icons-Kenos/regular/dollar-symbol-circle-regular.svg);
+  }
+
+  .internet-regular {
+    @extend %icon-mask-blue;
+    mask-image: url(/imagenes/icons-Kenos/regular/internet-regular.svg);
+  }
+
+  /////////
+  
+  .lightning-regular {
+    @extend %icon-mask-white;
+    mask-image: url(/imagenes/icons-Kenos/regular/lightning-regular.svg);
+  }
+
+  .offer-percent-filled {
+    @extend %icon-mask-white;
+    mask-image: url(/imagenes/icons-Kenos/filled/offer-percent-filled.svg);
+  }

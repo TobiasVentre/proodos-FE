@@ -1,0 +1,116 @@
+@use 'general-kenos' as tokens;
+
+@mixin flexCenter($direct) {
+  display: flex;
+  flex-direction: $direct;
+  justify-content: center;
+  align-items: center;
+}
+
+#banner-cdp-multi {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 110px 0 32px;
+
+  .texto {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 8px;
+
+    .cucarda {
+      @include tokens.text-preset-responsive(1,2);
+      @include tokens.roboto-medium;
+      color: var(--brand);
+      background: var(--brandLow);
+      padding: 4px 4px 3px 4px;
+      border-radius: 4px;
+    }
+    
+    .titular {
+      @include tokens.text-preset-responsive(7);
+      @include tokens.regular;
+      color: var(--textPrimary);
+    }
+
+    .bajada {
+      @include tokens.text-preset-responsive(3);
+      @include tokens.roboto-regular;
+      color: var(--textSecondary);
+
+      &.mobile { display: none; }
+    }
+  }
+  .right-container {
+    width: 704px;
+    height: 266px;
+    border-radius: 16px;
+    background-image: url("/imagenes/migra-kenos/cdp-verano-2026-bg.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    justify-content: center;
+    position: relative;
+    padding: 14px 63px;
+    .right-container_box {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      .gigas {
+        margin-top: auto;
+        @include tokens.movistar-bold;
+        color: #FFFFFF;
+        font-size: 80px;
+        line-height: 60px;
+        span {
+          font-size: 50px;
+        }
+      }
+      .xmes {
+        @include tokens.movistar-regular;
+        background-color: #D3EEFF;
+        color: #262423;
+        font-size: 25px;
+        line-height: 25px;
+        border-radius: 4px;
+        margin-top: 15px;
+        width: fit-content;
+        padding: 10px 20px;
+      }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  #banner-cdp-multi {
+    flex-direction: column-reverse;
+    gap: 28px;
+    margin-top: 124px;
+    
+    .texto {
+      width: 328px;
+    }
+    .right-container {
+      height: 180px;
+      width: 328px;
+      border-radius: 8px;
+      padding: 14px 15px;
+      .right-container_box {
+        .gigas {
+          font-size: 60px;
+          line-height: 30px;
+          span {
+            font-size: 30px;
+          }
+        }
+        .xmes {
+          font-size: 18px;
+          line-height: 18px;
+          padding: 6px 24px;
+        }
+      }
+  }
+}
+}

@@ -1,0 +1,77 @@
+
+@use 'general-kenos' as tokens;
+
+#wrong-movistar-modal {
+    form {
+        display: flex;
+        flex-direction: column;
+        .btn {
+            margin: auto;
+            margin-top: 16px;
+        }
+    }
+
+    .buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 24px;
+        width: 100%;
+        .box-boton {
+            @include tokens.roboto-regular;
+            color: var(--textPrimary);
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 16px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            width: 80%;
+            gap: 16px;
+            @include tokens.text-preset-responsive(3);
+            .chevron {
+                width: 16px;
+                margin-left: auto;
+            }
+        }
+    }
+}
+
+@media (max-width: 992px) {
+#wrong-movistar-modal {
+        .modal-container {
+            margin-top: 30px;            
+        }
+        .buttons {
+            .box-boton {
+                width: 100%;
+            }
+        }
+    }
+}
+
+// ICONOS SVG
+
+%icon-mask-grey-modales {
+    min-width: 28px;
+    height: 28px;
+    mask-size: cover;
+    background-color: var(--neutralHigh);
+    display: block;
+  }
+
+  .change-plan-regular {
+    @extend %icon-mask-grey-modales;
+    mask-image: url("/imagenes/icons-Kenos/regular/change-plan-regular.svg");
+  }
+
+  .pay-invoice-regular {
+    @extend %icon-mask-grey-modales;
+    mask-image: url("/imagenes/icons-Kenos/regular/pay-invoice-regular.svg");
+  }
+
+  .chevron-right-regular {
+    @extend %icon-mask-grey-modales;
+    mask-image: url("/imagenes/icons-Kenos/regular/chevron-right-regular.svg");
+  }

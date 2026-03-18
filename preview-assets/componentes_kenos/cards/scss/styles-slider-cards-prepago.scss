@@ -1,0 +1,166 @@
+@use 'general-kenos' as tokens;
+
+
+//Estilos SLIDER CARDS PREPAGO
+#cards__prepago{
+    background: var(--background);
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .container-general{
+        margin-top: 40px;
+        text-align: center;
+    }
+    .cards__prepago-multiproducto{
+        margin: 40px auto;
+        width: fit-content;
+
+        .swiper-wrapper{
+            width: fit-content;
+            gap: 24px;
+            .swiper-slide{
+                width: 50% !important;
+                .carrousel-principal__box{
+                    max-width: 288px;
+                    .box__white .oferta .price{
+                        @include tokens.text-preset-responsive(6,8);
+                    }
+                    .box__white .oferta .credito-extra{
+                        @include tokens.roboto-bold;
+                        @include tokens.text-preset-responsive(2,3);
+                        color: var(--textPrimary);
+                    }
+                    .box__white .oferta .bono-meses{
+                        @include tokens.roboto-regular;
+                        @include tokens.text-preset-responsive(2,3);
+                        color: var(--textPrimary);
+                    }
+                }
+            }
+        }
+    }
+    .swiper-button-next,
+    .swiper-button-prev {
+        display: none;
+    }
+}
+
+@media (max-width:992px){
+    #cards__prepago{
+        height: 727px;
+
+        .container-general{
+            width: 100%;
+            padding: 24px 0;
+            position: relative;
+
+            .cards__prepago-multiproducto{
+                width: fit-content;
+                height: fit-content;
+                max-width: 100%;
+                overflow-x: hidden;
+                margin: 0 auto;
+                position: relative;
+                padding: 25px 0px;
+                display: flex;
+                justify-content: center;
+
+                .swiper-wrapper{
+                    gap: 0px;
+                    width: 100%;
+                    .swiper-slide{
+                        width: 100% !important;                       
+                    }
+                }
+            }
+            .swiper-button-next {
+                position: relative;
+                top: -47px;
+                right: -60px;
+                margin: auto;
+                transform: rotate(180deg);
+                display: block;
+            }
+
+            .swiper-button-prev{
+                position: relative;
+                top: -76px;
+                left: -60px;
+                margin: auto;        
+                display: block;
+            }
+
+
+            %icon-mask-grey {
+                min-width: 30px;
+                height: 30px;
+                background-color: var(--neutralMedium);
+                mask-size: cover;
+                display: block;
+              }
+
+            .swiper-button-prev::after,
+            .swiper-button-next::after {
+                mask-image: url(/imagenes/icons-Kenos/regular/chevron-left-regular.svg);
+                @extend %icon-mask-grey;
+                background-repeat: no-repeat;
+                background-position: center;
+                display: block;
+                content: "";
+            }
+
+            .swiper-pagination-bullets.swiper-pagination-horizontal {
+                position: relative;
+            }
+            .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+                width: 8px;
+                height: 8px;
+                background-color: var(--control);
+                opacity: 1;
+                border-radius: 8px;
+            }
+            .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet-active {
+                width: 18px;
+                background-color: var(--controlActivated);
+            }
+        }
+    }
+    #cards__prepago .container-general .swiper-pagination-bullets.swiper-pagination-horizontal {
+        position: relative;
+    }
+}
+@media (max-width:400px){
+    #cards__prepago{
+        .container-general{
+            .cards__prepago-multiproducto{
+                .swiper-wrapper{
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+}
+
+%icon-mask-blue {
+    min-width: 24px;
+    height: 24px;
+    background-color: var(--brand);
+    mask-size: cover;
+  }
+
+
+////////
+
+.whatsapp-regular {
+    @extend %icon-mask-blue;
+    mask-image: url(/imagenes/icons-Kenos/regular/whatsapp-regular.svg);
+  }
+
+  .outgoing-call-regular {
+    @extend %icon-mask-blue;
+    mask-image: url(/imagenes/icons-Kenos/regular/outgoing-call-regular.svg);
+  }
+  

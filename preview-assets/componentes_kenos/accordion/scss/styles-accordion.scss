@@ -1,0 +1,96 @@
+/* ============================
+   ACCORDION FAQ UNIVERSAL
+   ============================ */
+
+   .faq {
+
+  }
+
+  .box {
+    width: 100%;
+    display: grid;
+    gap: 12px;
+  }
+  
+  /* Botón pregunta */
+  .faq__btn {
+    width: 100%;
+    text-align: left;
+  
+    font-size: 16px;
+    font-weight: 500;
+  
+    padding: 14px 16px;
+    border-radius: 12px;
+  
+    background: #f5f5f5;
+    border: none;
+    cursor: pointer;
+  
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  
+    transition: background 200ms ease;
+  
+    &:hover {
+      background: #ececec;
+    }
+  
+    &[aria-expanded="true"] {
+      background: #f6f6f6;
+    }
+  }
+  
+  /* Panel respuesta */
+  .faq__panel {
+    padding: 14px 16px;
+    border-radius: 12px;
+    background: #fff;
+    font-size: 15px;
+    line-height: 1.4;
+  
+    /* clave para animar */
+    overflow: hidden;
+    height: 0;
+    opacity: 0;
+  
+    /* estado inicial colapsado */
+    display: none;
+    will-change: height, opacity;
+  }
+  
+  /* abierto (estado final) */
+  .faq__panel[data-ui-collapsed="false"] {
+    display: block;
+    height: auto;   /* el JS lo deja en auto al terminar */
+    opacity: 1;
+  }
+  
+  
+  
+  /* =========================================
+     ICON ROTATION (tu sistema con ::after)
+     ========================================= */
+  
+  /* estado base */
+  [data-ui-collapse-btn].con-icono.right::after,
+  [data-ui-collapse-btn].con-icono.left::before {
+    transition: transform 220ms ease;
+    transform-origin: 50% 50%;
+  }
+  
+  /* abierto -> rota */
+  [data-ui-collapse-btn][aria-expanded="true"].con-icono.right::after,
+  [data-ui-collapse-btn][aria-expanded="true"].con-icono.left::before {
+    transform: rotate(180deg);
+  }
+  
+  /* reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    [data-ui-collapse-btn].con-icono.right::after,
+    [data-ui-collapse-btn].con-icono.left::before {
+      transition: none;
+    }
+  }
+  

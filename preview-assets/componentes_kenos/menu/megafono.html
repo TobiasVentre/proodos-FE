@@ -1,0 +1,364 @@
+
+            <button id="open"><img src="https://www.movistar.com.ar/documents/10606/94897742/megafono-notificaciones.svg" alt="Megafono"></button>
+            <span class="js__item-count"></span>    
+       <div class="modal__content">
+            
+            <div class="linea"><!-- La linea con la flechita --></div>
+
+            <div class="modal__header">
+                <p class="texto">Novedades</p>
+                <button id="close">
+                    <svg class="pnt-cruz-cierre" width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M10.8413 12.353C11.1244 12.5684 11.5303 12.5469 11.7888 12.2883C12.0709 12.0062 12.0709 11.5489 11.7888 11.2668L7.02181 6.49981L11.7884 1.73317L11.8531 1.65921C12.0686 1.37609 12.047 0.970253 11.7884 0.711683C11.5064 0.429606 11.049 0.429606 10.767 0.711683L6.00032 5.47832L1.23343 0.711435L1.15946 0.646793C0.876348 0.431318 0.470511 0.452865 0.211941 0.711436C-0.0701356 0.993512 -0.0701359 1.45085 0.211941 1.73293L4.97883 6.49981L0.211557 11.2671L0.146915 11.341C-0.0685604 11.6242 -0.0470126 12.03 0.211558 12.2886C0.493634 12.5706 0.950971 12.5706 1.23305 12.2886L6.00032 7.5213L10.7673 12.2883L10.8413 12.353Z" fill="#000000"></path>
+                    </svg>
+                </button>
+            </div>
+            <!-- Mostrar todos los elementos del megafono -->
+            <div class="js__data-megafono"></div>
+        </div>
+
+
+    <script>
+        // Bloques individuales
+        const dataMegafono = document.querySelector('.js__data-megafono');
+    
+        // Cantidad de items en el megafono
+        const itemCount = document.querySelector('.js__item-count')
+
+        // Aca pasa la magia
+        const fetchCarrusel = async () => {
+            try {
+                const tab = 'MEGAFONO';
+                const API__KEY = 'AIzaSyAIGduFVKPpfmSH5x4zHJXQHos211pHDeQ';
+                const ID__SPREAD = '1zbapMW574ijOrX_AUEpeVyZfHAHiaEEa6mW-L8luxlk';
+                const RANGO = `${tab}!A:E`;
+                const URL__BASE = 'https://sheets.googleapis.com/v4/spreadsheets';
+    
+                const url = `${URL__BASE}/${ID__SPREAD}/values/${RANGO}?key=${API__KEY}`;
+                const resp = await fetch(url);
+                const data = await resp.json();
+
+                // Almacenamiento de valores
+                const dataArray = [];
+    
+                // Objeto de estructura
+                // x=1 para saltear la primera fila
+                for (let x = 1; x < data.values.length; x++) {
+                    const item = {
+                        link_imagen: data.values[x][0],
+                        alt_imagen: data.values[x][1],
+                        titulo: data.values[x][2],
+                        bajada: data.values[x][3],
+                        enlace: data.values[x][4]
+                    };
+                    dataArray.push(item);
+                }
+                
+                // Control de datos por consola
+                console.log(dataArray);
+
+                itemCount.innerHTML = data.values.length - 1
+                
+                // Imprimir card individual
+                dataArray.forEach(e => printCard(e));
+
+            } catch (error) {
+                console.error('Error al obtener datos del carrusel:', error);
+            }
+        };
+    
+        // Estructura de cada item levantado
+        const printCard = (obj) => {
+            const card = document.createElement('a');
+            card.href = obj.enlace;
+            card.classList = 'megafono__box'
+            card.innerHTML = `
+                <img class="icono" src="${obj.link_imagen}" alt="${obj.alt_imagen}">
+                <div class="texto">
+                    <p class="titular">${obj.titulo}</p>
+                    <span class="bajada">${obj.bajada}</span>
+                </div>
+                `;
+            dataMegafono.appendChild(card);
+        }
+    
+        // Ejecutar funcion fetch
+        fetchCarrusel();
+
+        // Todo el contenido del megafono (Que muestra la informacion)
+        const megafonoContent = document.querySelector('.modal__content')
+
+        // Boton megafono
+        const open = document.querySelector('#open');
+        open.onclick = () => {
+            megafonoContent.classList.remove('close');
+            void megafonoContent.offsetWidth; //Forzar a que lo lea antes de ejecutarlo
+            megafonoContent.classList.add('open');
+
+            // Ocultar contador despues de 0.3 segundos
+            setTimeout(()=> { itemCount.style.opacity = 0; }, 350)
+        };
+
+        // Boton de cierre
+        const close = document.querySelector('#close')
+        close.onclick = () => {
+            megafonoContent.classList.remove('open');
+            megafonoContent.classList.add('close');
+        }
+
+        // Al hacer click afuera se cierra
+        document.addEventListener('click', (e) => {
+            if(!megafonoContent.contains(e.target) && !open.contains(e.target)) {
+                megafonoContent.classList.remove('open');
+                megafonoContent.classList.add('close');
+            } 
+        })
+    </script>
+
+    <style>
+        /* Contenedor principal del megafono */
+        #megafono__container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            position: relative;
+            width: 100%;
+            height: 80px;
+        }
+
+        /* Contenedor del megafono y contador */
+        .abrir_container {
+            position: relative;
+            right: 160px; /* Hay que ajustar este valor */
+        }
+
+        /* Contador de elementos */
+        .js__item-count {
+            border-radius: 20px;
+            color: white;
+            background: #dc3545;
+            position: absolute;
+            width: 19px;
+            height: 19px;
+            line-height: 12px;
+            outline: 2px solid #FFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Roboto', sans-serif;
+            font-size: 12px;
+            font-weight: 500;
+            transform: translate(20px, -38px);
+        }
+
+        /* Boton de abrir (Icono megafono) */
+        #open { 
+            cursor: pointer;
+            background: none;
+            outline: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Boton de cierre */
+        #close {
+            background: none;
+            outline: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            transform: translateX(5px);
+        }
+
+        /* Contenedor de todos los items */
+        .js__data-megafono {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            overflow-y: scroll;
+        }
+
+        /* Quitar solo la barra de scroll aca */
+        .modal__content ::-webkit-scrollbar { display: none; }
+
+        /* Tamañp y aparicion del modal */
+        .modal__content {
+            position: fixed;
+            top: 30px;
+            right: 0;
+            z-index: 9;
+            display: flex;
+            flex-direction: column;
+            width: 408px;
+            border: 1px solid rgba(0,0,0,0.2);
+            border-radius: 0px 0px 8px 8px;
+            max-height: calc(100vh - 100px);
+            background: white;
+            opacity: 0;
+            pointer-events: none;
+            transition: top 0.35s ease, opacity 0.35s ease;
+        }
+
+        /* Modal abierto */
+        .modal__content.open {
+            top: 80px;
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Modal cerrado */
+        .modal__content.close {
+            top: 30px;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Linea azul */
+        .modal__content .linea {
+            width: 100%;
+            height: 4px;
+            background: #019BEF;
+        }
+
+        /* Flechita azul */
+        .modal__content .linea::after {
+            display: block;
+            width: 0;
+            content: "";
+            border: 15px solid transparent;
+            border-bottom-color: #019BEF;
+            border-top: 0;
+            position: absolute;
+            top: -15px;
+            left: calc(100% / 2);
+        }
+
+        /* Contenedor de texto y boton de cierre */
+        .modal__header {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 374px;
+            border-bottom: 1px solid rgba(0,0,0,0.2);
+            margin: auto;
+        }
+
+        /* Novedades */
+        .modal__header .texto {
+            font-family: 'Roboto', sans-serif;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 24px;
+            color: #313235 !important;
+        }
+        
+        /* Item individual */
+        .megafono__box {
+            display: flex;
+            flex-direction: row;
+            width: 374px;
+            height: auto;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(0,0,0,0.2);
+            padding: 16px 0;
+        }
+
+        /* Quitar la ultima linea */
+        .megafono__box:last-child { border: none; }
+
+        /* Tamaño imagen */
+        .megafono__box .icono {
+            width: 80px;
+            height: 80px;
+        }
+
+        /* Contenedor del texto */
+        .megafono__box .texto {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: "Roboto", sans-serif;
+            text-align: center;
+        }
+        
+        /* Titular del item */
+        .megafono__box .texto .titular {
+            font-family: "Roboto", sans-serif;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #212529;
+            margin: 0;
+        }
+
+        /* Descripcion del item */
+        .megafono__box .texto .bajada {
+            font-size: 16px;
+            color: #737578;
+            line-height: 24px;
+        }
+
+        @media (max-width: 992px) {
+
+            .abrir_container {
+                right: 50px;
+            }
+
+            .modal__header {
+                max-width: unset;
+                justify-content: center;
+                background: #0B2739;
+            }
+
+            .modal__header .texto {
+                color: #FFF !important;
+                font-weight: 500;
+            }
+
+            #close {
+                position: absolute;
+                right: 16px;
+            }
+
+            #close svg path { fill: #FFFFFF; }
+
+            .modal__content {
+                top: 0;
+                width: 100%;
+                height: auto;
+                max-height: calc(100vh - 1px);
+            }
+
+            .modal__content.open { top: 0; }
+
+            .modal__content .linea { display: none; }
+
+            .megafono__box {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .megafono__box .icono {
+                margin-right: 16px;
+            }
+
+            .megafono__box .texto {
+                width: 100%;
+                max-width: 290px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .megafono__box .texto {
+                width: 90%;
+                max-width: 200px;
+            }
+        }
+    </style>
+
+</body>
+</html>

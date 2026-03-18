@@ -1,4 +1,4 @@
-import { createLogger } from "../core/logger.js";
+import { createLogger } from "../shared/infrastructure/logger.js";
 
 const pickFirst = (values) => values.values().next().value ?? null;
 const logger = createLogger("viewManager");

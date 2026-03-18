@@ -1,0 +1,123 @@
+@use 'general-kenos' as tokens;
+
+#sticky-footer-0800-modal-b2b {
+    height: 64px;
+    backdrop-filter: blur(10px);
+    z-index: 9;
+    position:fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0,0,0,1);
+    color: var(--blanco);
+    padding: 5px;
+    
+    .sticky-footer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 32px;
+
+        a,
+        a:hover {
+            color: inherit;
+        }
+        .tag-exclusivo{
+            @include tokens.text-preset-responsive(3);
+            @include tokens.regular;
+            font-weight: 500;
+            width: 169px;
+            height: 40px;
+            padding: 6px 10px;
+            text-align: center;
+            background-color: var(--background);
+            color: var(--textPrimary);
+            border-radius: 50px;
+
+        }
+        .texto {
+            @include tokens.regular;
+            @include tokens.text-preset-responsive(4,1);
+            display: flex;
+            flex-direction: column;
+            align-items:center;
+
+            .texto-superior{
+                display: flex;
+                flex-direction: row
+            }
+
+            .telefono {
+                @include tokens.bold;
+                @include tokens.text-preset-responsive(4);
+                color: var(--blanco);
+            }
+
+            .horario {
+                @include tokens.text-preset-responsive(3,1);
+            }
+        }
+
+        .btn-sticky {
+            @include tokens.roboto-medium;
+            @include tokens.text-preset-responsive(2);
+            padding: 6px 12px;
+            border-radius: 60px;
+            cursor: pointer;
+
+            img {
+                margin-bottom: -7px;
+            }
+        }
+        .btn-primary-kenos-inverse{
+            color: var(--textPrimary);
+        }
+        .btn-secondary-kenos-inverse span:first-child{
+            margin-top: 5px;
+        }
+        .btn-secondary-kenos-inverse:hover{
+            background-color: var(--buttonPrimaryBackgroundInverse);
+            border: 2px solid var(--borderSelected);
+            color: var(--textPrimary);
+
+        }
+
+    }
+}
+
+@media (max-width: 992px) {
+    #sticky-footer-0800-modal-b2b {
+        padding: 5px;
+        bottom: 0px;
+
+        .sticky-footer {
+            justify-content: center;
+            gap: 0;
+
+            .tag-exclusivo{
+                display: none;
+            }
+            .texto {
+                
+                flex-direction: column;
+                align-items: flex-start;
+                padding-top: 4px;
+                line-height: 10px;
+
+                .texto-superior{
+                    flex-direction: column;
+                }
+                .horario {
+                    
+
+                    span {
+                        display: none;
+                    }
+                }
+            }
+            
+            .btn-sticky {
+                padding: 6px 23px;
+            }
+        }
+    }
+}

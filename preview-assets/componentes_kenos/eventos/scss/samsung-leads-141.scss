@@ -1,0 +1,173 @@
+@use 'general-kenos' as tokens;
+
+p { margin: 0; }
+
+#lead {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 120px auto 48px;
+  gap: 96px;
+
+  .izq {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 95%;
+    max-width: 500px;
+    gap: calc(48px / 2);
+
+    .encabezado {
+      .cucarda {
+        @include tokens.roboto-medium;
+        @include tokens.text-preset-responsive(1, 2);
+        color: var(--brandHigh);
+        background: var(--brandLow);
+        padding: 4px;
+      }
+  
+      .titulo {
+        @include tokens.regular;
+        @include tokens.text-preset-responsive(5, 6);
+        color: var(--textPrimary);
+        width: 100%;
+        max-width: 470px;
+        padding: 32px 0 12px;
+      }
+  
+      .bajada {
+        @include tokens.roboto-regular;
+        @include tokens.text-preset-responsive(3, 2);
+        color: var(--textSecondary);
+      }
+    }
+
+    // Formulario
+    .formulario {
+      width: 100%;
+      max-width: 500px;
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        
+        
+        input {
+          height: 60px;
+          width: 100%;
+          max-width: 500px;
+          @include tokens.roboto-regular;
+          @include tokens.text-preset-responsive(3);
+          color: var(--textSecondary);
+          padding: 8px 16px 8px 12px !important;
+          margin-top: 24px;
+          border: 1px solid var(--borderDark);
+          border-radius: 8px;
+
+          &:focus-visible {
+            outline: unset;
+            border: 2px solid var(--borderSelected);
+          }
+        }
+
+        .checkbox-field {
+          display: flex;
+          flex-direction: row;
+          align-items: flex-end;
+          margin-bottom: 48px;
+          gap: 8px;
+
+          input[type=checkbox] {
+            width: auto;
+            height: auto;
+          }
+        }
+
+        .button-container {
+          width: 100%;
+          display: flex;
+          justify-content: flex-end;
+
+          button {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            width: 173px;
+            height: 48px;
+            gap: 11px;
+          }
+        }
+
+        // Error de campo Celular
+        .icono-input.telefono.warning-red-modales-input {
+          position: relative;
+          top: 4px;
+        } 
+        
+        .ingresalo {
+          @include tokens.roboto-regular;
+          @include tokens.text-preset-responsive(1);
+          position: relative;
+          left: 12px;
+          top: 4px;
+          
+          &.error-label {
+            left: 32px;
+            top: -16px;
+          }
+        }
+        // Fin Error de campo Celular
+
+      }
+    }
+  }
+
+
+  .der img {
+    height: 721px;
+    width: auto;
+  }
+}
+
+@media (min-width: 993px) and (max-width: 1280px) {
+  #lead {
+    gap: 48px;
+    
+    .der img { scale: .9; }
+  }
+}
+
+@media (max-width: 992px) {
+  #lead {
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 32px;
+
+    .izq {
+      max-width: 330px;
+
+      .encabezado {
+        .titulo {
+          max-width: 300px;
+          padding: 16px 0 4px;
+        }
+      }
+
+      .formulario {
+        .form-group {
+          input{
+            max-width: 328px;
+            margin-top: 16px;
+          }
+        }
+      }
+    }
+
+    .der img {
+      width: auto;
+      height: 416px;
+    }
+  }
+}

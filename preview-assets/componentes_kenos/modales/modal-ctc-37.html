@@ -1,0 +1,45 @@
+        <!--Modal CTC-->
+<section class="section_modal_ctc">        
+    <div class="modal fade" id="modal" data-element-ga='modal' data-ga-modal-name='modal c2c'>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span class="close-regular-modales"></span>
+                </button>
+                <div class="modal-container">
+                    <img src="/imagenes/icons-Kenos/light/click-to-call-light.svg" class="icono-header" alt="icono telefono" />
+                    <div class="titulo">Te ayudamos a contratar</div>
+                    <div class="bajada">Dejanos tu número y te llamaremos.</div>
+                    <div class="formulario">
+                        <form class="form-group form-ic-c2c" autocomplete="off" id="hidden-modal">
+                            <div class="label-phone">Celular de contacto</div>
+                            <input id="ani2" type="tel" maxlength="10" pattern="\d{10}" name="phone" placeholder="Celular de contacto" required data-ic-form-field="phone" class="anictc" onfocus="phoneInputFocus(this)"/>
+                            <span class="icono-input telefono"></span>
+                            <input id="codigoOrigenModal" type="hidden" name="Codigo_Origen" value="" class="orig" />
+                            <input id="codigoCampanaModal" type="hidden" name="Codigo_Campana" value="" class="camp" />
+                            <input id="infoModal" type="hidden" name="Codigo_Descripcion" value="" class="desc" />
+                            <input id="horarioModal" type="hidden" name="Franja_Horaria" data-ic-form-field="scheduleTime" value="">
+                            <input id="SessionID" type="hidden" name="SessionID" value="1" class="orig">
+                            <div class="input-focus-hint">Ingresalo con cód. de área, sin 0 ni 15.</div>
+                            <div class="button-container">
+                                <button 
+                                    type="submit"
+                                    class="form-ic-c2c-submit btn-primary-kenos"
+                                    data-valor-origen="" 
+                                    data-form-ic-c2c-send="true"
+                                    data-valor-plan="" 
+                                    data-nombre-landing="" 
+                                    data-accion=""
+                                    data-disponibilidad-call-center=""
+                                    >
+                                    Quiero que me llamen
+                                </button>
+                            </div>                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>        
+</section>
+<!--Fin Modal CTC-->

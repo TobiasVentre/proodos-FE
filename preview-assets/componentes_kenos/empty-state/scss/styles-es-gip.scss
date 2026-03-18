@@ -1,0 +1,147 @@
+@use 'general-kenos' as tokens;
+
+
+.section-empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .main-content {
+        margin-top: 55px;
+        padding-bottom: 75px;
+
+        .text {
+            @include tokens.text-preset-responsive(6);
+            @include tokens.regular;
+            color: var(--textPrimary);
+            margin-bottom: 60px;
+        }
+
+        .img {
+            display: flex;
+            justify-content: center;            
+        }
+    }
+
+    /*FAQS*/
+    .section_faqs_gip {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 44px 100px;
+        background-color: var(--backgroundAlternative);
+
+        .tit-faqs {
+            @include tokens.text-preset-responsive(6,8);
+            @include tokens.regular;
+            color: var(--gris)-oscuro; 
+            padding-bottom: 44px;       
+        }
+
+        .faqs-group {
+            @include tokens.text-preset-responsive(3);
+            @include tokens.roboto-regular;
+            color: var(--gris)-oscuro1;
+            width: 90%;
+            padding-bottom: 44px;
+            
+            .item-faq {
+                display: flex;
+                justify-content: space-between;
+                border-bottom: 1px solid var(--divider);                   
+                padding: 15px 0 30px 0;
+                cursor: pointer;
+            
+                img {
+                    width: 16px;
+                    height: 16px
+                }
+
+                a {
+                    color: var(--textPrimary);
+                    text-decoration: none;
+                }
+            }
+            
+            .item-faq.active {             
+                
+                img {
+                    transform: rotate(180deg);
+                }
+            }
+            
+            .contenido-faq {
+                display: none;
+                padding: 16px 0;
+            
+                a {
+                    color: var(--textPrimary);
+                    text-decoration: underline;
+                    @include tokens.text-preset-responsive(3);
+                    @include tokens.roboto-regular;
+                }   
+
+                ul {
+                    padding-left: 25px;
+                }
+            }       
+        }
+
+        .ver-mas-faqs {
+            @include tokens.text-preset-responsive(2);
+            @include tokens.roboto-medium;
+            color: var(--textLink);
+            text-decoration: underline;     
+        }
+    }
+}
+
+@media (max-width:992px) {
+    .section-empty-state {
+
+        .main-content {
+            padding-bottom: 45px;
+
+            .text {
+                
+                text-align: center;
+                margin-bottom: 35px;
+            }
+        }
+
+        .section_faqs_gip {
+            padding: 32px 16px;
+            
+            .faqs-group {
+                width: 100%;
+                padding-bottom: 30px;           
+                
+                .item-faq {
+                    padding: 16px 0;
+                }
+            }
+            
+            .tit-faqs {
+                 
+                padding-bottom: 32px;         
+            }
+        }
+    }
+}
+
+// ICONOS SVG
+
+%icon-mask-grey {
+    min-width: 16px;
+    height: 16px;
+    background-color: var(--neutralMedium);
+    mask-size: cover;
+    display: block;
+  }
+
+  .chevron-down-regular {
+    @extend %icon-mask-grey;
+    mask-image: url(/imagenes/icons-Kenos/regular/chevron-down-regular.svg);
+  }
+  

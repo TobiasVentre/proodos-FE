@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Carrusel final</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+
+<section id="sliderUno" class="slider-container">
+  <div class="slider-wrapper">
+    <div class="slider" startDesktop="1" startMobile="2">
+      <div>Slide 1</div>
+      <div>Slide 2</div>
+      <div>Slide 3</div>
+      <div>Slide 4</div>
+      <div>Slide 5</div>
+      <div>Slide 6</div>
+      <div>Slide 7</div>
+      <div>Slide 8</div>
+      <div>Slide 9</div>
+      <div>Slide 10</div>
+    </div>
+  </div>
+  <button class="prev">←</button>
+  <button class="next">→</button>
+  <div class="dots"></div>
+</section>
+
+<section id="sliderDos" class="slider-container">
+  <div class="slider-wrapper">
+    <div class="slider" startDesktop="0" startMobile="1">
+      <div>Slide A</div>
+      <div>Slide B</div>
+      <div>Slide C</div>
+      <div>Slide D</div>
+      <div>Slide E</div>
+    </div>
+  </div>
+  <button class="prev">←</button>
+  <button class="next">→</button>
+  <div class="dots"></div>
+</section>
+
+<p>Tamaño actual: <span class="winSize"></span>px</p>
+  <script>
+    document.querySelector(".winSize").innerHTML = window.innerWidth
+    window.addEventListener("resize", () => {
+      const winSize = document.querySelector(".winSize");
+      if (winSize) { winSize.innerHTML = window.innerWidth; }
+    });
+  </script>
+
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="./script.js"></script>
+</body>
+</html>

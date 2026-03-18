@@ -1,0 +1,107 @@
+@use 'general-kenos' as tokens;
+
+#beneficios__container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #FFF;
+    padding: 50px 0;
+    gap: 50px;
+    
+    .titulo {
+        @include tokens.text-preset-responsive(6);
+        @include tokens.regular;
+        text-align: center;
+        color: var(--textPrimary);
+    }
+    
+    .contenedores {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 25px;
+        
+        .fila {
+            display: flex;
+            flex-direction: row;
+            gap: 25px;
+            
+            .bloque {
+                width: 416px;
+                height: 272px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                border-radius: 8px;
+                border: 1px solid var(--border);
+                overflow: hidden;
+                
+                .texto {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    justify-content: center;
+                    padding: 0 18px;
+                    gap: 8px;
+                    
+                    .titular {
+                        @include tokens.text-preset-responsive(4);
+                        @include tokens.roboto-regular;
+                        color: var(--textPrimary);
+                        text-align: left;
+                        margin: 0;
+                    }
+                    
+                    .descripcion {
+                        @include tokens.text-preset-responsive(2);
+                        @include tokens.roboto-regular;
+                        color: var(--textSecondary);
+                        text-align: left;
+                    }
+                }
+                
+                img {
+                    width: 100px;
+                    height: 272px;
+                    max-width: unset !important;
+                }
+            }
+            
+        }
+        
+    }
+    
+}
+
+@media (max-width: 992px) {
+    #beneficios__container {
+        padding: 20px 0;
+        gap: 20px;
+        overflow: hidden;
+        
+        .titulo {
+            width: 300px;
+            margin-top: 0px;
+            span { display: none; }
+        }
+
+        .contenedores .fila {
+            flex-direction: column;
+            
+            .bloque {
+                width: 343px;
+                height: 224px;
+                
+                img {
+                    width: 100px;
+                    height: 224px;
+                }
+            }
+        }
+    }
+}

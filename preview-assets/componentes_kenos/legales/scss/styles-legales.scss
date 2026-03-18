@@ -1,0 +1,27 @@
+@use 'general-kenos' as tokens;
+
+.section_legales {
+    display: flex;
+    justify-content: center;
+    max-width: 840px;
+    margin: auto;
+    padding: 60px;
+
+    .texto-legales {
+        @include tokens.text-preset-responsive(3);
+        @include tokens.roboto-regular;
+        color: var(--textSecondary);
+        text-align: center;
+    }
+}
+
+@media (max-width: 992px) {
+
+    .section_legales {
+        padding: 30px;
+
+        .texto-legales {
+            
+        }
+    }
+}

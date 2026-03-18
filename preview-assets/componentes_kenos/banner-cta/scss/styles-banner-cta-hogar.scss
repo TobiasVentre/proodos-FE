@@ -1,0 +1,365 @@
+@use 'general-kenos' as tokens;
+
+@mixin flexCenter($direct) {
+display: flex;
+flex-direction: $direct;
+justify-content: center;
+align-items: center;
+}
+
+.br_mb { display: none; }
+.br_dt { display: block; }
+
+#banner__hogar {
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    margin-top: 80px;
+
+    .contenido {
+        height: 400px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 24px;
+        .texto {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            color: var(--textPrimary);
+            gap: 20px;
+            max-width: 604px;
+
+            .pre_titulo {
+                @include tokens.text-preset-responsive(4);
+                @include tokens.roboto-regular;
+            }
+            
+            .titulo {
+                @include tokens.text-preset-responsive(8,6);
+                @include tokens.regular;
+                width: max-content;
+                margin-top: 0;
+                color: var(--textPrimary);
+            }
+            .bajada {
+                @include tokens.text-preset-responsive(3);
+                text-align: left;
+                width: max-content;
+                @include tokens.roboto-regular;
+            }
+            .bajada span:first-child{
+                color: var(--highlight);
+            }
+            .bajada span:last-child{
+            @include tokens.roboto-medium;
+            }
+            .oferta{
+                display: flex;
+                flex-direction: row;
+                align-items: baseline;
+                gap: 5px;
+        
+                .num { 
+                    @include tokens.text-preset-responsive(5);
+                    @include tokens.bold;
+                }
+                .megas {
+                    @include tokens.text-preset-responsive(5);
+                    @include tokens.bold;
+                }
+                .precio {
+                    @include tokens.text-preset-responsive(5);
+                    @include tokens.regular;
+                }
+                .xmes {
+                    @include tokens.text-preset-responsive(3);
+                    @include tokens.roboto-regular;
+                }
+            }
+            .btn-primary-kenos {
+                @include flexCenter(row);
+                width: 136px;
+                height: 48px;
+                border-radius: 60px;
+                padding: 0;
+                margin-top: 10px;
+                background: var(--buttonPrimaryBackground);
+                color: var(--textButtonPrimary);
+            
+            }
+        }
+
+        .banner-hogar-azul {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-image: url(https://www.movistar.com.ar/documents/10180/108735992/bg-dt.png);
+            background-size: cover;
+            width: 618px;
+            height: 346.79px;
+            border-radius: 16px;
+            gap: 20px;
+        
+            .caja-superior, .oferta { transform: translateX(-10px); }
+        
+            .caja-superior {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                background: #FFF;
+                width: 392px;
+                height: 107px;
+                border: 3px solid #E63780;
+                border-radius: 12px;
+                overflow: hidden;
+                
+                .box-magenta p, .box-white p { 
+                    margin: 0;
+                    font-family: 'Telefonica';
+                }
+        
+                .box-magenta {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    background: #E63780;
+                    width: 119px !important;
+                    height: 107px;
+                    border-radius: 0 12px 12px 0;
+                    border: 2px;
+                    color: #FFF;
+                    
+                    .js__capacidad-plan {
+                        font-size: 48px;
+                        font-weight: 700;
+                        line-height: 56px;
+                    }
+                
+                    .megas {
+                        font-family: 'Roboto';
+                        font-size: 28px;
+                        font-weight: 700;
+                        line-height: 32px;
+                        margin-top: -5px;
+                    }
+                }
+        
+                .box-white {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    position: relative;
+                    right: 32px;
+                    
+                    .meses__gratis {
+                        font-size: 32px;
+                        font-weight: 700;
+                        line-height: 40px;
+                        color: #E63780;
+                    }
+                
+                    .tachado {
+                        font-size: 28px;
+                        font-weight: 400;
+                        line-height: 32px;
+                        color: #313235;
+                        text-decoration: line-through #E63780;
+                    }
+                }
+            
+            }
+        
+            .oferta {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                backdrop-filter: blur(5px);
+                width: 512px;
+                height: 134px;
+                border-radius: 16px;
+                background: #019BEF4D;
+        
+                .texto {
+                    gap: 12px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    position: relative;
+                    left: 40px;
+                    
+                    .suma__movi {
+                        font-family: 'Roboto';
+                        font-size: 18px;
+                        font-weight: 400;
+                        line-height: 24px;
+                        color: #FFF;
+                        text-align: left;
+                        margin: 0;
+                        width: max-content;
+        
+                        .bold { font-weight: 700; }
+                    }
+                
+                    .movi_tv-disney_p {
+                        height: 42px;
+                        width: auto;
+                    }
+                }
+            
+                .notebook {
+                    width: 258px;
+                    height: auto;
+                    position: relative;
+                    left: 30px;
+                    bottom: 5px;
+                }
+            }
+        }
+    }
+}
+
+
+@media (max-width: 992px) {
+    .br_dt { display: none; }
+    .br_mb { display: block; }
+    #banner__hogar {
+        margin-top: 75px;
+        height: 400px;
+
+        .contenido {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+
+            .texto {
+                margin: 0 0 10px;
+                // padding: 0 16px;
+                gap: 5px;
+        
+                .pre_titulo {
+                    
+                }
+                
+                .titulo {
+                    
+                    margin-top: 0;
+                    color: black;
+                }
+                
+                .bajada {
+                    display: none;
+                }
+                .btn-primary-kenos {                    
+                    position: absolute;
+                    transform: translate(100px, 350px);
+                }
+            }
+
+            .banner-hogar-azul{
+                background-image: url(https://www.movistar.com.ar/documents/10180/108735992/bg-mb.png);
+                background-size: cover;
+                width: 100%;
+                height: 199px !important;
+                border-radius: 0px;
+                gap: 16px;
+                padding: 20px 0;
+                overflow: hidden;
+                
+                .caja-superior {
+                    width: 272px;
+                    height: 72px;
+                    border-radius: 8px;
+                    border: 2px solid #E63780;
+                    
+                    .box-magenta {
+                        width: 75px !important;
+                        height: 100%;
+                        border-radius: 0 8px 8px 0;
+                        
+                        .js__capacidad-plan {
+                            font-size: 32px;
+                            font-weight: 700;
+                            line-height: 40px;
+                        }
+                    
+                        .megas {
+                            font-size: 18px;
+                            font-weight: 700;
+                            line-height: 24px;
+                        }
+                    }
+        
+                    .box-white {
+                        right: 16px;
+        
+                        .meses__gratis {
+                            font-size: 24px;
+                            font-weight: 700;
+                            line-height: 32px;
+                        }
+        
+                        .tachado {
+                            font-size: 22px;
+                            font-weight: 400;
+                            line-height: 24px;
+                        }
+                    }
+                }
+        
+                .oferta {
+                    width: 344px;
+                    height: 89px;
+                    border-radius: 12px;
+        
+                    .texto {
+                        gap: 4px;
+                        left: 15px;
+                    }
+        
+                    .texto .movi_tv-disney_p {
+                        height: 29px;
+                    }
+        
+                    .texto .suma__movi {
+                        font-size: 14px;
+                        font-weight: 400;
+                        line-height: 20px;
+                    }
+        
+                    .notebook {
+                        width: 138.41px;
+                        height: 88.01px;
+                        left: 5px;
+                        bottom: -7px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//Responsive
+.hidden-lg{
+    display: none !important;
+    }
+    .hidden-xs{
+    display: block;
+    }
+    
+    @media (max-width:992px){
+    .hidden-lg{
+        display: flex !important;
+    }
+    .hidden-xs{
+        display: none;
+    }
+}

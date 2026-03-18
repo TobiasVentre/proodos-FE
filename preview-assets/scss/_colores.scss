@@ -1,0 +1,180 @@
+//Color principal azul
+$celeste: #019DF4;
+$celeste-accesible: #019BEF;
+
+//Colores secundarios
+$blanco: #FFFFFF;
+$azul-oscuro: #0B2739;
+
+//Paleta de realce
+//Verdes
+$verde-claro: #BDE4A4;
+$verde: #5CB615;
+$verde-oscuro: #3C7521;
+$verde-accesible: #52A413;
+
+// Purpuras
+$purpura-claro: #DEBCE4;
+$purpura: #A13EA1;
+$purpura-oscuro: #642A72;
+
+// Magenta
+$magenta-claro: #FBC7DE;
+$magenta: #E63780;
+$magenta-oscuro: #922859;
+
+// Naranja
+$naranja-claro: #F8CCCC;
+$naranja: #EC624B;
+$naranja-oscuro: #983230;
+
+//Amarillo
+$amarillo-claro: #F8D2B3;
+$amarillo: #F28D15;
+$amarillo-oscuro: #9F591F;
+
+// Grises
+$gris-claro: #F5F5F5;
+$gris-claro1: #D3D4D3;
+$gris: #B6B7B7;
+$gris1: #86888C;
+$gris-oscuro: #50535A;
+$gris-oscuro1: #313235;
+$gris-accesible: #F6F6F6;
+
+//Hover Botones
+$celeste-oscuro: #016DAA;
+
+// *****************
+// ***** KENOS *****
+// *****************
+
+//BACKGROUNDS
+$backgroundBrand: #0066FF;
+$appBarBackground: #FFFFFF;
+$background: #FFFFFF;
+$backgroundContainer: #FFFFFF;
+$backgroundOverlay: #31323599;
+$backgroundSkeleton: #F6F6F6;
+$backgroundSkeletonInverse: #008EDD;
+$navigationBarBackground: #0066FF;
+$backgroundAlternative: #F6F6F6;
+$backgroundFeedbackBottom: #019BEF;
+$skeletonWave: #DDDDDD;
+$backgroundBrandSecondary: #0B2739;
+$backgroundHovers: #EEEEEE;
+$backgroundContainerBrandOverInverse: #008EDD;
+$backgroundContainerHover: rgb(0,0,0,0.03);
+
+//SPECIAL
+$specialBackgroundBrand: #0066FF;
+$specialBackground100: #F28D15;
+$specialBackground200: #5CB615;
+$specialBackground300: #A13EA1;
+$specialBackground400: #E63780;
+$specialUnlimitedConsumption: linear-gradient(90deg, #081F2D 0%, #019DF4 100%);
+
+//BORDERS
+$borderLight: #F6F6F6;
+$border: #DDDDDD;
+$borderDark: #6B6C6F;
+$borderSelected: #005EEB;
+$borderHover: #0066FF;
+
+//BUTTONS
+$buttonDangerBackground: #C10000;
+$buttonDangerBackgroundSelected: #AD0000;
+$buttonDangerBackgroundHover: #AD0000;
+$buttonLinkBackgroundSelected: #E8F4FA;
+$buttonPrimaryBackgroundSelected: #005EEB;
+$buttonPrimaryBackgroundHover: #005EEB;
+$buttonLinkBackgroundSelectedInverse: rgba(255, 255, 255, 0.9);
+$buttonPrimaryBackground: #0066FF;
+$buttonSecondaryBorder: #0066FF;
+$buttonPrimaryBackgroundInverse: #FFFFFF;
+$buttonPrimaryBackgroundSelectedInverse: #E8F4FA;
+$buttonSecondaryBorderInverse: #FFFFFF;
+$buttonSecondaryBorderSelected: #0149B3;
+$buttonSecondaryBorderSelectedInverse: #FFFFFF;
+$buttonPrimaryBackgroundBrandDark: #022D67;
+$buttonPrimaryBackgroundBrandDarkSelected: #022D67;
+$buttonSecondaryBorderBrandDark: #022D67;
+$buttonSecondaryBorderBrandDarkSelected: #022D67;
+
+//CONTROLS
+$control: #949494;
+$controlActivated: #0066FF;
+$controlError: #C10000;
+$toggleAndroidInactive: #EEEEEE;
+$toggleAndroidBackgroundActive: #B3E1FB;
+$iosControlKnob: #FFFFFF;
+$loadingBar: #80CEF9;
+$loadingBarBackground: #005EEB;
+$ProgressBarBackground: #DDDDDD;
+$controlInactive: #E6F5FD;
+
+//DIVIDER
+$divider: #EEEEEE;
+$dividerInverse: rgba(255, 255, 255, 0.20);
+$navigationBarDivider: #019BEF;
+
+//FEEDBACKS
+$badge: #D73241;
+$feedbackErrorBackground: #FF374A;
+$feedbackInfoBackground: #313235;
+
+//GLOBAL
+$brand: #0066FF;
+$brandLow: #E6F5FD;
+$brandHigh: #005EEB;
+$neutralHigh: #313235;
+$neutralMedium: #6B6C6F;
+$neutralLow: #F6F6F6;
+$inverse: #FFFFFF;
+$info: #0066FF;
+$error: #C10000;
+$success: #5CB615;
+$warning: #F28D15;
+$promo: #A13EA1;
+$highlight: #E63780;
+$successLow: #EFF8E8;
+$warningLow: #FEF4E8;
+$errorLow: #FFEBED;
+$promoLow: #F6ECF6;
+$infoLow: #E6F5FD;
+$highlightLow: #FFF0F7;
+$successHigh: #407F0F;
+$warningHigh: #6D3F09;
+$errorHigh: #B22634;
+$promoHigh: #712B71;
+$infoHigh: #005EEB;
+$highlightHigh: #BF2E6A;
+
+//TEXTS - BUTTONS
+$textButtonPrimary: #FFFFFF;
+$textButtonPrimaryInverseSelected: #0149B3;
+$textButtonPrimaryInverse: #0066FF;
+$textLinkInverse: #FFFFFF;
+$textButtonSecondarySelected: #0149B3;
+$textButtonSecondary: #0066FF;
+$textLinkDisabled: #80B3FF;
+$textButtonSecondaryInverseSelected: #FFFFFF;
+$textButtonSecondaryInverse: #FFFFFF;
+$textLink: #0066FF;
+$textLinkDanger: #C10000;
+$textLinkSnackbar: #80B3FF;
+
+//TEXTS - GLOBAL
+$textPrimary: #262423;
+$textSecondary: #605E5C;
+$textPrimaryInverse: #FFFFFF;
+$textSecondaryInverse: #FFFFFF;
+$textAmount: #24FF00;
+
+//TEXTS - BAR TEXTS
+$textNavigationBarPrimary: #FFFFFF;
+$textNavigationBarSecondary: #B3E1FB;
+$textNavigationSearchBarHint: #B3E1FB;
+$textNavigationSearchBarText: #FFFFFF;
+$textAppBar: #6B6C6F;
+$textAppBarSelected: #066FCB;

@@ -1,0 +1,286 @@
+@use 'general-kenos' as tokens;
+
+.banner__form-hogar {
+  width: 100%;
+  margin-top: 80px;
+  background-color: var(--background);
+
+  .contenido {
+    height: 450px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 33px;
+
+    .texto {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      color: var(--textPrimary);
+
+      .pre_titulo {
+        @include tokens.text-preset-responsive(3);
+        @include tokens.roboto-regular;
+      }
+      
+      .titulo {
+        @include tokens.text-preset-responsive(7,6);
+        @include tokens.regular;
+        max-width: 600px;
+        margin-top: 8px;
+      }
+      
+      .bajada {
+        @include tokens.text-preset-responsive(3);
+        @include tokens.roboto-regular;
+        color: var(--textSecondary);
+        max-width: 510px;
+        margin: 30px 0px 10px;
+      }
+    }
+    .right-container {
+      background-image: url("/imagenes/hogar_kenos/banner/velocidad-sin-limites/bg-velocidad-dsk.webp");
+      width: 564px;
+      height: 317px;
+      object-fit: cover;
+      background-size: cover;
+      background-position: top;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-end;
+      gap: 45px;
+      padding: 0px 25px 0px;
+      border-radius: 16px;
+    
+      .caja-superior{
+        @include tokens.regular;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+        position: relative;
+        gap: 20px;
+    
+        .titular{
+          @include tokens.text-preset-responsive(6,5);
+          color: var(--textPrimaryInverse);
+          text-align: center;
+        }
+        .contenedor-principal{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          position: relative;
+          gap: 15px;
+    
+          .box-up {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+    
+            .caja1{
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              width: 125px;
+              height: 104px;
+              @include tokens.text-preset-responsive(9, 8);
+              border-radius: 8px 0 0 8px;
+              background-color: var(--backgroundBrand);
+              color: var(--textPrimaryInverse);
+              text-align: center;
+              padding-bottom: 8px;
+    
+              span{
+                @include tokens.text-preset-responsive(5, 2);
+                margin-top: -8px;
+              }
+            }
+            .caja2{
+              @include tokens.text-preset-responsive(7);
+              display: flex;
+              flex-direction:column;
+              align-items: center;
+              justify-content: center;
+              width: 176px;
+              height: 104px;
+              border-radius: 0 8px 8px 0;
+              background-color: var(--inverse);
+              color: var(--textPrimary);
+    
+              .up{
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                @include tokens.text-preset-responsive(5);
+    
+                span:first-child{
+                  @include tokens.text-preset-responsive(7,6);
+                }
+                span:last-child{
+                  @include tokens.text-preset-responsive(4);
+                  margin-top: 14px;
+                }
+              }
+    
+              .down{
+                @include tokens.text-preset-responsive(3,1);
+                @include tokens.roboto-medium;
+                color: var(--textPrimaryInverse);
+                background-color: var(--highlight);
+                padding: 4px 6px;
+                border-radius: 4px;
+                margin-top: 8px;
+              }
+    
+            }
+          }
+    
+          .box-down {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            width: 301px;
+            height: 64px;
+            gap: 8px;
+            background: var(--inverse);
+            border-radius: 8px;
+            
+            img {
+              height: 48px;
+              width: auto;
+              border-radius: 7px;
+            }
+    
+            .movi-tv {
+              margin-left: 4px;
+              @include tokens.text-preset-responsive(2,1);
+              color: var(--textPrimary);
+              max-width: 132px
+            }
+          }
+        } 
+      }
+    
+      .info-sin-iva{
+          @include tokens.text-preset-responsive(1);
+          @include tokens.roboto-regular;
+          color: var(--textSecondaryInverse);
+          margin: 0px;
+          position: relative;
+          top: -25px;
+      }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+
+.banner__form-hogar {
+  margin-top: 82px;
+  height: 559px;
+
+    .contenido {
+      height: 500px;
+      flex-direction: column-reverse;
+      align-items: center;
+      justify-content: start;
+      gap: 0px;
+
+      .texto {
+        margin-top: 18px;
+        gap: 8px;
+        padding: 0 16px;
+
+        .pre_titulo {
+          
+        }
+        
+        .titulo {
+          
+          margin-top: 0;
+          text-wrap: pretty;
+        }
+        
+        .bajada {
+          
+          margin: 0;
+          margin-top: -5px;
+        }
+
+      }
+
+      .right-container {
+        background-image: url("/imagenes/hogar_kenos/banner/velocidad-sin-limites/bg-velocidad-mob.webp");
+        background-position: right;
+        width: 100%;
+        height: 220px;
+        border-radius: 0px;
+        margin:0px 0;
+        gap: 10px;
+        padding: 40px 15px 0;
+      
+        .caja-superior{
+          .contenedor-principal {
+            align-items: flex-start;
+            gap: 10px;
+      
+            .caja1{
+              font-size: 24px;
+              line-height: 15px;
+              width:69px !important;
+              height: 66px !important;
+              border-radius: 8px;
+              padding-bottom: 3px;
+              span{
+                font-size: 28px;
+              }
+            }
+            .caja2{
+              width: 115px !important;
+              height: 66px !important;
+              border-radius:8px;
+              .up{
+                span:last-child{
+                  margin-top: 5px;
+                }
+              }
+      
+              .down{
+                padding: 1px 6px 2px;
+                margin-top: 3px !important;
+              }
+            }
+      
+            .box-down {
+              gap: 6px;
+              width: 184px;
+              height: 44px !important;
+      
+              img {
+                width: 26px;
+                height: auto;
+              }
+              .movi-tv {
+                max-width: 102px;
+                margin-left: 1px;
+              }
+            }
+          }
+        }
+        
+        .info-sin-iva{
+            margin: 0px 0px 14px;
+            position: static;
+        }
+      }
+  }
+}
+}

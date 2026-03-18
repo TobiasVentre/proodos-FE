@@ -1,0 +1,69 @@
+@use 'general-kenos' as tokens;
+
+.tooltip-hogar-wifi {
+  img {
+    width: 16px;
+    height: 16px;
+    filter: grayscale(1);
+  }
+  
+  .data {
+    display: flex;
+    visibility: hidden;
+    opacity: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 320px;
+    height: 209px;
+    border-radius: 8px;
+    border: 1px solid #DDDDDD;
+    box-shadow: 0px 2px 4px 0px #00000033;
+    padding: 8px;
+    z-index: 9999 !important;
+    background: white;
+    transform: translate(-225px, -245px);
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+
+    .bajada, ul li {
+      @include tokens.text-preset-responsive(2);
+      @include tokens.regular;
+      color: var(--textPrimary);
+      max-width: 300px;
+    }
+
+    ul {
+      margin: 0;
+      list-style: disc;
+      li::marker { font-size: 14px; }
+    }
+  }
+
+  .shape {
+    width: 16px;
+    height: 16px;
+    background: white;
+    border-right: 1px solid #DDDDDD;
+    border-bottom: 1px solid #DDDDDD;
+    position: absolute;
+    transform: translate(75px, -8px) rotateZ(45deg);
+    top: 100%;
+    left: 50%;
+    margin-left: -8px;
+    box-shadow: 2px 2px 4px -2px #00000033;
+  }
+}
+.tooltip-hogar-wifi:hover .data {
+  visibility: visible;
+  opacity: 1;
+}
+@media (max-width: 992px) {
+  .tooltip-hogar-wifi {
+    .shape { transform: translate(50px, -8px) rotateZ(45deg); }
+    .data {
+      height: 177px;
+      transform: translate(-200px, -210px);
+    }
+  }
+}

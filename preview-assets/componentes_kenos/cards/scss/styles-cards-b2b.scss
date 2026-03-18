@@ -1,0 +1,347 @@
+@use 'general-kenos' as tokens;
+
+// Estilos cards
+
+.slick-initialized .slick-slide {
+    width: 288px;
+}
+
+.swiper-wrapper .container-general {
+    text-align: center;
+    width: 288px !important;
+}
+
+ .carrousel-principal__box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 288px;
+}
+
+.swiper-wrapper .card__destacada {
+    margin-top: -28px;
+}
+
+/* Bonete destacado */
+ .carrousel-principal__box .bonete {    
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    border-radius: 16px 16px 0px 0px;
+    background: var(--specialBackground300);
+    border: 2px solid var(--specialBackground300);
+    width: 100%;
+    box-sizing: border-box;
+
+    img {
+        width: 16px;
+        height: 16px;
+    }
+ }
+
+ .carrousel-principal__box .bonete p { 
+    @include tokens.roboto-medium;   
+    text-align: center;
+    color: var(--textButtonPrimary);
+    margin: 0;
+    @include tokens.text-preset-responsive(1);
+}
+
+.border__card {
+    border: 1px solid var(--border);
+}
+
+.border__blue {
+    border: 2px solid var(--specialBackground300);
+    border-top: none;    
+}
+
+.card__destacada .carrousel-principal__box .box__blue {
+    border-radius: 0; 
+    @extend .border__blue;
+    width: 100%;
+    box-sizing: border-box
+}
+
+ .card__destacada .carrousel-principal__box .box__white {
+    @extend .border__blue;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+/* Caja azul */
+ .carrousel-principal__box .box__blue {
+    height: auto;
+    padding: 16px 0 32px;
+    border-radius: 16px 16px 0px 0px;
+    background: var(--backgroundBrandSecondary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border: none;
+    @extend .border__card;
+}
+
+ .carrousel-principal__box .box__blue .plan__name {    
+    text-align: center;
+    color: var(--textPrimaryInverse);
+    @include tokens.text-preset-responsive(2);
+    @include tokens.roboto-regular;
+ }
+
+ .carrousel-principal__box .box__blue .plan__gigas {
+    text-align: center;
+    color: var(--textPrimaryInverse);   
+    @include tokens.text-preset-responsive(6,7);
+    @include tokens.regular;
+}
+
+.carrousel-principal__box .box__blue .offer__description {
+    @include tokens.text-preset-responsive(1);
+    @include tokens.roboto-bold;
+    color: var(--textPrimaryInverse);
+}
+
+.carrousel-principal__box .box__blue .offer__description img {
+    width: 14px;
+    height: 14px;
+    fill: var(--inverse);
+}
+
+
+/* Cucarda magenta */
+.carrousel-principal__box .tag__label {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    border-radius: 4px;
+    background: var(--highlight);
+    margin: -15px auto;
+    z-index: 999;
+    position: relative;
+    width: fit-content;
+}
+
+ .carrousel-principal__box .tag__label img {
+    width: 16px;
+    height: auto;
+}
+
+.carrousel-principal__box .tag__label {
+    @include tokens.roboto-medium;   
+    text-align: center;
+    color: var(--inverse);
+    @include tokens.text-preset-responsive(1,2);
+    padding: 4px 8px;
+}
+
+@media (max-width: 992px) {
+.carrousel-principal__box .tag__label {
+    
+}
+}
+
+/* Caja blanca */
+.carrousel-principal__box .box__white {
+    width: 100%;
+    height: auto;
+    background: var(--background);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+    border-radius: 0px 0px 16px 16px;
+    @extend .border__card;
+    padding: 0 16px 16px;
+}
+
+ .carrousel-principal__box .box__white .oferta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 22px 0 0;
+}
+
+ .carrousel-principal__box .box__white .oferta .linea-1 {
+    text-align: center;
+    color: var(--textSecondary);
+    @include tokens.text-preset-responsive(1);
+    @include tokens.roboto-regular;
+}
+
+ .carrousel-principal__box .box__white .oferta .price {    
+    text-align: center;
+    color: var(--textPrimary);
+    @include tokens.text-preset-responsive(6,7);
+    @include tokens.regular;
+}
+
+ .carrousel-principal__box .box__white .oferta .x_mes {  
+    text-align: center;
+    color: var(--textPrimary);
+    @include tokens.text-preset-responsive(5,3);
+    @include tokens.regular;
+}
+
+.carrousel-principal__box .box__white .price-nocliente {
+    @include tokens.text-preset-responsive(1);
+    @include tokens.roboto-regular;
+    color: var(--textPrimary);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    background: var(--backgroundAlternative);
+    gap: 8px;
+    border-radius: 8px;
+    padding: 8px;
+    text-align: left;
+    }
+    .carrousel-principal__box .box__white .btn-primary-kenos {
+        width: 100%;
+        background: var(--buttonPrimaryBackground);
+        border: 2px solid var(--buttonPrimaryBackground);
+    }
+    .carrousel-principal__box .box__white .btn-secondary-kenos {
+        width: 100%;
+        background: #FEFEFE;
+        border: 2px solid var(--specialBackground300);
+        color: var(--specialBackground300);
+    }
+
+
+    @media (max-width: 992px) {
+ 
+    .carrousel-principal__box .box__white .oferta .x_mes {
+        
+    }
+}
+.carrousel-principal__box .box__white {
+    .beneficio-1,
+    .beneficio-2,
+    .beneficio-3,
+    .beneficio-4 {
+        @include tokens.text-preset-responsive(1);
+        @include tokens.roboto-regular;
+        color: var(--textSecondary);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: left;
+        background: var(--backgroundAlternative);
+        gap: 8px;
+        border-radius: 8px;
+        padding: 8px;
+        text-align: left;
+    }
+}
+    /*desplegable*/
+
+.carrousel-principal__box .box__white .desplegable {
+    display: flex;
+    justify-content: center
+}
+
+.carrousel-principal__box .box__white .desplegable div {
+    @include tokens.text-preset-responsive(2);
+    @include tokens.roboto-medium;
+    color: var(--textLink);
+    text-decoration: underline;
+    cursor: pointer;
+    text-underline-offset: 6px;
+    display: flex;
+    gap: 4px;
+}
+.carrousel-principal__box .box__white .info-sin-iva{
+    @include tokens.text-preset-responsive(1);
+    @include tokens.roboto-regular;
+    color: var(--textSecondary);
+    margin: 0 auto;
+    text-align: center;
+}
+
+.box__tv__oculto hr {  
+    border: 1px solid var(--divider);
+    margin: 10px 12px 7px;
+}
+
+.box__tv__oculto__canales {
+    display: flex;
+    flex-direction: row;
+}
+
+.carrousel-principal__box .box__white .box__tv {
+    display: flex;
+    flex-direction: column;
+    color: var(--textPrimary);
+    background: var(--backgroundContainer);   
+    text-align: center;  
+    border-radius: 12px;
+    padding: 12px 8px 10px;
+    gap: 24px;
+}
+
+.carrousel-principal__box .box__white .box__tv__visible { 
+    display: flex;
+    flex-direction: column;
+    @include tokens.text-preset-responsive(1,2);
+    @include tokens.roboto-regular;
+    min-width: 225px;   
+    gap: 8px;
+    align-items: center;
+
+    img{
+        width: 69.39px;
+    }
+}
+
+.carrousel-principal__box .box__white .box__tv__oculto__canales {
+    @include tokens.text-preset-responsive(2);
+    @include tokens.roboto-regular;
+    justify-content: space-around;
+
+    span {
+        color: var(--textSecondary);
+    }
+}
+
+.carrousel-principal__box .box__white .box__tv__oculto__canales .grilla-tv a {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    @include tokens.roboto-regular;
+}
+
+.carrousel-principal__box .box__white .box__tv__price {
+    @include tokens.text-preset-responsive(3);
+    color: #000;
+    @include tokens.roboto-medium;
+}
+
+.carrousel-principal__box .box__white .box__tv__price span {
+    color: #000;
+}
+
+.carrousel-principal__box .box__white .box__tv__visible span {
+    @include tokens.roboto-medium;
+}
+
+.txt-free {
+    color: var(--highlight);
+    @include tokens.roboto-regular;
+}
+
+@media (max-width: 992px) {   
+
+    .carrousel-principal__box .box__white .box__tv__visible {
+        
+    }
+   
+}

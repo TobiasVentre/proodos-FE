@@ -1,0 +1,37 @@
+        <!--Modal CTC-->
+<section class="section_modal_ctc modal_guru">        
+    <div class="modal fade" id="modal" data-element-ga='modal' data-ga-modal-name='modal c2c'>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span class="close-regular-modales"></span>
+                </button>
+                <div class="modal-container">                   
+                    <img src="/imagenes/icons-Kenos/light/click-to-call-light.svg" class="icono-header" alt="icono telefono" />
+                    <div class="titulo">Te ayudamos a contratar</div>
+                    <div class="bajada">Dejanos tu número y te llamaremos.</div>
+                    <div class="formulario">
+                        <form class="form-group form-ic-c2c" autocomplete="off" id="hidden-modal">                                       
+                            <input id="ani2" type="number" name="phone" value="" placeholder="Número de celular *" required="" data-ic-form-field="phone" class="form-control anictc tel_number" onfocus="handleOnFocus(this)" onkeyup="handleKeyUp(this)" />
+                            <input id="codigoOrigenModal" type="hidden" name="Codigo_Origen" value="" class="orig" /><!--COMPLETAR EL VALUE EJ: LP_Ofertas Avatar_Multiproducto-->
+                            <input id="codigoCampanaModal" type="hidden" name="Codigo_Campana" value="" class="camp" /><!--COMPLETAR EL VALUE EJ: Movil_Portabilidad-->
+                            <input id="infoModal" type="hidden" name="Codigo_Descripcion" value="" class="desc" />
+                            <input id="dniModal" type="hidden" name="gclid" value="" class="desc" />
+                            <input id="horarioModal" type="hidden" name="Franja_Horaria" data-ic-form-field="scheduleTime" value="">
+                            <input id="SessionID" type="hidden" name="SessionID" value="1" class="orig">
+                            <label for="ani2" class="error active error-label"></label>
+                            <p class="input-focus-hint">Escribilo con código de área sin el 0 y sin el 15</p>                                           
+                            <button
+                                class="js__envio-dato-modal form-ic-c2c-submit btn-primary-kenos"
+                                data-valor-origen="" data-valor-plan="" data-nombre-landing="" data-accion=""
+                                data-disponibilidad-call-center="" data-form-ic-c2c-send="true">
+                                Llamame
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>        
+</section>
+<!--Fin Modal CTC-->

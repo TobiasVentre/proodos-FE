@@ -1,0 +1,111 @@
+@use 'general-kenos' as tokens;
+
+.fbc-entry-app-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    gap: 24px;
+
+    .left-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0px 24px;
+        gap: 0;
+
+        .tag-segmento {
+            @include tokens.text-preset-responsive(1);
+            @include tokens.roboto-medium;
+            width: fit-content;
+            background-color: var(--brandLow);
+            padding: 4px;
+            border-radius: 4px;
+            color: var(--brand);            
+        }
+
+        .titular {
+            @include tokens.text-preset-responsive(5,6);
+            @include tokens.regular;
+            color: var(--textPrimary);
+            margin-top: 8px;
+            max-width: 520px;
+            margin-bottom: 24px;
+        }
+
+        .bajada {
+            @include tokens.text-preset-responsive(3);
+            @include tokens.roboto-regular;
+            color: var(--textSecondary);
+            max-width: 520px;
+            margin-bottom: 24px;
+        }
+
+        .buttons-container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 16px;
+
+            .play-store-mb,
+            .apple-store-mb
+            {
+                display: none;
+            }
+        }
+    }
+    
+    .right-container {
+        width: 496px;
+        height: 279px;
+    }
+}
+
+@media (max-width: 992px) {
+    .fbc-entry-app-container {
+        flex-direction: column-reverse;
+        justify-content: flex-start;
+        width: 95%;
+        max-width: 344px;
+        margin: auto;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        height: 460px;
+        
+        .left-container {
+            gap: 8px;
+            padding-bottom: 32px;
+
+            .titular, .bajada { margin: 0; }
+
+            .buttons-container {
+                margin-top: calc(24px - 8px);
+                .play-store,
+                .apple-store
+                {
+                    display: none;
+                }
+
+                .play-store-mb,
+                .apple-store-mb{
+                    display: block !important;
+                }
+            }
+        }
+
+        .right-container {
+            height: 196px;
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+            border-top-left-radius: 16px;
+            border-top-right-radius: 16px;
+            background-image: url(https://www.movistar.com.ar/documents/10180/109405793/mi-movistar-mb.png);
+
+            
+            img{
+                display: none;
+            }
+        }
+    }
+}

@@ -1,0 +1,109 @@
+<section class="section_modal_ctc modal-ctc-porta"> 
+    <div class="modal fade" id="modal" data-element-ga='modal' data-ga-modal-name='modal-c2c'>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span class="close-regular-modales"></span>
+                </button>
+                <div class="modal-container">
+                    <img src="/imagenes/icons-Kenos/light/click-to-call-light.svg" class="icono-header" alt="icono telefono" />
+                    <div class="titulo">Dejanos tu número y te llamamos para pasarte a Movistar.</div>
+                    <div class="formulario">
+                        <form class="form-group form-ic-c2c" autocomplete="off" id="hidden-modal">
+                            <div class="label-phone">Celular de contacto</div>
+                            <input id="ani2" type="tel" maxlength="10" pattern="\d{10}" name="phone" placeholder="Celular de contacto" required data-ic-form-field="phone" class="anictc" onfocus="phoneInputFocus(this)"/>
+                            <span class="icono-input telefono"></span>
+                            <input id="codigoOrigenModal" type="hidden" name="Codigo_Origen" value="" class="orig" />
+                            <input id="codigoCampanaModal" type="hidden" name="Codigo_Campana" value="" class="camp" />
+                            <input id="infoModal" type="hidden" name="Codigo_Descripcion" value="" class="desc" />
+                            <input id="horarioModal" type="hidden" name="Franja_Horaria" data-ic-form-field="scheduleTime" value="">
+                            <input id="SessionID" type="hidden" name="SessionID" value="1" class="orig">
+                            <div class="input-focus-hint">Ingresalo con cód. de área, sin 0 ni 15. Ej.: 1122334455</div>                            
+                            <div class="custom-select">
+                                <span class="icono-select"></span>
+                                <select name="operadoras" id="operadoras" required title="Seleccione una operadora" onfocus="operadorasInputFocus(this)">
+                                    <option value="" disabled selected>Compañía telefónica actual</option>
+                                    <option value="Claro">Claro</option>
+                                    <option value="Personal">Personal</option>
+                                    <option value="Tuenti">Tuenti</option>
+                                    <option value="Movistar">Movistar</option>
+                                    <option value="Imowi">Imowi</option>
+                                </select>
+                            </div>
+                            <div class="select-focus-hint"></div> 
+                            <div class="label-operadora">Compañía telefónica actual</div>
+                            <div class="button-container">
+                                <button 
+                                    type="submit"
+                                    class="form-ic-c2c-submit btn-primary-kenos full-width"
+                                    data-valor-origen="" 
+                                    data-form-ic-c2c-send="true"
+                                    data-valor-plan="" 
+                                    data-nombre-landing="" 
+                                    data-accion=""
+                                    data-disponibilidad-call-center=""
+                                    >
+                                    Quiero que me llamen
+                                </button>
+                                <a id="whatsapp" value="valor-landing" href="link-wapp" data-form-ic-c2c-send="true" target="blank" class="js__whatsapp">
+                                    <button 
+                                        type="button" 
+                                        class="btn-secondary-kenos full-width"
+                                        data-valor-origen="" 
+                                        data-valor-plan="" 
+                                        data-nombre-landing=""
+                                        data-accion="" 
+                                        data-disponibilidad-call-center="">
+                                        Ir a WhatsApp
+                                    </button>
+                                </a>
+                            </div>
+                             <div class="center-btn">
+                                <a href="http://mov.is/VXxPu" class="btn-link">Ir a Movistar Empresas</a>                              
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="modal-wrong" class="modal fade" data-element-ga='modal' data-ga-modal-name='modal wrong'>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span class="close-regular-modales"></span>
+                </button>        
+                <div class="modal-container">                    
+                    <img src="https://www.movistar.com.ar/documents/10180/92592093/information-user-light.png" class="icono-header" alt="icono atencion">
+                    <div class="titulo">Solo podemos pasar tu línea Tuenti en nuestras tiendas presenciales</div>
+                    <div class="bajada">Te esperamos cuando quieras para ayudarte.</div>
+                    <a href="https://www.movistar.com.ar/ayuda/locales-movistar" class="btn btn-success wave-effect btn-primary-kenos">Ver tiendas Movistar</a>
+                </div>
+            </div>
+        </div>
+    </div>    
+    <div id="wrong-movistar-modal" class="modal fade" data-element-ga='modal' data-ga-modal-name='modal wrong movistar'>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span class="close-regular-modales"></span>
+                </button>        
+                <div class="modal-container">
+                    <div class="titulo">El número que ingresaste ya es<br class="hidden-xs"> parte de Movistar </div>
+                    <div class="bajada">Te damos algunas opciones para continuar:</div>
+                    <form method="get" class="inconcertCTC">
+                        <div class="buttons">
+                            <a href="https://tienda.movistar.com.ar/cambiodeplan" class="box-boton"><span class="change-plan-regular"></span><div>Mejorar mi plan actual</div><span class="chevron-right-regular"></span></a>
+                            <a href="https://tienda.movistar.com.ar/cambiodeplan/migra" class="box-boton"><span class="pay-invoice-regular"></span><div>Pasar a un plan con factura</div><span class="chevron-right-regular"></span></a>
+                        </div>
+                        <input id="codigoOrigenModal" type="hidden" name="Codigo_Origen" value="LP_Comar_Movil" class="orig">
+                        <input id="codigoCampanaModal" type="hidden" name="Codigo_Campaña" value="Movil_Portabilidad" class="camp">
+                        <input class="ani-ctc" type="hidden" data-ic-form-field="phone" value="">
+                        <input id="infoModal" type="hidden" name="Codigo_Descripcion" value="Movistar" class="desc">
+                        <button class="btn form-ic-c2c-submit btn-primary-kenos" data-form-ic-c2c-send="true">Quiero que me llamen</button>
+                    </form>                                           
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

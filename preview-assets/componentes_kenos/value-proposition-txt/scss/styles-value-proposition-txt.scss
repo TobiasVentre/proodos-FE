@@ -1,0 +1,169 @@
+@use 'general-kenos' as tokens;
+
+#value_prop_txt {
+
+    %grid {
+        display: grid;
+    }
+    .contenedor {
+        @extend %grid;
+        grid-template-columns: 400px 370px 370px;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: "titulo item1 item2" "titulo item3 item4";
+        padding: 80px 0;
+        justify-content: center;
+        column-gap: 40px;
+        row-gap: 32px;     
+    }
+
+    .grid-areas {  
+        @extend %grid;  
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-areas: "icono texto texto texto";      
+          }
+
+        .item1 {
+            grid-area: item1;
+        }
+        .item2 {
+            grid-area: item2;
+        }
+        .item3 {
+            grid-area: item3;
+        }
+        .item4 {
+            grid-area: item4;
+        }
+
+    .icono {
+        @extend %grid;
+        grid-area: icono;
+      
+        %icon-mask-brand {
+            width: 48px;
+            height: 48px;
+            background-color: var(--brand);
+            mask-size: cover;
+            display: block;
+          }
+    }
+    .texto {
+        @extend %grid;
+        grid-area: texto;
+        @include tokens.text-preset-responsive(4);
+        @include tokens.roboto-regular;
+        color: var(--textPrimary);   
+        gap: 8px;
+
+        .bajada {
+            @include tokens.text-preset-responsive(2);
+            color: var(--textSecondary);   
+        }
+    }
+
+    .titulo {
+        grid-area: titulo;
+        @include tokens.text-preset-responsive(6);
+        @include tokens.regular;
+        display: flex;
+        flex-direction: column;
+        color: var(--textPrimary);   
+        gap: 16px
+    }
+
+    .bajada {
+        @include tokens.text-preset-responsive(1);
+        @include tokens.roboto-regular;
+        color: var(--textSecondary);
+    }
+
+    .bajada-2-lineas {
+        margin-top: -50px;
+    }
+}
+
+@media (max-width: 992px) {
+
+    #value_prop_txt {
+        .contenedor {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            padding: 48px 16px;
+        }
+
+        .grid-areas {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .titulo {
+            padding-top: 40px;
+        }
+
+        .bajada-2-lineas {
+            margin-top: 0px;
+        }
+    }
+
+}
+
+//// ICONOS SVG LLAMADOS
+
+.multideviceo-regular {
+    @extend %icon-mask-brand;
+    mask-image: url(/imagenes/icons-Kenos/regular/multideviceo-regular.svg);
+  }
+
+  .video-regular {
+    @extend %icon-mask-brand;
+    mask-image: url(/imagenes/icons-Kenos/regular/video-regular.svg);
+  }
+
+  .optical-fiber-regular {
+    @extend %icon-mask-brand;
+    mask-image: url(/imagenes/icons-Kenos/regular/optical-fiber-regular.svg);
+  }
+
+  .arrow-up-down-regular {
+    @extend %icon-mask-brand;
+    mask-image: url(/imagenes/icons-Kenos/regular/arrow-up-down-regular.svg);
+  }
+
+  .whatsapp-regular-value {
+    @extend %icon-mask-brand;
+    mask-image: url(/imagenes/icons-Kenos/regular/whatsapp-regular.svg);
+  }
+
+  .call-landline-regular {
+    @extend %icon-mask-brand;
+    mask-image: url(/imagenes/icons-Kenos/regular/call-landline-regular.svg);
+  }
+
+  .videogames-regular {
+    @extend %icon-mask-brand;
+    mask-image: url(/imagenes/icons-Kenos/regular/videogames-regular.svg);
+  }
+
+  .gift-regular {
+    @extend %icon-mask-brand;
+    mask-image: url(/imagenes/icons-Kenos/regular/gift-regular.svg);
+  }
+
+  .smart-wifi-regular {
+    @extend %icon-mask-brand;
+    mask-image: url(/imagenes/icons-Kenos/regular/smart-wifi-regular.svg);
+  }
+
+  .router-regular {
+    @extend %icon-mask-brand;
+    mask-image: url(/imagenes/icons-Kenos/regular/router-regular.svg);
+  }
+
+  .pass-gigas-regular {
+    @extend %icon-mask-brand;
+    mask-image: url(/imagenes/icons-Kenos/regular/pass-gigas-regular.svg);
+  }

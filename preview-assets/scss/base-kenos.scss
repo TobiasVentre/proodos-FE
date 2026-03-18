@@ -1,0 +1,1191 @@
+@charset "UTF-8";
+@use 'fonts2' as fonts with ($fonts-path: '/fonts/');
+@use 'theme-kenos';
+@use 'general-kenos' as tokens;
+
+@include fonts.register-fonts;
+
+/* Reset y utilidades base */
+* { box-sizing: border-box; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; }
+html { font-family: sans-serif; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; }
+body { margin: 0; }
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+
+.h1, .h2, .h3, h1, h2, h3 { font-weight: normal; margin: 0; }
+p { margin: 0; }
+
+a { color: var(--textLink); text-decoration: none; }
+
+/* CONTENEDOR GENERAL PARA LOS COMPONENTES */
+.container-kenos {
+  --paddingContainer: 15px;
+  --widthContainer: 1222px;
+  max-width: calc(var(--widthContainer) + (var(--paddingContainer) * 2));
+  padding: 0 var(--paddingContainer); 
+  margin: 0 auto;
+}
+
+
+/* HEADER STICKY */
+section:has(header) {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   BOTONES (global)
+   ────────────────────────────────────────────────────────────── */
+.btn-primary-kenos,
+.btn-primary-kenos:visited,
+.btn-primary-kenos:focus {
+  @include tokens.btn-kenos;
+  background: var(--buttonPrimaryBackground);
+  color: var(--textButtonPrimary);
+  border: 2px solid var(--buttonPrimaryBackground);
+}
+.btn-primary-kenos:hover {
+  background: var(--buttonPrimaryBackgroundHover);
+  border-color: var(--buttonPrimaryBackgroundHover);
+}
+
+.btn-primary-kenos-inverse,
+.btn-primary-kenos-inverse:visited,
+.btn-primary-kenos-inverse:focus {
+  @include tokens.btn-kenos;
+  background: var(--buttonPrimaryBackgroundInverse);
+  color: var(--textButtonPrimaryInverse);
+  border: 2px solid var(--buttonPrimaryBackgroundInverse);
+}
+.btn-primary-kenos-inverse:hover {
+  background: var(--buttonLinkBackgroundSelectedInverse);
+  border-color: var(--buttonLinkBackgroundSelectedInverse);
+  color: var(--textButtonPrimaryInverseSelected);
+}
+
+.btn-primary-kenos-dark,
+.btn-primary-kenos-dark:hover,
+.btn-primary-kenos-dark:visited,
+.btn-primary-kenos-dark:focus {
+  @include tokens.btn-kenos;
+  background: var(--buttonPrimaryBackgroundBrandDark);
+  color: var(--textButtonPrimary);
+  border: 2px solid var(--buttonPrimaryBackgroundBrandDark);
+}
+
+.btn-secondary-kenos,
+.btn-secondary-kenos:visited,
+.btn-secondary-kenos:focus {
+  @include tokens.btn-kenos;
+  background: none;
+  color: var(--textButtonSecondary);
+  border: 2px solid var(--buttonSecondaryBorder);
+}
+.btn-secondary-kenos:hover { 
+  background-color: var(--buttonLinkBackgroundSelected); 
+  color: var(--textButtonSecondarySelected);
+  border: 2px solid var(--buttonSecondaryBorderSelected);}
+
+.btn-secondary-kenos-inverse,
+.btn-secondary-kenos-inverse:visited,
+.btn-secondary-kenos-inverse:focus {
+  @include tokens.btn-kenos;
+  background: none;
+  color: var(--textButtonSecondaryInverse);
+  border: 2px solid var(--buttonSecondaryBorderInverse);
+}
+.btn-secondary-kenos-inverse:hover {
+  background-color: rgba(0,142,221,0.08);
+  border-color: var(--buttonSecondaryBorderSelectedInverse);
+}
+
+.btn-primary-kenos[disabled],
+.btn-primary-kenos[disabled]:hover,
+.btn-secondary-kenos[disabled],
+.btn-secondary-kenos[disabled]:hover,
+.btn-primary-kenos-inverse[disabled],
+.btn-primary-kenos-inverse[disabled]:hover,
+.btn-secondary-kenos-inverse[disabled],
+.btn-secondary-kenos-inverse[disabled]:hover {
+  opacity: .5; cursor: not-allowed;
+}
+
+.btn-link,
+.btn-link:visited,
+.btn-link:focus {
+  @include tokens.btn-kenos;
+  background: none;
+  color: var(--textLink);
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  width: fit-content;
+}
+.btn-link:hover { 
+  background: var(--buttonLinkBackgroundSelected);
+  color: var(--textButtonPrimaryInverseSelected);
+ }
+.btn-link[disabled], .btn-link[disabled]:hover {
+  color: rgba(1,155,239,.5); cursor:not-allowed; background:none; text-decoration:underline;
+}
+
+.btn-link-inverse,
+.btn-link-inverse:visited,
+.btn-link-inverse:focus {
+  @include tokens.btn-kenos;
+  background: none;
+  color: var(--textLinkInverse);
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+.btn-link-inverse:hover { background: var(--buttonLinkBackgroundSelectedInverse); }
+.btn-link-inverse[disabled], .btn-link-inverse[disabled]:hover {
+  color: rgba(255,255,255,.5); cursor:not-allowed; background:none; text-decoration:underline;
+}
+
+/* Icon helper */
+.con-icono {
+  --icon-size: 24px;
+  --icon-gap: 4px;
+  --icon-mask: none;
+  gap: var(--icon-gap);
+  &::before, &::after { content: none; }
+  &.left::before, &.right::after {
+    content: "";
+    width: var(--icon-size); height: var(--icon-size); flex: 0 0 auto;
+    background-color: currentColor;
+    mask: var(--icon-mask) center/contain no-repeat;
+    -webkit-mask: var(--icon-mask) center/contain no-repeat;
+  }
+}
+.btn-small,.btn-small:focus {padding: 6px 12px !important;}
+
+@media (max-width: 992px){
+  .btn-small { @include tokens.text-preset-2_mb; }
+} 
+
+/* ──────────────────────────────────────────────────────────────
+   COLLAPSE
+   ────────────────────────────────────────────────────────────── */
+
+/* opcional: evita saltos raros en algunos layouts */
+[data-ui-collapse-panel] { 
+  will-change: height, opacity; 
+}
+
+/* base: transición suave */
+[data-ui-collapse-btn].con-icono.right::after,
+[data-ui-collapse-btn].con-icono.left::before {
+  transition: transform 220ms ease;
+  transform-origin: 50% 50%;
+}
+
+/* abierto -> rota */
+[data-ui-collapse-btn][aria-expanded="true"].con-icono.right::after,
+[data-ui-collapse-btn][aria-expanded="true"].con-icono.left::before {
+  transform: rotate(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-ui-collapse-btn].con-icono.right::after,
+  [data-ui-collapse-btn].con-icono.left::before {
+    transition: none;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   Clases utilitarias para HTML
+   ────────────────────────────────────────────────────────────── */
+@include tokens.generate-text-utilities();
+
+/* Familias como CLASES globales (por si se usan en HTML) */
+.bold            { @include tokens.bold; }
+.light           { @include tokens.light; }
+.regular         { @include tokens.regular; }
+.guthen          { @include tokens.guthen; } /* si necesitás, crea mixins también */
+.guthen2         { @include tokens.guthen2; }
+.guthen-basic    { @include tokens.guthen-basic; }
+.italic          { @include tokens.italic; }
+.italicLight     { font-family: 'TelefonicaWeb-Italic'; } /* ajusta si hace falta */
+.thin            { font-family: 'TelefonicaWeb-Thin'; }
+.regularCAP      { @include tokens.cap; }
+.roboto-light    { @include tokens.roboto-light; }
+.roboto-regular  { @include tokens.roboto-regular; }
+.roboto-medium   { @include tokens.roboto-medium; }
+.roboto-bold     { @include tokens.roboto-bold; }
+.tachado         { text-decoration: line-through; }
+
+/* Enlaces legales */
+.planes__legales {
+  @extend .btn-link;
+  display: block;
+  margin: 20px auto 0;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   Modales (global)
+   ────────────────────────────────────────────────────────────── */
+  section .modal.fade {
+    opacity: 0;
+    visibility: hidden;
+    position: fixed;
+    z-index: 1050;
+  }
+  
+  section .modal.fade.in {
+    opacity: 1;
+    visibility: visible;
+    left: 0;
+    margin: auto;
+    border: none;
+    right: 0;
+    top: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: fixed;
+    overflow-y: auto;
+
+    %icon-mask-grey-modales {
+      min-width: 28px;
+      height: 28px;
+      mask-size: cover;
+      background-color: var(--neutralHigh);
+      display: block;
+    }
+    
+    .close-regular-modales {
+      @extend %icon-mask-grey-modales;
+      mask-image: url("/imagenes/icons-Kenos/regular/close-regular.svg");
+    }
+  
+    .modal-dialog {
+      position: relative;
+      width: fit-content;
+      margin: auto;
+  
+      .modal-content {
+        width: 600px;
+        height: fit-content;
+        background-color: var(--backgroundContainer);
+        border-radius: 8px;
+        padding: 24px 28px;
+  
+        .close {
+          cursor: pointer;
+          padding: 0;
+          border: 0;
+          background-color: var(--backgroundAlternative);
+          width: 28px;
+          height: 28px;
+          position: absolute;
+          right: 20px;
+          margin: 0;
+          border-radius: 16px;
+  
+          img { width: 100%; }
+        }
+  
+        .modal-container {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 24px;
+  
+          .icono-header {
+            width: 64px;
+            height: 64px;
+            margin-top: 16px;
+          }
+  
+          .titulo {
+            @include tokens.roboto-regular;
+            color: var(--textPrimary);
+            text-align: center;
+            @include tokens.text-preset-responsive(5, 4);
+          }
+  
+          .bajada {
+            @include tokens.roboto-regular;
+            color: var(--textSecondary);
+            text-align: center;
+            @include tokens.text-preset-responsive(3);
+          }
+  
+          .center-btn {
+            display: flex;
+            justify-content: center;
+          }
+  
+          form {
+            width: 496px;
+  
+            input,
+            select {
+              @include tokens.regular;
+              @include tokens.text-preset-responsive(3);
+              color: var(--textPrimary);
+              border: 1px solid var(--borderDark);
+              background-color: var(--background);
+              border-radius: 8px;
+              margin: 32px auto 0;
+              width: 100%;
+              height: 60px;
+              padding-left: 12px;
+              outline: 0;
+            }
+  
+            input::placeholder,
+            select option,
+            select:required:invalid,
+            option[value=""] {
+              color: var(--textSecondary);
+            }
+  
+            input:focus,
+            input:focus-visible,
+            select:focus,
+            select:focus-visible {
+              border: 2px solid var(--borderSelected);
+            }
+  
+            input.anictc { margin-top: 0; }
+  
+            .input-focus-hint,
+            .select-focus-hint,
+            .input-focus-hint-cuit,
+            .input-focus-hint-email {
+              @include tokens.regular;
+              color: var(--textPrimary);
+              margin-top: 4px;
+              padding: 0 12px;
+              @include tokens.text-preset-responsive(1);
+            }
+  
+            .select-focus-hint { position: relative; top: -20px; }
+  
+            .custom-select select {
+              appearance: none;
+              -webkit-appearance: none;
+              -moz-appearance: none;
+              background-image: none; /* Safari fix */
+            }
+
+            .custom-select::after {
+              content: "";
+              position: relative;
+              display: block;
+              top: -30px;
+              left: 92%;
+              width: 20px;
+              height: 20px;
+              background-color: var(--neutralHigh);
+              mask-size: cover;
+              mask-image: url("/imagenes/icons-Kenos/regular/chevron-down-regular.svg");
+              transform: translateY(-50%);
+              pointer-events: none;
+            }
+  
+            .error-label {
+              @include tokens.roboto-regular;
+              display: block;
+              color: var(--errorHigh);
+              padding: 0 12px;
+              margin-top: 4px;
+              /* Mismo preset en DS/MB */
+              @include tokens.text-preset-responsive(1);
+            }
+  
+            .button-container {
+              display: flex;
+              flex-direction: row-reverse;
+              justify-content: center;
+              align-items: baseline;
+              gap: 16px;
+  
+              button { margin: 16px 0; }
+            }
+  
+            .input-error { border: 1px solid var(--error); }
+  
+            .icono-input,
+            .icono-select {
+              position: absolute;
+              visibility: hidden;
+              transform: translate(450px, -41px);
+              opacity: 0;
+              transition: opacity .5s ease;
+            }
+  
+            .icono-select {     transform: translate(428px, 49px); }
+  
+            .label-phone,
+            .label-operadora,
+            .label-cuit,
+            .label-email {
+              @include tokens.roboto-regular;
+              color: var(--textPrimary);
+              position: relative;
+              top: 28px;
+              left: 12px;
+              visibility: hidden;
+              @include tokens.text-preset-responsive(1);
+            }
+  
+            .error-phone,
+            .error-operadora { color: var(--errorHigh); }
+  
+            .label-operadora { top: -80px; }
+          }
+        }
+  
+        /* Estilos modal respuesta InConcert */
+        .ctc_loading {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+  
+          .content-lead-ok {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+  
+            .title-content-lead-ok {
+              @include tokens.roboto-regular;
+              color: var(--textPrimary);
+              @include tokens.text-preset-responsive(5, 4);
+            }
+  
+            .subtitle-content-lead-ok {
+              @include tokens.roboto-regular;
+              color: var(--textSecondary);
+              text-align: center;
+              @include tokens.text-preset-responsive(3);
+            }
+  
+            .btn-aceptar { width: 100%; }
+          }
+        }
+      }
+    }
+  
+    .backdrop {
+      position: fixed;
+      top: -40px;
+      left: 0;
+      width: 100%;
+      height: 200%;
+      background-color: rgba(0,0,0,.5);
+      z-index: 1040;
+      opacity: 0;
+      transition: opacity .4s ease;
+    }
+  
+    .backdrop.in { opacity: 1; z-index: -1; }
+  }
+  
+  @media (max-width: 992px) {
+    section .modal.fade.in {
+      .modal-dialog {
+        .modal-content {
+          width: 328px;
+          padding: 24px 20px;
+  
+          .modal-container {
+            gap: 16px;
+  
+            .icono-header { margin: 0; }
+  
+            form {
+              width: 280px;
+  
+              input,
+              select { width: 280px; height: 56px; }
+  
+              .custom-select::after { left: 88%; }
+  
+              .icono-input {         transform: translate(242px, -40px); }
+              .icono-select { transform: translate(220px, 47px); }
+  
+              .label-operadora { top: -70px; }
+  
+              .button-container { flex-direction: column; align-items: center; gap: 0; }
+  
+              button { margin: 0; }
+            }
+          }
+        }
+      }
+    }
+  }
+
+    .warning-red-modales-input {
+    width: 24px;
+    height: 24px;
+    mask-size: cover;
+    background-color: var(--errorHigh);
+    display: block;
+    mask-image: url("/imagenes/icons-Kenos/regular/warning-regular.svg");
+  }
+  
+  /* ──────────────────────────────────────────────────────────────
+     Formulario banner (global) – usando text-preset-responsive
+     ────────────────────────────────────────────────────────────── */
+  
+  .formulario-banner {
+    margin-top: 16px;
+    width: 100%;
+    form {
+      input,
+      select {
+        @include tokens.roboto-regular;
+        color: var(--textPrimary);
+        border: 1px solid var(--borderDark);
+        border-radius: 8px;
+        margin: 0 auto 0;
+        width: 100%;
+        height: 60px;
+        padding-left: 12px;
+        outline: 0;
+        @include tokens.text-preset-responsive(3);
+      }
+  
+      input::placeholder,
+      select option,
+      select:required:invalid,
+      option[value=""] { color: var(--textSecondary); }
+  
+      input:focus,
+      input:focus-visible,
+      select:focus,
+      select:focus-visible { border: 2px solid var(--borderSelected); }
+  
+      input.anictc { margin-top: 0; }
+
+      .inputs_general {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px; 
+      }
+  
+      .input-focus-hint,
+      .select-focus-hint,
+      .input-focus-hint-cuit,
+      .input-focus-hint-email {
+        @include tokens.roboto-regular;
+        color: var(--textPrimary);
+        padding: 0 12px;
+        position: relative;
+        top: 5px;
+        margin: 0;
+        @include tokens.text-preset-responsive(1);
+      }
+  
+      .custom-input {
+        position: relative;
+        min-width: 0;
+        &:after { content: none; }
+  
+        &:has(> select) {
+          &::after {
+            content: "";
+            position: absolute;
+            display: block;
+            top: 50%;
+            right: 10px;
+            width: 20px;
+            height: 20px;
+            background-color: var(--neutralHigh);
+            mask-size: cover;
+            mask-image: url("/imagenes/icons-Kenos/regular/chevron-down-regular.svg");
+            background-repeat: no-repeat;
+            background-size: contain;
+            transform: translateY(-50%);
+            pointer-events: none;
+          }
+          .icono-select { 
+            right: 37px;
+          }
+        }
+  
+        select {
+          appearance: none;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          background-image: none; /* Safari fix */
+        }
+      }
+  
+      .error-label {
+        @include tokens.roboto-regular;
+        display: block;
+        color: var(--errorHigh);
+        @include tokens.text-preset-responsive(1);
+      }
+  
+      button {
+        height: 48px;
+        text-align: center;
+        min-width: 104px;
+        margin-top: 30px;
+      }
+  
+      .input-error { border: 1px solid var(--error); }
+  
+      .icono-input,
+      .icono-select {
+        position: absolute;
+        visibility: hidden;
+        right: 15px; 
+        top: 50%;
+        transform: translateY(-50%);
+        width: 24px;
+        height: 24px;
+        opacity: 0;
+        transition: opacity .5s ease;
+      }
+  
+      .label-phone,
+      .label-operadora,
+      .label-cuit,
+      .label-mail {
+        @include tokens.roboto-regular;
+        color: var(--textPrimary);
+        position: absolute;
+        top: 5px;
+        left: 13px;
+        visibility: hidden;
+        @include tokens.text-preset-responsive(1);
+      }
+  
+      .error-phone,
+      .error-operadora { color: var(--errorHigh); }
+    }
+  }
+  
+  @media (max-width: 992px) {
+    .formulario-banner {
+      width: 100%;
+  
+      form {
+        input,
+        select { height: 56px; }
+
+        .inputs_general {
+          grid-template-columns: 1fr;
+        }
+  
+        .btn_box { margin: auto; }
+  
+        button {
+          margin: auto;
+          margin-top: 15px;
+        }
+      }
+    }
+    .full-width { width: 100%; }
+  }
+  
+.hidden-xs { display: block; }
+.visible-xs { display: none; }
+@media (max-width: 992px){
+  .hidden-xs { display:none; }
+  .visible-xs { display:block; }
+}
+
+
+// Titulo y subtitulo cards generales
+
+.planes-titulo {
+  @include tokens.text-preset-responsive(6);
+  color: var(--textPrimary);
+  text-align: center;
+  @include tokens.regular;
+  font-weight: normal;
+  padding: 0 20px
+}
+.planes-subtitulo {
+  @include tokens.text-preset-responsive(3);
+  @include tokens.roboto-regular;
+  color: var(--textSecondary);
+  text-align: center;
+  margin-top: -15px;
+  padding: 16px;
+}
+  /* ──────────────────────────────────────────────────────────────
+                           Inicio Skeleton
+     ────────────────────────────────────────────────────────────── */
+.animation-skeleton {
+    animation: animationskeleton 2.5s linear infinite;
+}
+@keyframes animationskeleton {
+0%{
+    opacity: 0.5;
+}
+50%{
+    opacity: 0.9;
+}
+100%{
+    opacity: 0.5;
+}
+    
+}
+/*----------INICIO cards Skeleton----------*/
+.skeleton{ 
+    position: relative;
+    z-index: 1000;
+    border-radius: 16px;
+    width: 100%;  
+    height: 100%;
+}
+.skeleton-carrousel{
+  position: relative !important;
+}
+.card-primary{
+    border: solid 1px var(--skeletonWave);
+    background: var(--background);;
+}
+.card-secondary{
+    border: solid 1px var(--skeletonWave);;
+    background: var(--skeletonWave);
+}
+.skeleton .box-grey{
+    width: 100%;
+    height: 120px;
+    
+    border-radius: 16px 16px 0 0;
+}
+.skeleton.card-primary .box-grey{
+    background: var(--skeletonWave);
+}
+.skeleton.card-secondary .box-grey{
+    background: var(--skeletonWave);
+}
+
+.skeleton .contenedor-skeleton-general{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-top: 40px; 
+    flex-direction: column;
+    border-radius: 0 0 16px 16px;
+    
+}
+.skeleton.card-primary .contenedor-skeleton-general{
+    border: solid 1px var(--skeletonWave);
+    background: var(--background); 
+}
+.skeleton.card-secondary .contenedor-skeleton-general{
+    border: solid 1px var(--skeletonWave);
+    background: var(--backgroundAlternative); 
+}
+.skeleton .contenedor-skeleton-general .contenedor-centrado{
+    width: 147px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.skeleton.card-primary .contenedor-skeleton-general .contenedor-centrado{
+    background: var(--skeletonWave);
+}
+.skeleton.card-secondary .contenedor-skeleton-general .contenedor-centrado{
+    background: var(--skeletonWave);
+}
+.skeleton .contenedor-skeleton-general .contenedor-lineal{
+    width: 90%;
+    height: 56px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap:16px;
+    margin-bottom: 30px;
+}
+.skeleton.card-primary .contenedor-skeleton-general .contenedor-lineal{
+    background: var(--background);
+}
+.skeleton.card-secondary .contenedor-skeleton-general .contenedor-lineal{
+    background: var(--backgroundAlternative);//OK
+}
+
+.skeleton .contenedor-skeleton-general .contenedor-lineal .line1{
+    width: 100%;
+    height: 8px;
+    border-radius: 8px;
+}
+.skeleton.card-primary .contenedor-skeleton-general .contenedor-lineal .line1{
+    background: var(--skeletonWave);
+}
+.skeleton.card-secondary .contenedor-skeleton-general .contenedor-lineal .line1{
+    background: var(--skeletonWave);
+}
+.skeleton .contenedor-skeleton-general .contenedor-lineal .line2{
+    width: 72%;
+    height: 8px;
+    border-radius: 8px;
+}
+
+.skeleton.card-primary .contenedor-skeleton-general .contenedor-lineal .line2{
+    background: var(--skeletonWave);
+}
+.skeleton.card-secondary .contenedor-skeleton-general .contenedor-lineal .line2{
+    background: var(--skeletonWave);
+}        
+.skeleton .contenedor-skeleton-general .contenedor-amplio{
+    width: 265px;
+    height: 48px;
+    border-radius: 8px;
+    margin-bottom: 10px; 
+    margin-top: 10px;
+}
+.skeleton.card-primary .contenedor-skeleton-general .contenedor-amplio{
+    background: var(--skeletonWave);
+}
+.skeleton.card-secondary .contenedor-skeleton-general .contenedor-amplio{
+    background: var(--skeletonWave);
+}
+.skeleton, .content {
+transition: opacity 0.5s ease-in-out;
+width: 100%;
+}
+.visible-skeleton {
+    opacity: 1;
+    pointer-events: auto;
+}
+.hidden-skeleton {
+    opacity: 0;
+    pointer-events: none;
+    display: none !important;
+}
+/*----------FIN cards----------*/
+/*----------INICIO banner----------*/
+[class^="banner"] .skeleton.banner-primary, [class^="js__comp-kenos"] .skeleton.banner-primary {
+    background: var(--background) ;
+    margin-top:0px;
+    max-height: 380px;
+}
+[class^="banner"] .skeleton.banner-secondary,[class^="js__comp-kenos"] .skeleton.banner-secondary{
+    background: var(--skeletonWave) ;
+    margin-top:0px;
+    max-height: 380px;
+}
+
+[class^="banner"] .skeleton.center-skeleton,[class^="js__comp-kenos"] .skeleton.center-skeleton, [id^="banner"] .skeleton.center-skeleton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+[class^="banner"] .skeleton.reverse.banner-secondary, [class^="js__comp-kenos"] .skeleton.reverse.banner-secondary{
+    background: var(--background) ;
+}
+[class^="banner"] .skeleton.reverse.banner-secondary, [class^="js__comp-kenos"] .skeleton.reverse.banner-secondary{
+    background: var(--skeletonWave) ;
+}
+[class^="banner"] .skeleton.reverse, [class^="js__comp-kenos"] .skeleton.reverse{
+    display: flex;
+    flex-direction: row-reverse;
+}
+[class^="banner"] .skeleton.banner-primary .skeleton-img, [id^="banner"] .skeleton.banner-primary .contenedor, [id^="banner"] .skeleton  .contenedor,[class^="js__comp-kenos"] .skeleton.banner-primary .skeleton-img, [id^="js__comp-kenos"] .skeleton.banner-primary .contenedor, [id^="js__comp-kenos"] .skeleton  .contenedor, .skeleton-carrousel.skeleton.skeleton-img, [id^="banner"] .banner-primary .skeleton-img {
+    background: var(--backgroundSkeleton) !important;
+}
+[class^="banner"] .skeleton.banner-secondary .skeleton-img, [id^="banner"] .skeleton.banner-secondary .contenedor, [id^="banner"] .skeleton  .contenedor,[class^="js__comp-kenos"] .skeleton.banner-secondary .skeleton-img, [id^="js__comp-kenos"] .skeleton.banner-secondary .contenedor, [id^="js__comp-kenos"] .skeleton  .contenedor{
+    background: var(--background) !important;
+}        
+[class^="banner"] .skeleton .skeleton-img, [id^="banner"] .skeleton .contenedor, [id^="banner"] .skeleton .contenedor,[id^="banner"] .skeleton.visible-skeleton.banner-primary .skeleton-img, [class^="banner"].skeleton .skeleton-img, [id^="js__comp-kenos"] .skeleton .contenedor, [id^="js__comp-kenos"] .skeleton .contenedor{
+    background-image: none !important;
+}
+
+.skeleton-img{
+  background-image: none !important;
+}
+[class^="banner"] .skeleton .skeleton-texto,[class^="js__comp-kenos"] .skeleton .skeleton-texto {
+    width: 564px;
+    height: 280px;
+}
+[class^="banner"] .skeleton .skeleton-texto .contenedor-lineal,[class^="js__comp-kenos"] .skeleton .skeleton-texto .contenedor-lineal, [class^="js__comp-kenos"] .skeleton-carrousel.skeleton-texto .contenedor-lineal{
+    width: 100%;
+    border-radius: 8px;            
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+[class^="banner"] .skeleton.banner-primary .skeleton-texto .contenedor-lineal .line.cucarda,[class^="js__comp-kenos"] .skeleton.banner-primary .skeleton-texto .contenedor-lineal .line.cucarda, [class^="js__comp-kenos"] .skeleton-carrousel.skeleton-texto.banner-primary .contenedor-lineal .line.cucarda{
+    background: var(--backgroundSkeleton);
+}
+[class^="banner"] .skeleton.banner-secondary .skeleton-texto .contenedor-lineal .line.cucarda,[class^="js__comp-kenos"] .skeleton.banner-secondary .skeleton-texto .contenedor-lineal .line.cucarda, [class^="js__comp-kenos"] .skeleton-carrousel.skeleton-texto.banner-secondary .contenedor-lineal .line.cucarda{
+    background: var(--background);
+}
+[class^="banner"] .skeleton .skeleton-texto .contenedor-lineal .line.cucarda,[class^="js__comp-kenos"] .skeleton .skeleton-texto .contenedor-lineal .line.cucarda, [class^="js__comp-kenos"] .skeleton-carrousel.skeleton-texto .contenedor-lineal .line.cucarda {
+    width: 190px;
+    height: 26px;
+    border-radius: 8px;
+    padding-top: 2px;
+} 
+.skeleton .skeleton-texto .contenedor-lineal .line.cucarda, .skeleton .skeleton-texto .contenedor-lineal .line.cucarda, [class^="js__comp-kenos"] .skeleton-carrousel.skeleton-texto .contenedor-lineal .line.cucarda{
+    width: 190px;
+    height: 26px;
+    border-radius: 8px;
+    padding-top: 2px;
+}
+
+
+
+[class^="banner"] .skeleton.banner-primary .skeleton-texto .contenedor-lineal .line.pre-titulo,[class^="js__comp-kenos"] .skeleton.banner-primary .skeleton-texto .contenedor-lineal .line.pre-titulo,[class^="js__comp-kenos"] .skeleton-carrousel.skeleton-texto.banner-primary .contenedor-lineal .line.pre-titulo {
+    background: var(--backgroundSkeleton);
+}
+[class^="banner"] .skeleton.banner-secondary .skeleton-texto .contenedor-lineal .line.pre-titulo,[class^="js__comp-kenos"] .skeleton.banner-secondary .skeleton-texto .contenedor-lineal .line.pre-titulo, [class^="js__comp-kenos"] .skeleton-carrousel.skeleton-texto.banner-secondary .contenedor-lineal .line.pre-titulo{
+    background: var(--background);
+}
+[class^="banner"] .skeleton .skeleton-texto .contenedor-lineal .line.pre-titulo,[class^="js__comp-kenos"] .skeleton .skeleton-texto .contenedor-lineal .line.pre-titulo,[class^="js__comp-kenos"] .skeleton-carrousel.skeleton-texto .contenedor-lineal .line.pre-titulo{
+    width: 190px;
+    height: 24px;
+    border-radius: 8px;
+    padding-top: 2px;
+}
+[class^="banner"] .skeleton.banner-primary .skeleton-texto .contenedor-lineal .line.titulo,[class^="js__comp-kenos"] .skeleton.banner-primary .skeleton-texto .contenedor-lineal .line.titulo, [class^="js__comp-kenos"] .skeleton-carrousel.skeleton-texto.banner-primary .contenedor-lineal .line.titulo{
+    background: var(--backgroundSkeleton);
+}
+[class^="banner"] .skeleton.banner-secondary .skeleton-texto .contenedor-lineal .line.titulo,[class^="js__comp-kenos"] .skeleton.banner-secondary .skeleton-texto .contenedor-lineal .line.titulo, [class^="js__comp-kenos"] .skeleton-carrousel.skeleton-texto.banner-secondary .contenedor-lineal .line.titulo{
+    background: var(--background);
+}
+[class^="banner"] .skeleton .skeleton-texto .contenedor-lineal .line.titulo,[class^="js__comp-kenos"] .skeleton .skeleton-texto .contenedor-lineal .line.titulo, [class^="js__comp-kenos"] .skeleton-carrousel.skeleton-texto .contenedor-lineal .line.titulo{
+    width: 95%;
+    height: 48px;
+    border-radius: 8px;
+    padding-top: 2px;
+    margin: 0;
+}
+[class^="banner"] .skeleton.banner-primary .skeleton-texto .contenedor-lineal .line.bajada,[class^="js__comp-kenos"] .skeleton.banner-primary .skeleton-texto .contenedor-lineal .line.bajada, [class^="js__comp-kenos"] .skeleton-carrousel.skeleton-texto.banner-primary .contenedor-lineal .line.bajada{
+    background: var(--backgroundSkeleton);
+}
+[class^="banner"] .skeleton.banner-secondary .skeleton-texto .contenedor-lineal .line.bajada,[class^="js__comp-kenos"] .skeleton.banner-secondary .skeleton-texto .contenedor-lineal .line.bajada, [class^="js__comp-kenos"] .skeleton-carrousel.skeleton-texto.banner-secondary .contenedor-lineal .line.bajada{
+    background: var(--background);
+}
+[class^="banner"] .skeleton .skeleton-texto .contenedor-lineal .line.bajada,[class^="js__comp-kenos"] .skeleton .skeleton-texto .contenedor-lineal .line.bajada,[class^="js__comp-kenos"] .skeleton-carrousel.skeleton-texto .contenedor-lineal .line.bajada{
+    width: 95%;
+    height: 48px;
+    border-radius: 8px;
+    padding-top: 2px;
+    margin: 20px 0px 0px;
+}
+[class^="banner"] .skeleton.banner-primary .skeleton-texto .contenedor-lineal .line.form,[class^="js__comp-kenos"] .skeleton.banner-primary .skeleton-texto .contenedor-lineal .line.form, [class^="js__comp-kenos"] .skeleton-carrousel.skeleton-texto.banner-primary .contenedor-lineal .line.form{
+    background: var(--backgroundSkeleton);
+}
+[class^="banner"] .skeleton.banner-secondary .skeleton-texto .contenedor-lineal .line.form,[class^="js__comp-kenos"] .skeleton.banner-secondary .skeleton-texto .contenedor-lineal .line.form, [class^="js__comp-kenos"] .skeleton-carrousel.skeleton-texto.banner-secondary .contenedor-lineal .line.bajada{
+    background: var(--background);
+}
+[class^="banner"] .skeleton .skeleton-texto .contenedor-lineal .line.form,[class^="js__comp-kenos"] .skeleton .skeleton-texto .contenedor-lineal .line.form, [class^="js__comp-kenos"] .skeleton-carrousel.skeleton-texto .contenedor-lineal .line.bajada{
+    width: 95%;
+    height: 60px;
+    border-radius: 8px;
+    padding-top: 2px;
+}
+
+@media(max-width:768px){
+    [class^="banner"] .skeleton .skeleton-texto,[class^="js__comp-kenos"] .skeleton .skeleton-texto {
+        width: 350px;
+    }
+}
+/*----------FIN banner----------*/
+/*-----------FIN estilos Skeleton-----------*/
+
+
+/*-----------Incio Estilos unificados grillas de canales-----------*/
+
+.mejor-premium {
+  margin-top: 32px;
+}
+
+.mejor-premium p {
+  color: var(--textPrimary);
+  @include tokens.bold;
+  font-size: 20px;
+  line-height: 28px;
+  text-align: left;
+}
+
+.mejor-premium .peliculas-disney-premium {
+  display: block;
+  margin: 0 auto;
+  align-content: center;
+}
+
+.mejor-premium .peliculas-disney-premium img {
+  width: 265px;
+}
+
+.mejor-premium .peliculas-disney-premium div {
+  gap: 16px;
+  display: flex;
+  justify-content: flex-start;
+  padding-bottom: 16px;
+}
+
+
+.modal.modal-canales.is-max .mejor-premium .peliculas-disney-premium img {
+  width: 270px;
+  border-radius: 8px;
+}
+
+.aui .modal .modal-content {
+  padding: 24px !important;
+}
+
+/* ESTILOS TITULO MODAL */
+.modal.modal-canales .modalMainTitle {
+  color: var(--textPrimary);
+  @include tokens.roboto-medium;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 28px;
+  padding-bottom: 20px;
+  margin-top: 0;
+}
+
+.modal-canales .modalMainTitle .gris-canales {
+  color: #737578;
+  @include tokens.roboto-regular;
+}
+
+/* ESTILOS GRILLA */
+.modal.modal-canales .grilla-digital {
+  width: 556px;
+  height: 200px;
+  overflow: auto;
+  padding-right: 3px;
+}
+
+.modal.modal-canales .grilla-digital .segmento {
+  color: var(--gris-oscuro);
+  font-size: 14px;
+  @include tokens.bold;
+  line-height: 18px;
+  padding-left: 12px;
+  display: flex;
+  font-weight: 600;
+  align-items: center;
+  background: #F6F6F6;
+  border-bottom: 0;
+  height: 35px;
+  width: 546px;
+}
+
+
+.modal.modal-canales .box-canal,
+.modal.modal-canales .grilla-digital .segmento {
+  border: 1px solid var(--border);
+}
+
+.modal.modal-canales .grilla-digital .segmento.recto {
+  border-radius: 0;
+  border-top: 0;
+}
+
+.modal.modal-canales .canales-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+}
+
+.modal.modal-canales .box-canal {
+  width: 89px;
+  height: 89px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: content-box !important;
+}
+
+.modal.modal-canales .box-canal img {
+  width: auto;
+  max-height: 50px;
+  max-width: 77px;
+}
+
+.modal.modal-canales .blur {
+  background: linear-gradient(180deg, rgba(245, 245, 245, 0) 0%, var(--inverse) 100%);
+  height: 65px;
+  width: 97%;
+  bottom: 0;
+  position: absolute;
+  left: 3px;
+}
+
+.disney-espn {
+  display: none;
+}
+
+
+@media (max-width: 912px) {
+  .modal.modal-canales .grilla-digital {
+      width: 285px;
+      margin: 0;
+      overflow-x: hidden;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .modal.modal-canales .modalMainTitle {
+      font-size: 16px;
+      line-height: 24px;
+      padding-top: 0;
+      padding-bottom: 16px;
+  }
+
+  .modal.modal-canales .grilla-digital .segmento {
+      width: 98.5% !important;
+  }
+
+  .mejor-premium .peliculas-disney-premium img {
+      width: 132px;
+  }
+
+  .mejor-premium .peliculas-disney-premium div {
+      justify-content: center;
+      gap: 8px;
+      padding-bottom: 8px;
+  }
+
+  .mejor-premium p {
+    color: var(--gris-oscuro);
+      font-size: 20px;
+      text-align: center;
+      padding-bottom: 8px;
+      margin-bottom: 0;
+  }
+
+  /* margen móvil solo para grilla DIGITAL */
+  .modal.modal-canales.is-digital .mejor-premium {
+      margin-top: 16px;
+  }
+}
+
+/*-----------Fin Estilos unificados grillas de canales-----------*/
+
+/*---- Estilos componentes verticales legales ----*/
+
+#componentes-verticales {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 1110px;
+  margin: 56px auto;
+  padding-top: 150px;
+}
+
+@media (max-width: 992px) {
+
+  #componentes-verticales {
+    grid-template-columns: 1fr;
+    padding-top: 0px;
+    margin-top: 100px;
+  }
+}

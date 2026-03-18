@@ -1,0 +1,167 @@
+@use 'general-kenos' as tokens;
+
+#banner__prepago {
+    margin-top: 80px;
+
+    .contenido {
+        height: 330px;
+        display: flex;
+        align-items: center;
+        justify-content:space-evenly;
+        gap: 8px;  
+
+        .texto-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            max-width: 600px;
+
+            .pre_titulo {
+                @include tokens.text-preset-responsive(1,2);
+                @include tokens.roboto-medium;
+                color: var(--blanco);
+                background-color: var(--success);
+                border-radius: 4px;
+                padding: 5px;
+                width: fit-content;
+                margin: 0;
+                font-weight: normal;
+            }
+            
+            .titulo {
+                @include tokens.text-preset-responsive(7,6);
+                @include tokens.regular;
+                color: var(--textPrimary);
+
+                span{
+                    @include tokens.bold;
+                }
+            }
+            .bajada {
+                @include tokens.text-preset-responsive(1,2);
+                @include tokens.roboto-regular;
+                color: var(--textPrimary);                    
+            }    
+        }   
+
+        .contenedor {
+            width: 564px;
+            height: 241px;
+            position: relative;
+            background: #CEF7BF;
+            display: flex;
+            flex-direction: column;
+            justify-content:space-between;
+            border-radius: 16px;
+            padding: 32px 40px 10px;
+            @include tokens.movistar-bold;
+            color: #0066FF;
+            overflow: hidden;
+            .container-text {
+                z-index: 2;
+                .tag {
+                    background-color: #0066FF;
+                    color: var(--textPrimaryInverse);
+                    @include tokens.movistar-regular;
+                    @include tokens.text-preset-responsive(3, 2);
+                    padding: 4px 12px;
+                    border-radius: 100px;
+                    width: fit-content;
+                }
+                .title {
+                    @include tokens.text-preset-responsive(5);
+                    color: #000000;
+                    margin-top: 4px;
+                }
+                .recarga {
+                    @include tokens.text-preset-responsive(4,1); 
+                    margin-top: 8px;
+                    color: #000000;
+                    max-width: 320px;
+                    line-height: 20px;
+                }
+            }
+            .container-oferta {
+                z-index: 2;
+                .gb {
+                    @include tokens.text-preset-responsive(10,9); 
+                }
+
+                .oferta {
+                    @include tokens.text-preset-responsive(3); 
+                    line-height: 18px;
+                }
+                .xmes {
+                    @include tokens.text-preset-responsive(4,1); 
+                }
+            }
+            img {
+                position: absolute;
+                top: -5%;
+                right: -10%;
+                height: 123%;
+            }
+        }
+    }
+}
+    
+@media (max-width: 992px) {
+    #banner__prepago {
+        margin-top: 110px;
+
+        .contenido {
+            padding: 16px;
+            height: 380px;
+            flex-direction: column-reverse;
+
+            .texto-container {
+                gap: 10px;
+
+                .titulo {
+                    margin-top: 0
+                }
+
+            }
+            .contenedor {
+                height: 180px;
+                width: 100%;
+                margin: 0px;
+                padding: 11px 24px 15px;
+                .container-text {
+                    .tag {
+                    
+                    }
+
+                    .title {
+                        
+                    }
+                    .recarga {
+                        margin-top: 0px;
+                        max-width: 185px;
+                        color: #0066FF;
+                    }
+                }
+                .container-oferta {
+                    
+                    .gb {
+                        line-height: 30px;
+                    }
+
+                    .oferta {
+                        
+                    }
+                    .xmes {
+                        max-width: 100px;
+                    }
+                }
+                img {
+                    top: -3%;
+                    right: -10%;
+                    height: 120%;
+                }
+            }
+        }
+    }
+}
+
+

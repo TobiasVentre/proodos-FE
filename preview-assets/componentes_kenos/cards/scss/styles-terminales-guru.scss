@@ -1,0 +1,334 @@
+@use 'general-kenos' as tokens;
+.section_terminales {
+
+    .subtitle {
+        @include tokens.text-preset-responsive(3);
+        @include tokens.roboto-regular;
+        color: var(--textSecondary);
+        text-align: center;
+    }
+
+    .slider-container {
+        position: relative;
+        width: fit-content;
+        margin: auto;
+
+        .slider-terminales {
+            width: fit-content;
+            height: fit-content;
+            max-width: 100%;
+            overflow-x: hidden;
+            margin: 0 auto;
+            position: relative;
+            padding-top: 40px;
+
+            .swiper-wrapper {
+                max-width: 1080px;
+                gap: 0px;
+
+                .swiper-slide {
+                    
+                    .container-general{
+                        width: 248px;
+                        height: auto;
+                        background-color: var(--blanco);
+                        border-radius: 12px;
+                        border: 1px solid var(--gris);
+                        padding: 16px;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        gap: 16px;
+                        margin: auto;
+
+                        picture{
+                            width: 100px;
+                            height: 216px;
+                            display: flex;
+                            justify-content: center;
+                        }
+
+                        img{
+                            width: auto;
+                            height: 216px;
+                            object-fit: cover;
+                        }
+
+                        .box-container-description{
+                            width: max-content;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: flex-start;
+                            gap: 5px;
+
+                            .cuotas{
+                                @include tokens.roboto-medium;
+                                @include tokens.text-preset-responsive(1);
+                                width: max-content;
+                                border-radius: 4px;
+                                padding: 5px 10px;
+                                background-color: var(--promo);
+                                color: var(--blanco);
+                                text-align: center;
+                            }
+
+                            .valor-cupon{
+                                @include tokens.text-preset-responsive(1);
+                                @include tokens.roboto-medium;
+                                color: var(--highlightHigh); 
+                                font-weight: 500;
+                                background-color: var(--highligtLow);
+                                padding: 4px 6px 3px 6px;
+                                border-radius: 4px;                        
+                            }
+
+                            .marca{
+                                @include tokens.text-preset-responsive(1);
+                                @include tokens.roboto-regular;
+                                color: var(--textSecondary);
+                                margin-top: 15px;
+                            }
+
+                            .modelo{
+                                @include tokens.text-preset-responsive(3);
+                                @include tokens.roboto-medium;
+                                color: var(--textPrimary);
+                                margin: -4px 0;
+                            }
+
+                            .cant-gigas{
+                                @include tokens.text-preset-responsive(1);
+                                @include tokens.roboto-regular;
+                                color: var(--textPrimary);
+                            }
+
+                            .precio{
+                                @include tokens.text-preset-responsive(2);
+                                @include tokens.roboto-regular;
+                                color: var(--textSecondary);
+                                margin-top: 5px;
+                            }
+
+                            .cupon {
+                                display: inline-flex;
+                                gap: 4px;
+                                align-items: center;
+                                font-family: Roboto;
+                                font-size: 14px;
+                                font-weight: 500;
+                                line-height: 20px;
+                                text-align: center;
+                                padding: 2px 4px 1px 4px;
+                                border-radius: 4px;
+                                color: #313235;
+                                background: #FFF0F7;
+                                outline: none;
+                                border: none;
+                                cursor: pointer;
+                            }
+
+                            .oferta-cupon{
+                                @include tokens.text-preset-responsive(1);
+                                @include tokens.roboto-regular;
+                                color: var(--textPrimary);
+
+                                span{
+                                    @include tokens.text-preset-responsive(4);
+                                    @include tokens.roboto-bold;
+                                }
+                            }
+
+                            .precio.sin_impuestos {
+                                width: 200px;
+                                text-align: left;
+                                font-size: 12px;
+                                line-height: 14px;
+                            }
+
+                            .btn__lo-quiero {
+                                display: inline-flex;
+                                align-items: center;
+                                justify-content: center;
+                                width: 216px;
+                                height: 36px;
+                                padding: 2px 12px 2px 12px;
+                                border-radius: 60px;
+                                font-family: Roboto;
+                                font-size: 18px;
+                                font-weight: 500;
+                                line-height: 24px;
+                                text-align: center;
+                                color: #FFFFFF;
+                                text-decoration: none;
+                                margin-top: 16px;
+                                background-color: #019bef;
+                                &:focus, &:focus-visible {
+                                    border: none;
+                                    outline: none;
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+
+        /* Estilos tooltip */
+        .tooltip__text {
+            opacity: 0; //Se cambia desde el controlador.js
+            @include tokens.text-preset-responsive(2);
+            @include tokens.roboto-regular;
+            color: var(--textPrimary);
+            text-align: center;
+            background: #FFFFFF;
+            filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.2)) !important;
+            border-radius: 8px;
+            padding: 4px 8px;
+            position: absolute;
+            margin-left: 15px;
+            margin-top: -4px;
+            z-index: 100;
+            transition: .4s ease all;
+
+            &::after {
+                content: "";
+                position: absolute;
+                bottom: -12px;
+                left: 50%;
+                transform: translateX(-50%);
+                border-width: 6px;
+                border-style: solid;
+                border-color: #FFFFFF transparent transparent transparent;
+                filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.2)); // sombra de la flecha
+                z-index: 99;
+            }
+        }
+        /* Estilos tooltip */
+
+        .planes__legales {
+            padding-bottom: 10px;
+            a.link {
+                text-decoration: none;
+                color: var(--brand) !important;
+            }
+        } 
+    }
+}
+
+.section_terminales.empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .planes-bajada {
+        @include tokens.text-preset-responsive(3);
+        @include tokens.roboto-regular;
+        color: var(--textSecondary);
+        text-align: center;
+    }
+
+    .chica-telefono {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 40px auto 48px;
+
+        img {
+            max-width: unset !important;
+            width: 342px;
+            height: 312px;
+        }
+    }
+
+    .btn_equipos-guru {
+        padding: 12px 16px 11px 16px;
+        border-radius: 60px;
+        @include tokens.text-preset-responsive(3);
+        color: #FFFFFF;
+        text-decoration: none;
+        margin: auto;
+        &:focus, &:focus-visible {
+            border: none;
+            outline: none;
+        }
+    }
+}
+
+p { margin: 0; }
+
+@media (max-width: 992px){
+    .section_terminales {
+
+        .chica-telefono {
+            margin: 16px auto 32px;
+            
+            img {
+                width: 254px;
+                height: 232px;
+            }
+        }
+
+        .slider-container {
+            width: 100%;
+
+            .slider-terminales {
+
+                .swiper-wrapper {
+                    flex-direction: row;
+                    justify-content: flex-start;
+
+                    .swiper-slide {
+                        
+                        .container-general {
+                            flex-direction: row;
+                            justify-content: center;
+                            width: 320px;
+                            gap: 16px;
+
+                            picture {
+                                width: 120px;
+                                height: auto;
+                            }
+
+                            img {
+                                width: auto;
+                                height: 190px;
+                            }
+
+                            .box-container-description {
+
+                                .precio.sin_impuestos {
+                                    width: 200px;
+                                    text-align: left;
+                                }
+
+                                .btn__lo-quiero {
+                                    width: 143.5px;
+                                    height: 32px;
+                                    font-size: 14px;
+                                    line-height: 20px;
+                                    padding: 0;
+                                }
+                            }
+                        }
+                    }
+                }                
+            }
+        }
+    }
+}
+
+@media (min-width: 992px) {
+    .section_terminales .slider-container .slider-terminales {
+        width: 1080px !important;
+        max-width: 1080px;
+    }
+    
+    .section_terminales .slider-container .slider-terminales .swiper-wrapper {
+        display: flex;
+        justify-content: center !important;
+    }
+}

@@ -1,0 +1,910 @@
+@use 'general-kenos'as tokens;
+
+@mixin flexCenter($direct) {
+    display: flex;
+    flex-direction: $direct;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.section_carrusel_banner {
+
+    .slider-container {
+        position: relative;
+        width: fit-content;
+        margin: 80px auto 0;
+        height: 430px;
+
+        .carrusel-container {
+            max-width: 1250px;
+            overflow-x: hidden;
+            margin: auto;
+
+            .carrusel-track {
+                margin: 64px auto 0;
+                gap: 50px;
+
+                .banner-container {
+                    max-width: 1200px;
+                    border: 1px solid var(--border);
+                    border-radius: 16px;
+                    display: flex;
+                    padding: 16px 0 8px;
+                    height: 380px;
+                    justify-content: space-between;
+
+                    .banner-texto {
+                        padding: 60px 0 60px 40px;
+                        max-width: 496px;
+
+                        .banner-tag {
+                            @include tokens.text-preset-responsive(3);
+                            @include tokens.roboto-regular;
+                            color: var(--textPrimary);
+                            width: fit-content;
+                        }
+
+                        .banner-titulo {
+                            @include tokens.text-preset-responsive(7, 6);
+                            @include tokens.regular;
+                            color: var(--textPrimary);
+                            margin-top: 8px;
+                        }
+
+                        .banner-bajada {
+                            @include tokens.text-preset-responsive(3);
+                            @include tokens.roboto-regular;
+                            color: var(--textSecondary);
+                            margin-top: 16px;
+                        }
+
+                        .botones-container {
+                            display: flex;
+                            align-items: center;
+                            gap: 28px;
+                            margin-top: 16px;
+                        }
+                    }
+
+                    .banner-imagen {
+                        position: relative;
+                        top: -44px;
+                        right: -32px;
+                        border-radius: 16px;
+                        width: 704px;
+                        height: 328px;
+                    }
+                }
+
+                .slide1 {
+                    .banner-imagen {
+                        width: 704px;
+                        height: 328px;
+                        background-image: url("/imagenes/multiproducto/carrusel/terminales/enamorados/bg-enamorados-terminales-multi-promos-desk.png");
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        background-position: center;
+                        padding: 30px;
+                            
+                            .container-oferta {
+                                transform: translate(400px, 125px);
+                                @include flexCenter(column);
+                                align-items: flex-start;
+                                gap: 10px;
+
+                                .oferta {
+                                    @include tokens.movistar-regular; 
+                                    font-size: 19.61px;
+                                    line-height: 100%;
+                                    color: #262423;
+                                }
+    
+                                .cuotas {
+                                    @include tokens.movistar-bold; 
+                                    font-size: 47.06px;
+                                    line-height: 100%;
+                                    color: #022D67;
+                                    background-color: #FFC5A8;
+                                    border-radius: 7.84px;
+                                    padding: 2px 6px;
+                                }
+                                
+                            }
+                    }
+                }
+
+                .slide2 {
+                    .banner-imagen {
+                        position: relative;
+                        background-image: url("/imagenes/hogar_kenos/banner/verano/bg-verano-hogar-multis-desk.png");
+                        width: 704px;
+                        height: 328px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: flex-end;
+                        object-fit: cover;
+                        background-size: cover;
+                        background-position: right;
+                        border-radius: 16px;
+                        color: var(--textSecondaryInverse);
+                        padding: 30px;
+
+                        .contenedor-principal {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: flex-start;
+                            justify-content: flex-end;
+                            flex-direction: column;
+
+                            .box-top {
+                                width: 227px;
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: flex-start;
+                                align-items: flex-start;
+
+                                .box-up {
+                                    padding: 0px 5px;
+                                    background-color: #0066FF;
+                                    @include tokens.text-preset-responsive(4,5);
+                                    @include tokens.movistar-medium;  
+                                }
+
+                                .box-middle {
+                                    color: var(--textPrimaryInverse);
+                                    @include tokens.movistar-bold;
+                                    text-align: center;
+                                    display: inline-flex;
+                                    flex-direction: row;
+                                    justify-content: center;
+                                    align-items: center;
+                                    @include tokens.text-preset-responsive(10);
+                                    gap: 5px;
+                                }
+                            }
+
+                            .box-down {
+                                width: fit-content;
+                                color: #262433;
+                                padding: 0px 5px;
+                                background-color: #D3EEFF;
+                                display: inline-block;
+                                @include tokens.text-preset-responsive(4, 3);
+                                @include tokens.movistar-regular;
+                            }
+                        }
+
+                        .info-sin-iva {
+                            margin: 10px 0 0 0;
+                            @include tokens.text-preset-responsive(1);
+                            @include tokens.roboto-regular;
+                            color: #262433;
+                            text-align: left;
+                        }
+                    }
+                }
+
+                .slide3 {
+                    .banner-imagen {
+                        border-radius: 32px;
+                        background-color: #FFC5A8;
+                        border:16px solid #fffaf5;                        
+                        padding: 25px 45px;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: flex-start;
+                        align-items: center;
+                        .contenedor-promo{
+                            display: flex;
+                            flex-direction: column;
+                            gap: 15px;
+                            .contenedor-texto {
+                                @include tokens.movistar-bold;
+                                @include tokens.text-preset-responsive(7,6);
+                                color: #06f;
+                                text-align: left;
+                            }
+                            .cucarda {
+                                display: flex;
+                                flex-direction: column;
+                                align-items: flex-start;
+                                justify-content: center;
+                            
+                                span:first-child {
+                                    text-align: left;
+                                    @include tokens.movistar-medium;
+                                    @include tokens.text-preset-responsive(3,2);
+                                    color: #262423;
+                                }
+                                span:nth-child(2) {
+                                    text-align: left;
+                                    @include tokens.movistar-bold;
+                                    @include tokens.text-preset-responsive(9);
+                                    line-height: 50px;
+                                    color: #262423;;
+                                }
+                                span:nth-child(3) {
+                                    text-align: left;
+                                    @include tokens.movistar-medium;
+                                    @include tokens.text-preset-responsive(4,1);
+                                    color: #262423;
+                                    padding: 3px;
+                                    background-color: #FFFAF5;
+                                }
+                            }
+                        }
+                        .img-cupido{
+                            width: 320px;
+                            height: auto;
+                            transform: translate(290px, 15px);
+                            z-index: 1;
+                            position: absolute;
+
+                            img{
+                                width: 100%;
+                                height: auto;
+                            }
+                        }
+                    }
+                }
+
+
+                .slide4 {
+                    .banner-imagen {
+                        background-color: #D3EEFF;
+                        position: relative;
+                        overflow: hidden;
+                        padding: 0;
+                        display: grid;
+                        align-items: center;
+                        
+                        .contenedor {
+                            width: 704px;
+                            height: 266px;
+                            border-radius: 16px;
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            justify-content: flex-start;
+                            position: relative;
+                            background-color: #D3EEFF;
+                            overflow: hidden;
+                            .contenedor-promo {
+                                margin-left: 60px;
+                
+                                .planes-desde {
+                                    @include tokens.movistar-medium;
+                                    @include tokens.text-preset-responsive(5,2);
+                                    color: #262433;
+                                    background-color: #FFFAF5;
+                                    width: fit-content; 
+                                    padding: 8px;
+                                    font-size: 24px;
+                                    line-height: 24px;
+                                    margin-top: 28px;
+                                }
+                
+                                .mes-gratis {
+                                    @include tokens.movistar-bold;
+                                    @include tokens.text-preset-responsive(4,1);
+                                    color: #0066FF;
+                                    font-size: 54px;
+                                    line-height: 48px;
+                                }
+                            }
+                            .desktop {
+                                width: 297px;
+                            }
+                            
+                            .mobile {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+
+                .slide5 {
+
+                    .banner-tag {
+                        width: 120px;
+                        height: 28px;
+                        padding: 4px;
+                        background-color: var(--brandLow);
+                        color: var(--brand) !important;
+                        @include tokens.roboto-medium;
+                        @include flexCenter(row);
+                        border-radius: 4px;
+                        font-size: 14px !important;
+                        line-height: 20px !important;
+                    }
+
+                    .banner-imagen {
+                        background-image: url("/imagenes/multiproducto/cdp-migra/bg-migra-multis-verano-pajaro-desk.png");
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        justify-content: center;
+                        background-repeat: no-repeat;
+                        text-align: left;
+                        background-size: cover;
+                        border-radius: 16px;
+                        padding: 25px;
+                        gap: 10px;
+
+                        .info {
+                            @include flexCenter(column);
+                            align-items: flex-start;
+                            gap: 4px;
+
+                            p:first-child {
+                                @include tokens.movistar-bold;
+                                font-size: 35px;
+                                line-height: 35px;
+                                color: #022D67;
+                            }
+
+                            p:last-child {
+                                @include tokens.movistar-medium;
+                                font-size: 30px;
+                                line-height: 35px;
+                                color: #006BFF;
+                            }
+
+                        }
+
+                        .precio {
+                            @include flexCenter(column);
+                            align-items: flex-start;
+                            gap: 4px;
+                            
+                            p:first-child {
+                                @include tokens.movistar-medium;
+                                font-size: 25px;
+                                line-height: 24px;
+                                color: #022D67;
+                            }
+
+                            p:last-child {
+                                @include tokens.movistar-bold;
+                                font-size: 45px;
+                                line-height: 45px;
+                                color: #022D67;
+
+                                span {
+                                    font-size: 25px;
+                                }
+                            }
+                            
+                        }
+
+                        .oferta {
+                            @include tokens.movistar-bold;
+                                font-size: 35px;
+                                line-height: 130%;
+                                color: #FFFAF5;
+                                background-color: #022D67;
+                                padding: 0px 10px 17px 10px;
+                                width: fit-content;
+                                height: 40px;
+                                border-radius: 4px;
+
+                                span {
+                                    @include tokens.movistar-regular;
+                                    font-size: 22px;
+                                    line-height: 130%;
+                                }                          
+                        }
+
+                        .meses {
+                            @include tokens.movistar-bold;
+                                font-size: 35px;
+                                line-height: 130%;
+                                color: #0066FF;
+                        }
+
+                        .impuestos {
+                            @include tokens.roboto-regular;
+                            font-size: 14px;
+                            line-height: 20px;
+                        }
+                    }
+                }
+
+                .slide6 {
+                    .banner-imagen {
+                        position: relative;
+                        background: #CEF7BF;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content:space-between;
+                        border-radius: 16px;
+                        padding: 32px 40px 50px;
+                        @include tokens.movistar-bold;
+                        color: #0066FF;
+                        overflow: hidden;
+                        .container-text {
+                            z-index: 2;
+                            .tag {
+                                background-color: #0066FF;
+                                color: var(--textPrimaryInverse);
+                                @include tokens.movistar-regular;
+                                @include tokens.text-preset-responsive(3, 2);
+                                padding: 4px 12px;
+                                border-radius: 100px;
+                                display: inline-block;
+                                width: fit-content;
+                            }
+                            .title {
+                                @include tokens.text-preset-responsive(4);
+                                color: #000000;
+                                margin-top: 4px;
+                            }
+                            .recarga {
+                                @include tokens.text-preset-responsive(5,1); 
+                                font-size: 24px;
+                                margin-top: 35px;
+                                color: #000000;
+                            }
+                        }
+                        .container-oferta {
+                            z-index: 2;
+                            .gb {
+                                @include tokens.text-preset-responsive(10,9); 
+                            }
+
+                            .oferta {
+                                @include tokens.text-preset-responsive(3); 
+                            }
+                            .xmes {
+                                @include tokens.text-preset-responsive(5,1); 
+                            }
+                        }
+                        img {
+                            position: absolute;
+                            top: -5%;
+                            right: -15%;
+                            height: 107%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .swiper-pagination {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+        position: relative;
+        top: -50px !important;
+        left: 25px !important;
+    }
+
+    .swiper-pagination-bullet {
+        position: relative;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        margin: 0 !important;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        background: var(--background);
+        border-radius: 50%;
+        opacity: 1;
+
+        .number {
+            @include tokens.text-preset-responsive(2);
+            @include tokens.roboto-regular;
+            color: var(--textPrimary);
+            position: relative;
+            z-index: 2;
+        }
+
+        svg.circle {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 30px;
+            height: 30px;
+            transform: rotate(-90deg);
+        }
+
+        .bg {
+            fill: none;
+            stroke: var(--border);
+            stroke-width: 1;
+        }
+
+        .progress {
+            fill: none;
+            stroke: var(--borderSelected);
+            stroke-width: 3;
+            stroke-dasharray: 100;
+            stroke-dashoffset: 100;
+            transition: none;
+        }
+
+        &-active {
+            background: var(--brandLow);
+
+            .number {
+                @include tokens.roboto-bold;
+            }
+
+            .progress {
+                stroke-dasharray: 100;
+                stroke-dashoffset: 0;
+                transition: stroke-dashoffset 4s linear;
+            }
+        }
+    }
+
+    .swiper-button-next::after {
+        content: "";
+        @extend %icon-mask-grey;
+        mask-image: url(/imagenes/icons-Kenos/regular/chevron-right-regular.svg);
+    }
+
+    .swiper-button-next {
+        position: relative;
+        top: -65px;
+        left: 782px;
+    }
+
+    .swiper-button-prev {
+        position: relative;
+        top: -87px;
+        left: 488px;
+    }
+
+    .swiper-button-prev::after {
+        content: "";
+        @extend %icon-mask-grey;
+        mask-image: url(/imagenes/icons-Kenos/regular/chevron-left-regular.svg);
+    }
+
+    .planes__legales {
+        @include tokens.text-preset-responsive(1);
+        @include tokens.roboto-regular;
+        color: var(--textSecondary);
+        position: relative;
+        top: -135px;
+        left: 1030px;
+        cursor: pointer;
+        width: fit-content;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+}
+
+@media (max-width: 992px) {
+
+    .section_carrusel_banner {
+
+        .slider-container {
+            width: 100%;
+            margin-top: 100px;
+            height: 480px;
+            margin-bottom: 60px;
+
+            .carrusel-container {
+                height: 480px;
+
+                .carrusel-track {
+                    height: 480px;
+                    gap: 0;
+                    margin: 0;
+
+                    .banner-container {
+                        border: none;
+                        flex-direction: column-reverse;
+                        align-items: center;
+                        justify-content: flex-end;
+                        border-radius: 0;
+                        padding: 0;
+
+                        .banner-texto {
+                            padding: 16px;
+
+                            .botones-container {
+                                flex-direction: column-reverse;
+                                gap: 4px;
+
+                                .banner-primary-button {
+                                    width: 100%;
+                                }
+                            }
+                        }
+
+                        .banner-imagen {
+                            top: 0;
+                            right: 0;
+                            width: 100%;
+                        }
+                    }
+
+                    .slide1 {
+                        .banner-imagen {
+                            background-image: url("/imagenes/multiproducto/carrusel/terminales/enamorados/bg-enamorados-terminales-multi-promos-mob.png");
+                            background-size: cover;
+                            background-repeat: no-repeat;
+                            width: 100%;
+                            height: 200px;
+                            border-radius: 0px;
+                            padding: 32px 19px;
+
+                            .container-oferta {
+                                transform: translate(-9px, 76px);
+                                gap: 5px;
+
+                                .oferta {
+                                    font-size: 12px;
+                                }
+    
+                                .cuotas {
+                                    font-size: 32px;
+                                    border-radius: 4.94px;
+                                    padding: 2px 4px;
+                                }
+                                
+                            }
+                    
+                        }
+                        
+                    }
+
+                    .slide1,
+                    .slide2,
+                    .slide3,
+                    .slide4,
+                    .slide5,
+                    .slide6 {
+                        .banner-imagen {
+                            border-radius: 0;
+                        }
+                    }
+
+                    .slide2 {
+
+                        .banner-imagen {
+                            background-image: url("/imagenes/hogar_kenos/banner/verano/bg-verano-hogar-small-mob.png");
+                            width: 100%;
+                            min-height: 200px;
+                            border-radius: 0px;
+                            padding: 15px;
+
+                            .contenedor-principal {
+                                margin: 0px;
+
+                                .box-top {
+                                    min-height: 70px;
+
+                                    .box-up {
+                                        padding: 2px 5px
+                                    }
+
+                                    .box-middle {
+                                        padding: 0 10px 0 6px;
+                                    }
+                                }
+
+                                .box-down {
+                                    padding: 0px 4px;
+                                }
+                            }
+
+                            .info-sin-iva {
+                                margin: 5px 0 0 0;
+                            }
+                        }
+
+                    }
+
+                    .slide3 {
+                        .banner-imagen {
+                            height: 200px;
+                            width: 100%;
+                            gap: 40px;
+                            padding: 15px 25px;
+                            border-radius: 16px;
+                            border:8px solid #fffaf5;
+                            .contenedor-promo {
+                                gap: 22px;
+                                .contenedor-texto {
+                                    font-size: 26px;
+                                    line-height: 30px;
+                                }
+                                .cucarda {
+                                    span:first-child {
+                                        line-height: 20px;
+                                    }
+                                    span:nth-child(2) {
+                                        line-height: 34px;
+                                    }
+                                }
+                            }
+                            .img-cupido{
+                                width: 203px;
+                                height: auto;
+                                transform: translate(152px, 9px);
+                            }
+                        }
+
+                    }
+
+                    .slide4 {
+                        .banner-imagen {
+                            height: 200px;
+                            padding: 0;
+                            .contenedor {
+                                width: 100%;
+                                height: 180px;
+                                display: flex;
+                                justify-content: flex-end;
+                                padding-right: 12%;
+                
+                                .contenedor-promo {
+                                    .mes-gratis {
+                                        font-size: 36px;
+                                        line-height: 34px;
+                                    }
+                                    .planes-desde {
+                                        font-size: 14px;
+                                        line-height: 14px;
+                                        padding: 4px;
+                                        margin-top: 10px;
+                                    }
+                                }
+                                .desktop { display: none; }
+                                .mobile {
+                                    display: block;
+                                    width: auto;
+                                    height: 160px;
+                                    position: absolute;
+                                    left: 0;
+                                }
+                            }
+                        }
+
+                    }
+
+                    .slide5 {
+                        .banner-imagen {
+                            background-image: url("/imagenes/multiproducto/cdp-migra/bg-migra-multis-verano-pajaro-mob.png");
+                            background-size: cover;
+                            background-repeat: no-repeat;
+                            min-height: 200px;
+                            width: 100%;
+                            border-radius: 0px;
+                            gap: 3px;
+                            padding: 10px;
+
+                            .info {
+                                gap: 0px;
+
+                                p:first-child,
+                                p:last-child {
+                                    font-size: 18px;
+                                    line-height: 20px;
+                                }
+    
+                            }
+    
+                            .precio {
+                                gap: 0px;
+
+                                p:first-child {
+                                    font-size: 16px;
+                                    line-height: 24px;
+                                    margin-bottom: -7px;
+                                }
+    
+                                p:last-child {
+                                    font-size: 35px;
+                                }
+                                
+                            }
+    
+                            .oferta {
+                                    font-size: 20px;
+                                    height: 25px;
+                                    padding: 3px 10px 10px 10px;
+                                    line-height: 100%;
+    
+                                    span {
+                                        font-size: 18px;
+                                        line-height: 100%;
+                                    }                          
+                            }
+    
+                            .meses {
+                                    font-size: 18px;
+                                    line-height: 100%;
+                            }
+                        }
+                    }
+
+                    .slide6 {
+
+                        .banner-imagen {
+                            height: 200px;
+                            width: 100%;
+                            margin: 0px;
+                            padding: 22px 20px 10px;
+                            .container-text {
+                                .tag {
+                                
+                                }
+    
+                                .title {
+                                    
+                                }
+                                .recarga {
+                                    margin-top: 0px;
+                                    max-width: 260px;
+                                    color: #0066FF;
+                                }
+                            }
+                            .container-oferta {
+                                
+                                .gb {
+                                    line-height: 30px;
+                                }
+
+                                .oferta {
+                                    
+                                }
+                                .xmes {
+                                
+                                }
+                            }
+                            img {
+                                top: 5%;
+                                right: -12%;
+                                height: 100%;
+                            }
+                        }
+                    }
+
+
+                }
+            }
+        }
+
+        .swiper-pagination {
+            left: 0 !important;
+            top: -20px !important;
+        }
+
+        .swiper-button-next {
+            top: -55px;
+            left: 147px;
+            margin: auto;
+        }
+
+        .swiper-button-prev {
+            left: -147px;
+            top: -100px;
+            margin: auto;
+        }
+
+        .planes__legales {
+            display: none;
+        }
+    }
+}
+
+///// ICONOS SVG CONFIGURACION
+
+%icon-mask-grey {
+    min-width: 25.5px;
+    height: 25px;
+    background-color: var(--neutralHigh);
+    mask-size: cover;
+    display: block;
+}

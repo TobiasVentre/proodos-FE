@@ -1,0 +1,85 @@
+$fonts-path: '/fonts/' !default;
+
+@mixin font-face($fontName, $fontWeight: 400, $fontStyle: normal) {
+  $woff2: '#{$fonts-path}#{$fontName}.woff2';
+  $woff:  '#{$fonts-path}#{$fontName}.woff';
+  $ttf:   '#{$fonts-path}#{$fontName}.ttf';
+  $svg:   '#{$fonts-path}#{$fontName}.svg##{$fontName}';
+  $eot:  '#{$fonts-path}#{$fontName}.eot';
+  $eotq: '#{$fonts-path}#{$fontName}.eot?#iefix';
+
+  @font-face {
+    font-family: "#{$fontName}";
+    src: url("#{$eot}");
+    src:
+      local("#{$fontName}"),
+      url("#{$woff2}") format("woff2"),
+      url("#{$woff}")  format("woff"),
+      url("#{$ttf}")   format("truetype"),
+      url("#{$svg}")   format("svg"),
+      url("#{$eotq}") format("embedded-opentype");
+    font-weight: $fontWeight;
+    font-style: $fontStyle;
+    font-display: swap;
+  }
+}
+
+@mixin register-fonts() {
+  @include font-face('TelefonicaWeb-Bold',            700);
+  @include font-face('TelefonicaWeb-Regular',         400);
+  @include font-face('TelefonicaWeb-Light',           300);
+  @include font-face('TelefonicaWeb-Italic',          400, italic);
+  @include font-face('TelefonicaWeb-RegularItalic',   400, italic);
+  @include font-face('TelefonicaWeb-Thin',            100);
+  @include font-face('TelefonicaWeb-Hand',            400);
+
+  @include font-face('Guthen Bloots Alt1',            400);
+  @include font-face('Guthen Bloots Alt2',            400);
+  @include font-face('Guthen Bloots Basic',           400);
+  @include font-face('Guthen Bloots Slant',           400);
+  @include font-face('Guthen Bloots Swash',           400);
+  @include font-face('TelefonicaCap-Regular',         400);
+  @include font-face('summer-loving',                 400);
+
+  @include font-face('Roboto-Light',                  300);
+  @include font-face('Roboto-Regular',                400);
+  @include font-face('Roboto-Medium',                 500);
+  @include font-face('Roboto-Bold',                   700);
+
+  @include font-face('MovistarSans-Regular',          400, normal);
+  @include font-face('MovistarSans-Italic',           400, italic);
+  @include font-face('MovistarSans-Light',            300, normal);
+  @include font-face('MovistarSans-Light-Italic',     300, italic);
+  @include font-face('MovistarSans-Medium',           500, normal);
+  @include font-face('MovistarSans-Medium-Italic',    500, italic);
+  @include font-face('MovistarSans-Bold',             700, normal);
+  @include font-face('MovistarSans-Bold-Italic',      700, italic);
+  @include font-face('MovistarSans-ExtraBold',        800, normal);
+  @include font-face('MovistarSans-ExtraBold-Italic', 800, italic);
+}
+
+/* variables de familia (como ya tenías) */
+$bold: 'TelefonicaWeb-Bold';
+$regular: 'TelefonicaWeb-Regular';
+$light: 'TelefonicaWeb-Light';
+$italic: 'TelefonicaWeb-Italic';
+$cap: 'TelefonicaCap-Regular';
+$guthen1: 'Guthen Bloots Alt1';
+$guthen2: 'Guthen Bloots Alt2';
+$guthen-basic: 'Guthen Bloots Basic';
+$regular-italic: 'TelefonicaWeb-RegularItalic';
+$roboto-light: 'Roboto-Light';
+$roboto-medium: 'Roboto-Medium';
+$roboto-regular: 'Roboto-Regular';
+$roboto-bold: 'Roboto-Bold';
+$roboto: 'Roboto-Regular';
+$movistar-regular: 'MovistarSans-Regular';
+$movistar-italic: 'MovistarSans-Italic';
+$movistar-light: 'MovistarSans-Light';
+$movistar-light-italic: 'MovistarSans-Light-Italic';
+$movistar-medium: 'MovistarSans-Medium';
+$movistar-medium-italic: 'MovistarSans-Medium-Italic';
+$movistar-bold: 'MovistarSans-Bold';
+$movistar-bold-italic: 'MovistarSans-Bold-Italic';
+$movistar-extrabold: 'MovistarSans-ExtraBold';
+$movistar-extrabold-italic: 'MovistarSans-ExtraBold-Italic';

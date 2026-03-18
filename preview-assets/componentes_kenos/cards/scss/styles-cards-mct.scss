@@ -1,0 +1,274 @@
+@use 'general-kenos' as tokens;
+
+// Estilos cards
+
+#cards_mct {     
+    background-color: var(--backgroundAlternative);
+    padding: 72px 0;
+
+    .btn-primary-kenos {
+        width: fit-content;
+        margin: 35px auto;
+        padding: 10px 45px;
+        display: flex;
+    }
+
+    .titulo {
+        @include tokens.text-preset-responsive(6);
+        @include tokens.regular;
+        color: var(--textPrimary);
+        text-align: center;
+        padding-bottom: 64px;
+    }
+     
+    img {
+        width: 32px;
+    }
+
+    .flex {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 35px;
+    }
+
+    .precio-sin-iva{
+        @include tokens.text-preset-responsive(1);
+        color: var(--textSecondary);
+        margin: 0 auto;
+        text-align: center;
+    }
+    .bajada-legales{
+        width: 700px;
+        font-size: 14px;
+        line-height: 20px;
+        color: var(--textSecondary);
+        margin: 20px auto;
+        text-align: left;
+    }
+    .tycLink {
+        color: var(--brand);
+       @include tokens.regular;
+        text-align: center;
+        margin: 20px auto;
+        display: flex;
+        justify-content: center;
+    }
+    @media (max-width: 992px) {
+        .titulo {
+            padding-bottom: 32px;
+        }
+
+        img {
+            width: 24px;
+        }
+        
+        .flex {
+            flex-direction: column;
+            gap: 10px;
+        }
+        .bajada-legales{
+            width: fit-content;
+        }
+}
+
+    .header {
+        border-bottom: 2px solid var(--brand);
+        @include tokens.text-preset-responsive(4);
+        display: flex;
+        color: var(--textPrimary);
+        gap: 16px;
+        padding-bottom: 12px;
+
+        img {
+            width: 56px;
+            height: auto
+        }
+
+        .plan__name {          
+            @include tokens.roboto-regular;
+           @include tokens.text-preset-responsive(4,3);
+
+        }
+        .plan__gigas {
+            @include tokens.roboto-bold;
+        }
+
+        @media (max-width: 992px) {
+
+           .plan__name {          
+                
+            }           
+        }
+    }
+
+    .border__card {
+        border: 1px solid var(--border);
+    }
+    
+    .border__blue {
+        border: 2px solid var(--borderSelected);
+        border-top: none;    
+    }
+    
+/* Caja blanca */
+ .box__white {
+    height: auto;
+    background: var(--background);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+    border-radius: 8px;
+    @extend .border__card;
+    padding: 24px 24px 32px 24px;
+    width: 330px;
+}
+
+  .box__white .oferta {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+  .box__white .oferta .price {    
+    text-align: center;
+    color: var(--backgroundBrandSecondary);
+    @include tokens.text-preset-responsive(6,7);
+    @include tokens.bold;
+}
+
+  .box__white .oferta .x_mes {  
+    text-align: center;
+    color: var(--backgroundBrandSecondary);
+    @include tokens.text-preset-responsive(5,3);
+    @include tokens.regular;
+}
+
+ .box__white .oferta .full-price {
+    color: var(--textPrimary);
+    @include tokens.roboto-light;
+    @include tokens.text-preset-responsive(2);
+}
+
+    @media (max-width: 992px) {
+
+     .box__white {
+      max-width: 288px;
+      padding: 16px 16px 24px 16px;
+    }
+  
+    
+
+     .box__white .oferta .x_mes {
+        
+    }
+}
+
+/* Cucarda magenta */
+ .tag__label {
+    display: flex;
+    border-radius: 4px;
+    background: var(--highligtLow);
+    width: fit-content;
+    @include tokens.roboto-medium;   
+    color: var(--highlightHigh);
+    @include tokens.text-preset-responsive(1,2);
+    padding: 4px 8px;
+}
+
+@media (max-width: 992px) {
+ .tag__label {
+    
+}
+}
+
+ .box__white .titulo-beneficio {
+    color: var(--textPrimary);
+    @include tokens.text-preset-responsive(4);
+    @include tokens.regular;
+    padding-top: 5px
+}
+
+ .box__white {
+    .beneficio-1,
+    .beneficio-2,
+    .beneficio-3,
+    .beneficio-4 {
+        @include tokens.text-preset-responsive(1,2);
+        @include tokens.roboto-regular;
+        color: var(--textPrimary);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: left;
+        background: var(--backgroundAlternative);
+        gap: 8px;
+        border-radius: 8px;
+        padding: 8px;
+        text-align: left;
+    }
+}
+
+@media (max-width: 992px) {
+.box__white {
+    .beneficio-1,
+    .beneficio-2,
+    .beneficio-3,
+    .beneficio-4 {
+        
+        padding: 5px;
+    }
+}
+}
+}
+
+
+@media (max-width: 992px) {
+#cards_mct {
+    padding: 30px;
+}
+}
+
+%icon-mask-blue-32 {
+    min-width: 32px;
+    height: 32px;
+    background-color: var(--brand);
+    mask-size: cover;
+  }
+
+  %icon-mask-blue-56 {
+    min-width: 56px;
+    height: 56px;
+    background-color: var(--brand);
+    mask-size: cover;
+  }
+
+  %icon-mask-gray-24 {
+    min-width: 24px;
+    height: 24px;
+    background-color: var(--textPrimary);
+    mask-size: cover;
+  }
+
+  .home-wifi-regular {
+    @extend %icon-mask-blue-56;
+    mask-image: url(/imagenes/icons-Kenos/regular/home-wifi-regular.svg);
+  }
+
+  .mobile-device-regular {
+    @extend %icon-mask-blue-56;
+    mask-image: url(/imagenes/icons-Kenos/regular/mobile-device-regular.svg);
+  }
+
+  .check-regular {
+    @extend %icon-mask-blue-32;
+    mask-image: url(/imagenes/icons-Kenos/regular/check-regular.svg);
+  }
+
+  .add-more-regular {
+    @extend %icon-mask-gray-24;
+    mask-image: url(/imagenes/icons-Kenos/regular/add-more-regular.svg);
+  }
+

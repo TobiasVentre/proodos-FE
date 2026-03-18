@@ -1,0 +1,265 @@
+@use 'general-kenos' as tokens;
+
+.section_carrusel_banner {
+
+    .slider-container {
+        position: relative;
+        width: fit-content;
+        margin: 80px auto 0;
+        height: 430px;
+
+        .carrusel-container {
+            max-width: 1250px;
+            overflow-x: hidden;
+            margin: auto;
+            
+            .carrusel-track {
+                margin: 64px auto 0;
+                gap: 50px;
+
+                .banner-container {
+                    max-width: 1200px;
+                    border: 1px solid var(--border);
+                    border-radius: 16px;
+                    display: flex;
+                    padding: 16px 0 8px;
+
+                    .banner-texto {
+                        padding: 60px 0 60px 40px;
+
+                        .banner-tag {
+                            @include tokens.text-preset-responsive(1);
+                            @include tokens.roboto-medium;
+                            color: var(--brand);
+                            background-color: var(--brandLow);
+                            padding: 4px;
+                            border-radius: 4px;
+                            width: fit-content;
+                        }
+
+                        .banner-titulo {
+                            @include tokens.text-preset-responsive(7);
+                            @include tokens.regular;
+                            color: var(--textPrimary);
+                            margin-top: 8px;
+                        }
+
+                        .banner-bajada {
+                            @include tokens.text-preset-responsive(3);
+                            @include tokens.roboto-regular;
+                            color: var(--textSecondary);
+                            margin-top: 16px;
+                        }
+
+                        .botones-container {
+                            display: flex;
+                            align-items: center;
+                            gap: 28px;
+                            margin-top: 16px;
+                        }
+                    }
+
+                    .banner-imagen {
+                        position: relative;
+                        top: -44px;
+                        right: -32px; 
+                    }
+                }
+            }
+        }
+    }
+
+    .swiper-pagination {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+        position: relative;
+        top: -50px !important;
+        left: 25px !important;
+    }
+
+    .swiper-pagination-bullet {
+        position: relative;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        margin: 0 !important;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        background: var(--background);
+        border-radius: 50%;
+        opacity: 1;
+        
+        .number {
+            @include tokens.text-preset-responsive(2);
+            @include tokens.roboto-regular;
+            color: var(--textPrimary);
+            position: relative;
+            z-index: 2;
+        }
+
+        svg.circle {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 30px;
+            height: 30px;
+            transform: rotate(-90deg);
+        }
+
+        .bg {
+            fill: none;
+            stroke: var(--border);
+            stroke-width: 1;
+        }
+
+        .progress {
+            fill: none;
+            stroke: var(--borderSelected);
+            stroke-width: 3;
+            stroke-dasharray: 100;
+            stroke-dashoffset: 100;
+            transition: none;
+        }
+
+        &-active {
+            background: var(--brandLow);
+
+            .number {
+                @include tokens.roboto-bold;     
+            }
+
+            .progress {
+                stroke-dasharray: 100;
+                stroke-dashoffset: 0;
+                transition: stroke-dashoffset 4s linear; 
+            }
+        }
+    }
+
+    .swiper-button-next::after {
+        content: "";
+        @extend %icon-mask-grey;
+        mask-image: url(/imagenes/icons-Kenos/regular/chevron-right-regular.svg);
+    }
+
+   .swiper-button-next{
+        position: relative;
+        top: -65px;
+        left: 740px;        
+    }
+
+    .swiper-button-prev{
+        position: relative;
+        top: -87px;
+        left: 530px;
+    }
+
+    .swiper-button-prev::after {
+        content: "";
+        @extend %icon-mask-grey;
+        mask-image: url(/imagenes/icons-Kenos/regular/chevron-left-regular.svg);
+    } 
+
+    .planes__legales {
+        @include tokens.text-preset-responsive(1);
+        @include tokens.roboto-regular;
+        color: var(--textSecondary);
+        position: relative;
+        top: -135px;
+        left: 1030px;
+        cursor: pointer;
+        width: fit-content;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+}
+
+@media (max-width: 992px) {
+    .section_carrusel_banner {
+
+        .slider-container {
+            width: 100%;
+            margin-top: 100px;
+            height: 545px;
+
+            .carrusel-container {
+
+                .carrusel-track {
+                    height: 530px;
+                    gap: 0;
+                    margin: 0;
+
+                    .banner-container{
+                        border: none;
+                        flex-direction: column-reverse;
+                        align-items: center;
+                        justify-content: flex-end;
+                        border-radius: 0;
+                        padding: 0;
+                        
+                        .banner-texto {
+                            padding: 16px;
+
+                            .botones-container {
+                                flex-direction: column-reverse;
+                                gap: 4px;
+
+                                .banner-primary-button {
+                                    width: 100%;
+                                }
+                            }
+                        }
+
+                        .banner-imagen {
+                            top: 0;
+                            right: 0;
+                            width: 100%;
+
+                            img {
+                                width: 100%;
+                                height: auto;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .swiper-pagination {
+            left: 0 !important;
+            top: -20px !important;
+        }
+
+        .swiper-button-next{
+            top: -55px;
+            left: 105px;
+            margin: auto;
+        }
+         
+        .swiper-button-prev{
+            left: -110px;
+            top: -100px;
+            margin: auto;
+        }
+
+        .planes__legales {
+            display: none;
+        }
+    }
+}
+
+
+///// ICONOS SVG CONFIGURACION
+
+%icon-mask-grey {
+    min-width: 25.5px;
+    height: 25px;
+    background-color: var(--neutralHigh);
+    mask-size: cover;
+    display: block;
+  }

@@ -1,0 +1,257 @@
+@use 'general-kenos' as tokens;
+
+.fc-mct-app.floating-card {
+    padding: 0px;
+    background-color: var(--background);
+    
+    .container-general {
+        max-width: 1224px;
+        justify-content: flex-start;
+        padding: 32px 0px;
+    }
+}
+
+.floating-card  {    
+    width: 100%;
+    background-color: var(--backgroundAlternative);
+    padding: 40px 72px;
+
+    .container-general {       
+    background-color: var(--background);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;  
+    padding: 32px; 
+    border-radius: 16px;
+    margin: auto;
+    max-width: 1224px;
+
+    .container-right,
+    .container-left {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;          
+    }
+
+    .container-left .pre_title {
+        @include tokens.text-preset-responsive(3);
+        @include tokens.roboto-medium;
+        color: var(--textPrimary);
+            padding: 4px;
+            text-align: center;
+            position: relative;
+            top: 14px;
+    }
+
+    .container-left picture > img, .container-left img{
+        border-radius: 16px;
+        width: 496px;
+        min-height: 278px;
+    }
+
+    .container-right .container-btn {
+        display: flex;
+        flex-direction: row;
+        gap: 8px; 
+    }
+    .beneficio {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        .plan-caracteristica  {
+        @include tokens.text-preset-responsive(1);
+        @include tokens.roboto-regular;
+        color: var(--textPrimary);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: left;
+        background: var(--backgroundAlternative);
+        gap: 8px;
+        border-radius: 8px;
+        padding: 8px;
+        text-align: left;
+        width: 100%;
+        height: auto;
+        }
+    }
+
+        %tag {
+            @include tokens.text-preset-responsive(1);
+            @include tokens.roboto-medium; 
+            border-radius: 4px;
+            padding: 4px;
+            text-align: center;
+            position: relative;
+            top: 14px;
+        }
+        .tag-celeste { 
+            @extend %tag;             
+            color: var(--brand);
+            background-color: var(--brandLow);               
+        }
+
+        .tag-naranja {
+            @extend %tag;              
+            color: var(--inverse);
+            background-color: var(--warning);         
+        }
+
+        .tag-verde {
+            @extend %tag;              
+            color: var(--inverse);
+            background-color: #5CB615;         
+        }
+
+        .tag-violeta {
+            @extend %tag;
+            color: var(--promoHigh);
+            background-color: var(--promoLow);
+        }
+
+        .title {
+            @include tokens.text-preset-responsive(6);
+            @include tokens.regular;
+            color: var(--textPrimary);
+        }
+
+        .subtitle {
+            @include tokens.text-preset-responsive(3);
+            @include tokens.roboto-regular;
+            color: var(--textPrimary);
+            margin-top: -10px;
+        }
+
+        .description {
+            @include tokens.text-preset-responsive(3);
+            @include tokens.roboto-regular;
+            color: var(--textSecondary);
+            max-width: 540px;
+        }     
+        
+        a {
+            padding: 10px 14px;
+            min-width: 145px;
+        }
+    }
+}
+
+.reverse {
+    flex-direction: row-reverse;
+}
+
+
+@media (min-width: 1500px) {
+   .floating-card .container-general {     
+         width: 1224px;     
+    }
+}
+
+@media (max-width: 992px) {
+
+    .reverse {
+    flex-direction: row;
+    }
+
+    .fc-mct-app.floating-card .container-general {
+        padding: 0px;
+    }
+
+   .floating-card {   
+    padding: 16px 16px 24px 16px !important;
+        
+        .container-general {
+            flex-direction: column;
+            border-radius: 16px;
+            padding: 0;        
+            gap: 0px;
+            width: 100%;
+            
+                img {
+                    display: none;
+                }
+
+            .container-left {
+                height: 210px;
+                width: 100%;
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: cover;
+                border-top-left-radius: 16px;
+                border-top-right-radius: 16px;
+            }
+
+            .container-left.small {
+                height: 136px;
+            }
+        
+            .container-right {
+                padding: 24px 24px 32px;
+                border-bottom-left-radius: 16px;
+                border-bottom-right-radius: 16px;
+                border: 1px solid var(--border);
+                border-top: none;
+                width: 100%;
+                .title {
+                    
+                
+                }   
+                
+                a {
+                    margin-left: auto;
+                }
+            }
+
+            .container-right .beneficio img {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            }
+
+            .container-btn {
+                flex-direction: column !important;
+                margin: auto;
+                width: 100%;                                 
+                                
+            }
+            //Ancho 100% de botón en mobile
+            .full-width {
+                width: 100%;
+            }
+        }
+    }
+
+
+//Imagen particular de cada banner
+    .fc-movistar-con-todo .container-left {
+        background-image: url("/imagenes/floating-card/mct-mb.png");
+    }
+
+    .fc-esim .container-left {
+        background-image: url("/imagenes/floating-card/esim-mb.webp");
+    }
+
+    .fc-veni-a-movistar .container-left {
+        background-image: url("/imagenes/floating-card/veni-a-movistar-mb.png");
+    }
+    .fc-retirar-tu-chip .container-left {
+        background-image: url("/imagenes/floating-card/donde-retiro-mi-chip.png");
+    }
+    .fc-mct-app .container-left {
+        background-image: url("/imagenes/mct-kenos/mct-mb.png");
+    }
+    .fc-nueva-linea-prepaga .container-left {
+        background-image: url("/imagenes/floating-card/nueva-linea-prepaga.png");
+    }
+
+    .fc-cdp .container-left {
+        background-image: url("/imagenes/floating-card/fc-cdp.png");
+    }
+
+    .fc-movistar-tv .container-left {
+        background-image: url("/imagenes/floating-card/fc-movistar-tv-mob.png");
+    }
+  }

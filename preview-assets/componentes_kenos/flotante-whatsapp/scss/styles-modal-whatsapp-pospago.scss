@@ -1,0 +1,132 @@
+@use 'general-kenos' as tokens;
+
+/*Flotante WhatsApp*/
+section.flotante-whatsapp-container {
+    position: fixed;
+    bottom: 100px;
+    right: 100px;
+    z-index: 99999;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 16px;
+
+    .modal.fade.in {
+        position: absolute;
+        top: -90px;
+        left: -190px;
+    
+    .modal-dialog {
+        position: fixed;
+        bottom: 130px;
+        right: 100px;
+        width: fit-content;
+
+    .modal-whatsapp {
+        @include tokens.text-preset-responsive(4);
+        @include tokens.roboto-regular;
+        color: var(--textPrimary);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        width: 392px;
+        border: 1px solid var(--border);
+        background-color: var(--backgroundContainer);
+        border-radius: 8px;
+        padding: 32px 24px;
+        box-sizing: border-box;
+        z-index: 99999;
+        transition: opacity 1s ease;
+        overflow: hidden;
+        
+                .close {
+                    top: 10px;
+                    right: 10px;
+        }
+
+        .texto-chat {
+            @include tokens.text-preset-responsive(4);
+            align-self: normal;
+        }
+
+                a {
+                    position: relative;
+                    top: 15px;
+                    right: -10px;
+                }
+        }
+    }    
+
+    } 
+
+    .llamar-flotante-whatsapp {
+        background: url("/imagenes/iconos/whatsapp-modal-regular.svg") no-repeat;
+        width: 48px;
+        height: 48px;
+        cursor: pointer;
+        background-position: bottom left;
+        outline: none;
+        border: none; 
+    }    
+    
+    .notification{        
+        background: url("/imagenes/iconos/whatsapp-notification-modal-regular.svg") no-repeat;   
+        border: none;        
+        background-position: bottom left;
+        background-size: cover;
+        width: 50px;
+    }
+    
+.js__whatsapp {
+    display: none;
+}
+}
+
+
+
+@media (max-width: 992px) {
+    section.flotante-whatsapp-container{
+        right: 10px;
+        bottom: 150px;
+
+        .modal.fade.in {
+
+        .modal-dialog {
+                right: 30px;
+                bottom: 120px;
+
+        .modal-whatsapp {
+            width: 328px;
+            padding: 24px 16px;
+            position: relative;
+                    top: -40px;
+                    left: -20px;
+
+                    .close {
+                top: 5px;
+                right: 5px;
+            }
+
+                    .texto-chat {
+                        margin-top: 15px;
+                    }
+                }
+        }
+    }
+    }
+}
+
+
+
+%icon-mask-grey {
+    width: 24px;
+    height: 24px;
+    background-color: var(--neutralHigh);
+    mask-size: cover;
+    display: block;
+  }
+
+  .close-regular {
+    @extend %icon-mask-grey;
+    mask-image: url(/imagenes/icons-Kenos/regular/close-regular.svg);
+  }

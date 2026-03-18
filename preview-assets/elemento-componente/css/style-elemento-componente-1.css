@@ -1,0 +1,183 @@
+/* Estilos Desktop */
+.right-container {
+  position: relative;
+  background-image: url("/imagenes/hogar_kenos/banner/vuelta-a-clases/bg-hogar-general-vuelta-a-clases-desk.png");
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 564px;
+  min-height: 317px;
+  object-fit: cover;
+  background-size: cover;
+  background-position: right, center;
+  border-radius: 16px;
+  color: #262423;
+  padding: 25px;
+  gap: 52px;
+}
+
+.right-container .container-text-up {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.right-container .container-text-up .divisor {
+  width: 3px;
+  height: 106px;
+  background-color: #0066ff;
+}
+
+.right-container .container-text-up .fibra,
+.right-container .container-text-up .movistar-tv {
+  width: fit-content;
+  height: 105px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.right-container .container-text-up .fibra div:nth-child(1),
+.right-container .container-text-up .movistar-tv div:nth-child(1) {
+  color: #262433;
+  text-align: left;
+  font-size: 22px;
+  line-height: 100%;
+  /* Reemplazar con el equivalente de: @include tokens.movistar-medium; */
+}
+
+.right-container .container-text-up .fibra div:nth-child(2),
+.right-container .container-text-up .movistar-tv div:nth-child(2) {
+  color: #0066FF;
+  font-size: 44px;
+  line-height: 100%;
+  letter-spacing: -1px;
+  /* Reemplazar con el equivalente de: @include tokens.movistar-bold; */
+}
+
+.right-container .container-text-up .fibra .beneficios,
+.right-container .container-text-up .movistar-tv .beneficios {
+  color: #262433;
+  font-size: 16px;
+  line-height: 100%;
+  background-color: #D3EEFF;
+  padding: 8px;
+  /* Reemplazar con el equivalente de: @include tokens.movistar-regular; */
+}
+
+.right-container .container-text-up .fibra .mtv-beneficios,
+.right-container .container-text-up .movistar-tv .mtv-beneficios {
+  color: #FFFAF5;
+  background-color: #022D67;
+}
+
+.right-container .container-text-down {
+  color: #FFFAF5;
+  text-align: left;
+  width: fit-content;
+}
+
+.right-container .container-text-down div:nth-child(1) {
+  font-size: 23.2px;
+  line-height: 100%;
+  /* Reemplazar con el equivalente de: @include tokens.movistar-medium; */
+}
+
+.right-container .container-text-down .oferta {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  font-family: 'Movistarsans-Bold';
+}
+
+.right-container .container-text-down .oferta span:nth-child(1),
+.right-container .container-text-down .oferta span:nth-child(2) {
+  font-size: 64px;
+  line-height: 100%;
+  letter-spacing: -1px;
+}
+
+.right-container .container-text-down .oferta span:nth-child(3) {
+  font-size: 32px;
+  line-height: 100%;
+}
+
+.right-container .container-text-down .sin_impuestos {
+  color: var(--textSecondaryInverse);
+  /* Reemplazar con el equivalente de: @include tokens.text-preset-responsive(1); */
+  /* Reemplazar con el equivalente de: @include tokens.roboto-regular; */
+}
+
+.right-container .container-text-down .info-sin-iva {
+  margin: 15px 0 0 0;
+  text-align: left;
+  /* Reemplazar con el equivalente de: @include tokens.text-preset-responsive(1); */
+  /* Reemplazar con el equivalente de: @include tokens.movistar-regular; */
+}
+
+/* Media Query para Mobile */
+@media (max-width: 992px) {
+  .right-container {
+    background-image: url("/imagenes/hogar_kenos/banner/vuelta-a-clases/bg-hogar-general-vuelta-a-clases-mob.png");
+    width: 100%;
+    min-height: 200px;
+    border-radius: 0px;
+    padding: 24px 15px 15px;
+    gap: 16px;
+  }
+
+  .right-container .container-text-up {
+    gap: 8px;
+  }
+
+  .right-container .container-text-up .divisor {
+    height: 76px;
+    width: 1px;
+  }
+
+  .right-container .container-text-up .fibra,
+  .right-container .container-text-up .movistar-tv {
+    height: 76px;
+    gap: 0px;
+  }
+
+  .right-container .container-text-up .fibra div:nth-child(1),
+  .right-container .container-text-up .movistar-tv div:nth-child(1) {
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: -0.5px;
+  }
+
+  .right-container .container-text-up .fibra div:nth-child(2),
+  .right-container .container-text-up .movistar-tv div:nth-child(2) {
+    font-size: 28px;
+    line-height: 100%;
+  }
+
+  .right-container .container-text-up .fibra .beneficios,
+  .right-container .container-text-up .movistar-tv .beneficios {
+    margin-top: 4px;
+    font-size: 14px;
+    line-height: 100%;
+    padding: 7px;
+  }
+
+  .right-container .container-text-down div:nth-child(1) {
+    font-size: 14px;
+  }
+
+  .right-container .container-text-down .oferta span:nth-child(1),
+  .right-container .container-text-down .oferta span:nth-child(2) {
+    font-size: 36px;
+  }
+
+  .right-container .container-text-down .oferta span:nth-child(3) {
+    font-size: 16px;
+  }
+}

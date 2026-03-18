@@ -1,0 +1,209 @@
+@use 'general-kenos'as tokens;
+
+@mixin flexCenter($direct) {
+  display: flex;
+  flex-direction: $direct;
+  justify-content: center;
+  align-items: center;
+}
+
+#banner-migra-multi {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 110px 0 32px;
+
+  .texto {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 8px;
+
+    .cucarda {
+      @include tokens.text-preset-responsive(1, 2);
+      @include tokens.roboto-medium;
+      color: var(--brand);
+      background: var(--brandLow);
+      padding: 4px 4px 3px 4px;
+      border-radius: 4px;
+    }
+
+    .titular {
+      @include tokens.text-preset-responsive(7);
+      @include tokens.regular;
+      color: var(--textPrimary);
+    }
+
+    .bajada {
+      @include tokens.text-preset-responsive(3);
+      @include tokens.roboto-regular;
+      color: var(--textSecondary);
+    }
+  }
+
+  .right-container {
+    width: 704px;
+    height: 266px;
+    @include flexCenter(column);
+    background-image: url("/imagenes/migra-kenos/bg-migra-banner-solo-verano-pajaro-desk.png");
+    align-items: flex-start;
+    background-repeat: no-repeat;
+    text-align: left;
+    background-size: cover;
+    border-radius: 16px;
+    padding-left: 40px;
+    gap: 0px;
+
+    .info {
+      @include flexCenter(column);
+      align-items: flex-start;
+      gap: 4px;
+
+      p:first-child {
+        @include tokens.movistar-bold;
+        font-size: 30px;
+        line-height: 35px;
+        color: #022D67;
+      }
+
+      p:last-child {
+        @include tokens.movistar-medium;
+        font-size: 28px;
+        line-height: 35px;
+        color: #006BFF;
+      }
+
+    }
+
+    .precio {
+      @include flexCenter(column);
+      align-items: flex-start;
+      gap: 4px;
+
+      p:first-child {
+        @include tokens.movistar-medium;
+        font-size: 18px;
+        line-height: 24px;
+        color: #022D67;
+      }
+
+      p:last-child {
+        @include tokens.movistar-bold;
+        font-size: 45px;
+        line-height: 45px;
+        color: #022D67;
+
+        span {
+          font-size: 25px;
+        }
+      }
+
+    }
+
+    .oferta {
+      @include tokens.movistar-bold;
+      font-size: 30px;
+      line-height: 130%;
+      color: #FFFAF5;
+      background-color: #022D67;
+      padding: 0px 10px 17px 10px;
+      width: fit-content;
+      height: 40px;
+      border-radius: 4px;
+
+      span {
+        @include tokens.movistar-regular;
+        font-size: 22px;
+        line-height: 130%;
+      }
+    }
+
+    .meses {
+      @include tokens.movistar-bold;
+      font-size: 35px;
+      line-height: 130%;
+      color: #0066FF;
+    }
+
+    .info-sin-iva {
+      @include tokens.text-preset-responsive(1);
+      @include tokens.roboto-regular;
+      color: #022D67;
+      margin: 0px;
+      text-align: left;
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  #banner-migra-multi {
+    flex-direction: column-reverse;
+    gap: 28px;
+    margin-top: 124px;
+
+    .texto {
+      width: 328px;
+    }
+
+    .right-container {
+      background-image: url("/imagenes/migra-kenos/bg-migra-banner-solo-verano-pajaro-mob.png");
+      height: 180px;
+      width: 328px;
+      border-radius: 8px;
+      background-size: cover;
+      padding-left: 8px;
+
+      .info {
+        gap: 0px;
+
+        p:first-child,
+        p:last-child {
+            font-size: 18px;
+            line-height: 20px;
+        }
+
+    }
+
+    .precio {
+        gap: 0px;
+
+        p:first-child {
+            font-size: 14px;
+            line-height: 24px;
+            margin-bottom: -7px;
+        }
+
+        p:last-child {
+            font-size: 30px;
+
+            span {
+              font-size: 25px;
+            }
+        }
+        
+    }
+
+    .oferta {
+            font-size: 20px;
+            height: 25px;
+            padding: 3px 10px 10px 10px;
+            line-height: 100%;
+            margin-bottom: 3px;
+
+            span {
+                font-size: 18px;
+                line-height: 100%;
+            }                          
+    }
+
+    .meses {
+            font-size: 18px;
+            line-height: 100%;
+    }
+        .info-sin-iva {
+          margin: 3px 0 -2px;
+        }
+      }
+    }
+  }

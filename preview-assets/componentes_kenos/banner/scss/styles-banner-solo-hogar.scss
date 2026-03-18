@@ -1,0 +1,388 @@
+@use 'general-kenos' as tokens;
+
+.banner__solo-hogar {
+    width: 100%;
+    margin-top: 80px;
+    
+    .contenido {
+        height: 300px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 33px;
+
+        .texto {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            color: var(--textPrimary);
+            gap: 20px;
+
+            .pre_titulo {
+                @include tokens.text-preset-responsive(4);
+                @include tokens.roboto-regular;
+            }
+            
+            .titulo {
+                @include tokens.text-preset-responsive(8,6);
+                @include tokens.regular;
+                max-width: 600px;
+            }
+
+            .bajada {
+                @include tokens.text-preset-responsive(3);
+                @include tokens.roboto-regular;
+                color: var(--textSecondary);
+                margin: 16px 0 0 0;
+                span { font-weight: 700; }
+            }
+        
+        }    
+        
+        .right-container {
+            background-image: url("/imagenes/hogar_kenos/banner/estudiante/bg-estudiante-desk-large.png");
+            width: 704px;
+            height: 266px;
+            background-size: cover;
+            background-position: top;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 17px;
+            padding: 13px 25px 0px;
+            border-radius: 16px;
+    
+            .caja-superior{
+              display: flex;
+              flex-direction: row;
+              justify-content: center;
+              align-items: center;
+              border-radius: 8px;
+              position: relative;
+              top: 0px;
+    
+              .contenedor-principal{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: row;
+                position: relative;
+    
+                .mano img{
+                  position: absolute;
+                  transform: translate(-146px, -92px);
+                }
+    
+                .contenedor-interno-1{
+                  width: 242.79px;
+                  height: 105.25px;
+                  background-color: var(--backgroundBrandSecondary);
+                  border: 1.14px solid var(--borderSelected);
+                  border-top-left-radius: 9.15px;
+                  border-bottom-left-radius: 9.15px;
+                  display: inline-flex;
+                  flex-direction: column;
+                  justify-content: center;
+                  align-items: center;
+                }
+                .contenedor-interno-1 div.caja1 {
+                  @include tokens.text-preset-responsive(5);
+                  @include tokens.bold;
+                  color: var(--backgroundBrand);
+                  margin: -5px auto 5px;
+                }
+                .contenedor-interno-1 div.caja1 span:last-child div{
+                  display: inline-flex;
+                  justify-content: center;
+                  align-items: center;
+                }
+                .contenedor-interno-1 div.caja2{
+                  font-size: 24px;
+                  line-height: 33.36px;
+                  @include tokens.light;
+                  color: var(--textPrimaryInverse);
+                }
+                .contenedor-interno-1 div.caja2 span{
+                  font-size: 48px;
+                  line-height: 41.18px;
+                  @include tokens.light;
+                }
+                .contenedor-interno-1 div:last-child span.xmes{
+                  font-size: 24px;
+                  line-height: 33.36px;
+                  @include tokens.light;
+                }
+                
+                .contenedor-interno-2{
+                  @include tokens.regular;
+                  width: 168px;
+                  height: 105.25px;
+                  display: flex;
+                  flex-direction: row;
+                  align-items: center;
+                  justify-content:center;
+                  text-align: center;
+                  color: var(--textPrimaryInverse);
+                  background-color: var(--backgroundBrand);
+                  border-top-right-radius: 9.15px;
+                  border-bottom-right-radius: 9.15px;
+                  border: 1.14px solid var(--borderSelected);
+                }
+                .contenedor-interno-2 div:first-child p{
+                  font-size: 88px;
+                  line-height: auto;
+                }
+                .contenedor-interno-2 div:last-child{
+                  display: flex;
+                  flex-direction: column;
+                  text-align: left;
+                  font-size: 32px;
+                  line-height: 36.3px;
+                  margin: 5px 0px 0px;
+                }
+              }
+          }
+    
+          .caja-inferior{
+            .contenedor-principal{
+              display: flex;
+              align-items: center;
+              justify-content: center;
+    
+              .contenedor-interno-1{
+                width: 136px;
+                height: 62px;
+                border-top-left-radius: 8px;
+                border-bottom-left-radius: 8px;
+                background-color: var(--highlight);
+                color: var(--textPrimaryInverse);
+                display: flex;
+                justify-content: center;
+                align-items: center; 
+    
+                div:first-child{
+                  font-size: 48px;
+                  @include tokens.regular;   
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;        
+                }
+    
+                div:first-child span:first-child{
+                  margin-right: -5px;
+                }
+    
+                div:last-child {
+                  margin-left: 5px;
+                }
+    
+                div:last-child p:first-child{
+                  @include tokens.bold;
+                  font-size: 24px;
+                  line-height: 36px;
+                  margin-bottom: -14px;
+                }
+    
+                div:last-child p:last-child{
+                  @include tokens.regular;
+                  font-size: 18px;
+                  line-height: 30px;
+                }
+              }
+    
+              .contenedor-interno-2{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 250px;
+                height: 62px;
+                border-top-right-radius: 8px;
+                border-bottom-right-radius: 8px;
+                background-color: var(--background);
+    
+                img{
+                  width: 70%;
+                }
+              }
+            }
+          }
+          
+          .info-sin-iva{
+              @include tokens.text-preset-responsive(1);
+              @include tokens.roboto-regular;
+              color: var(--textSecondaryInverse);
+              margin: 0px;
+          }
+        }
+    }
+}
+
+
+@media (max-width: 992px) {
+
+    .banner__solo-hogar {
+        height: 350px;
+        align-items: flex-start;
+    
+        .contenido {
+            flex-direction: column-reverse;
+            align-items: center;
+            gap:0px;
+
+            .texto {
+                margin-top: 18px;
+                gap: 8px;
+                padding: 0 16px;
+
+                .pre_titulo {
+                
+                }
+                .titulo {
+                    
+                    margin-top: 0;
+                    text-wrap: pretty;
+                }
+
+                .bajada {
+                    
+                    margin: 0;
+                    margin-top: -5px;
+                }
+            }
+
+            .right-container {
+                background-image: url("/imagenes/hogar_kenos/banner/estudiante/bg-estudiante-mob.png");
+                width: 100%;
+                height: 180px;
+                border-radius: 0px;
+                margin:0px 0;
+                gap: 10px;
+                padding: 40px 15px 0;
+        
+                .caja-superior{
+                  display: flex;
+                  flex-direction: row;
+                  justify-content: center;
+                  align-items: center;
+                  border-radius: 8px;
+                  position: relative;
+                  top: 0px;
+        
+                  .contenedor-principal{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: row;
+                    position: relative;
+        
+                    .mano img{
+                      width: 27%;
+                      transform: translate(-44px, -71px);
+                    }
+        
+                    .contenedor-interno-1{
+                      width: 169px;
+                      height: 74px;
+                      border-top-left-radius: 8px;
+                      border-bottom-left-radius: 8px;
+                    }
+                    .contenedor-interno-1 div.caja1 {
+                      font-size: 18px;
+                      line-height: 18px;
+                      margin: -5px auto 5px;
+                    }
+        
+                    .contenedor-interno-1 div.caja2{
+                      font-size: 16.2px;
+                      line-height: 23.33px;
+                    }
+                    .contenedor-interno-1 div.caja2 span{
+                      font-size: 36px;
+                      line-height: 28.8px;
+                      margin-left: -3px;
+                    }
+                    .contenedor-interno-1 div:last-child span.xmes{
+                      font-size: 16.2px;
+                      line-height: 23.33px;
+                    }
+                    
+                    .contenedor-interno-2{
+                      width: 116.5px;
+                      height: 75px;
+                      border-top-right-radius: 8px;
+                      border-bottom-right-radius: 8px;
+                    }
+                    .contenedor-interno-2 div:first-child p{
+                      font-size: 64px;
+                      line-height: 24px;
+                    }
+                    .contenedor-interno-2 div:last-child{
+                      font-size: 22px;
+                      line-height: 28.21px;
+                      margin: 5px 0px 0px;
+        
+                      p:first-child{
+                        margin-bottom: -3px;
+                      }
+                    }
+                  }
+              }
+        
+              .caja-inferior{
+                .contenedor-principal{
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+        
+                  .contenedor-interno-1{
+                    width: 88px;
+                    height: 40px;
+                    border-top-left-radius: 4.8px;
+                    border-bottom-left-radius: 4.8px;
+                    background-color: var(--highlight);
+                    color: var(--textPrimaryInverse);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center; 
+        
+                    div:first-child{
+                      font-size: 32px;
+                      line-height: auto;    
+                    }
+        
+                    div:last-child p:first-child{
+                      font-size: 16px;
+                      line-height: 21.6px;
+                      margin-bottom: -12px;
+                      margin-top: 5px;
+                    }
+        
+                    div:last-child p:last-child{
+                      font-size: 12px;
+                      line-height: auto;
+                    }
+                  }
+        
+                  .contenedor-interno-2{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 168px;
+                    height: 40px;
+                    border-top-right-radius: 4.8px;
+                    border-bottom-right-radius: 4.8px;
+                    background-color: var(--background);
+                  }
+                }
+              }
+              
+              .info-sin-iva{
+                  margin: 0px 0px 35px;   
+              }
+            }
+
+        }
+    }
+}

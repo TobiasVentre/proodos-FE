@@ -1,0 +1,128 @@
+@use "sass:map";
+@use "sass:list";
+@use "fonts2" as fonts;
+
+$tp-bp: 992px !default; //
+
+$text-presets: (
+  1:  (ds: (14px, 20px), mb: (12px, 16px)),
+  2:  (ds: (16px, 24px), mb: (14px, 20px)),
+  3:  (ds: (18px, 24px), mb: (16px, 24px)),
+  4:  (ds: (20px, 28px), mb: (18px, 24px)),
+  5:  (ds: (28px, 32px), mb: (22px, 24px)),
+  6:  (ds: (32px, 40px), mb: (24px, 32px)),
+  7:  (ds: (40px, 48px), mb: (28px, 32px)),
+  8:  (ds: (48px, 56px), mb: (32px, 40px)),
+  9:  (ds: (56px, 64px), mb: (40px, 48px)),
+  10: (ds: (64px, 72px), mb: (48px, 56px))
+) !default;
+
+/* ——— helpers internos ——— */
+@function -tp($n, $variant: ds) {
+  $preset: map.get($text-presets, $n);
+  @if $preset == null { @error "text-preset(#{$n}) inexistente."; }
+  @return map.get($preset, $variant);
+}
+
+/* ——— sistema NUEVO (aplica un preset para ds|mb) ——— */
+@mixin text-preset($n, $variant: ds) {
+  $pair: -tp($n, $variant);
+  font-size:  list.nth($pair, 1);
+  line-height: list.nth($pair, 2);
+}
+
+/* Desktop + Mobile (si no pasás $mb, usa el mismo preset) */
+@mixin text-preset-responsive($ds, $mb: null, $bp: $tp-bp) {
+  @include text-preset($ds, ds);
+
+  $mb-val: if($mb == null, $ds, $mb);
+
+  @if & {
+    @at-root (without: rule) { 
+      @media (max-width: $bp) {
+        #{&} { @include text-preset($mb-val, mb); }
+      }
+    }
+  } @else {
+    @media (max-width: $bp) { @include text-preset($mb-val, mb); }
+  }
+}
+
+/* ── Generador de utilidades (lo usa base-kenos) ─────────────── */
+/* Emite .text-preset-N responsivas + .text-preset-N_mb legado */
+@mixin generate-text-utilities() {
+  @for $i from 1 through 10 {
+    .text-preset-#{$i} { @include text-preset-responsive($i); }
+  }
+  @media (max-width: $tp-bp) {
+    @for $i from 1 through 10 {
+      .text-preset-#{$i}_mb { @include text-preset($i, mb); }
+    }
+  }
+}
+
+/* ── COMPAT: mismos nombres que hoy usás (sin loops) ─────────── */
+/* Desktop (ds) */
+@mixin text-preset-1     { @include text-preset(1, ds); }
+@mixin text-preset-2     { @include text-preset(2, ds); }
+@mixin text-preset-3     { @include text-preset(3, ds); }
+@mixin text-preset-4     { @include text-preset(4, ds); }
+@mixin text-preset-5     { @include text-preset(5, ds); }
+@mixin text-preset-6     { @include text-preset(6, ds); }
+@mixin text-preset-7     { @include text-preset(7, ds); }
+@mixin text-preset-8     { @include text-preset(8, ds); }
+@mixin text-preset-9     { @include text-preset(9, ds); }
+@mixin text-preset-10    { @include text-preset(10, ds); }
+
+/* Mobile (mb) */
+@mixin text-preset-1_mb  { @include text-preset(1, mb); }
+@mixin text-preset-2_mb  { @include text-preset(2, mb); }
+@mixin text-preset-3_mb  { @include text-preset(3, mb); }
+@mixin text-preset-4_mb  { @include text-preset(4, mb); }
+@mixin text-preset-5_mb  { @include text-preset(5, mb); }
+@mixin text-preset-6_mb  { @include text-preset(6, mb); }
+@mixin text-preset-7_mb  { @include text-preset(7, mb); }
+@mixin text-preset-8_mb  { @include text-preset(8, mb); }
+@mixin text-preset-9_mb  { @include text-preset(9, mb); }
+@mixin text-preset-10_mb { @include text-preset(10, mb); }
+
+/* ── Familias como mixins  ──────────────────────────────────── */
+@mixin bold                       { font-family: fonts.$bold; }
+@mixin regular                    { font-family: fonts.$regular; }
+@mixin light                      { font-family: fonts.$light; }
+@mixin italic                     { font-family: fonts.$italic; }
+@mixin regular-italic             { font-family: fonts.$regular-italic; }
+@mixin cap                        { font-family: fonts.$cap; }
+@mixin roboto-light               { font-family: fonts.$roboto-light; }
+@mixin roboto-regular             { font-family: fonts.$roboto-regular; }
+@mixin roboto-medium              { font-family: fonts.$roboto-medium; }
+@mixin roboto-bold                { font-family: fonts.$roboto-bold; }
+@mixin guthen                     { font-family: fonts.$guthen1; }
+@mixin guthen2                    { font-family: fonts.$guthen2; }
+@mixin guthen-basic               { font-family: fonts.$guthen-basic; }
+@mixin movistar-regular           { font-family: fonts.$movistar-regular; }
+@mixin movistar-italic            { font-family: fonts.$movistar-italic; }
+@mixin movistar-light             { font-family: fonts.$movistar-light; }
+@mixin movistar-light-italic      { font-family: fonts.$movistar-light-italic; }
+@mixin movistar-medium            { font-family: fonts.$movistar-medium; }
+@mixin movistar-medium-italic     { font-family: fonts.$movistar-medium-italic; }
+@mixin movistar-bold              { font-family: fonts.$movistar-bold; }
+@mixin movistar-bold-italic       { font-family: fonts.$movistar-bold-italic; }
+@mixin movistar-extrabold         { font-family: fonts.$movistar-extrabold; }
+@mixin movistar-extrabold-italic  { font-family: fonts.$movistar-extrabold-italic; }
+
+/* ── Botón base reutilizable ─────────────────────────────────── */
+@mixin btn-kenos {
+  padding: 12px 16px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 60px;
+  border: none;
+  @include text-preset-3;
+  @include roboto-medium;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  min-width: 104px;
+}

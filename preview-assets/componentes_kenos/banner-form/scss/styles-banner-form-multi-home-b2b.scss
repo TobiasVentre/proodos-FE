@@ -1,0 +1,152 @@
+@use 'general-kenos' as tokens;
+
+@mixin flexCenter($direct) {
+  display: flex;
+  flex-direction: $direct;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner__form-home-b2b {
+  width: 100%;
+  margin-top: 80px;
+  background-color: var(--background);
+  padding: 16px 30px;
+
+  .contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+
+    .left-container {
+      max-width: 500px;
+
+      .tag-segmento {
+        @include tokens.text-preset-responsive(1,2);
+        @include tokens.roboto-medium;
+        border-radius: 4px;
+        width: fit-content;
+        color: var(--brand);
+        background-color: var(--brandLow);
+        padding: 4px;
+      }
+
+      .titulo {
+        @include tokens.text-preset-responsive(6,7);
+        @include tokens.regular;
+        color: var(--textPrimary);
+        margin-top: 8px
+      }
+    }
+
+    .right-container {
+      background-image: url("/imagenes/b2b/multiproducto/banner-form/bg-banner-form-generico-b2b-desk.png");
+      width: 100%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      border-radius: 16px;
+      max-width: 704px;
+      height: 266px;
+      color: var(--textPrimaryInverse);
+      @include flexCenter(column);
+      gap: 15px;
+
+      .box-1 {
+        @include tokens.text-preset-responsive(4,4);
+        @include tokens.roboto-regular;
+      }
+
+      .box-2 {
+        @include flexCenter(row);
+        gap: 33px;
+
+        .icon {
+          @include flexCenter(column);
+
+          .icon-title {
+            @include tokens.text-preset-responsive(3,1);
+            @include tokens.roboto-regular;
+          }
+        }
+      }
+
+
+    }
+  }
+
+  %mask-icon-b2b {
+    height: 58px;
+    min-width: 58px;
+    background-color: var(--inverse);
+    color: var(--textPrimaryInverse);
+  }
+
+  .wifi-up-down-regular {
+    width: 88px;
+  }
+
+}
+
+
+
+@media (max-width: 992px) {
+
+ .banner__form-home-b2b {
+    padding: 0;
+    margin-top: 113px;
+
+    .contenedor {
+      flex-direction: column-reverse;
+      gap: 16px;
+
+      .left-container {
+        padding: 0 16px 16px;
+
+        .tag-segmento {          
+          padding: 2px 4px;
+        }
+      }
+
+      .right-container {
+        background-image: url("/imagenes/b2b/multiproducto/banner-form/bg-banner-form-generico-b2b-mob.png");
+        border-radius: 8px;
+        width: 328px;
+        height: 180px;
+        gap: 8px;
+
+      }
+    }    
+  }
+
+  %mask-icon-b2b {
+    height: 32.22px !important;
+    min-width: 32.22px !important;
+  }
+
+  .wifi-up-down-regular {
+    width: 48.89px !important;
+  }
+
+}
+
+// IMAGENES ICONOS
+
+.cinco-5G-dot-regular {
+  @extend %mask-icon-b2b;
+  mask-image: url("/imagenes/icons-Kenos/regular/5G-dot-regular.svg");
+  mask-size: cover;
+}
+
+.wifi-up-down-regular {
+  @extend %mask-icon-b2b;
+  mask-image: url("/imagenes/icons-Kenos/regular/wifi-up-down-regular.svg");
+  mask-size: cover;
+}
+
+.tv-content-regular {
+  @extend %mask-icon-b2b;
+  mask-image: url("/imagenes/icons-Kenos/regular/tv-content-regular.svg");
+  mask-size: cover;
+}

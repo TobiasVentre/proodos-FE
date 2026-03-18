@@ -1,0 +1,923 @@
+@use 'general-kenos' as tokens;
+
+@mixin flexCenter($direct) {
+  display: flex;
+  flex-direction: $direct;
+  justify-content: center;
+  align-items: center;
+}
+
+.br-mobile { display: none;}
+@media (max-width: 992px) { .br-mobile { display: initial;} }
+
+#tv__con-todo {
+  width: 100%;
+  height: auto;
+  background: var(--azul-oscuro);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  padding: 56px 0;
+
+  .tag-tv {
+    @include tokens.roboto-medium;
+    @include tokens.text-preset-responsive(3,2);
+    width: fit-content;
+    padding: 4px;
+    background-color: var(--highlight);
+    color: var(--inverse);
+    border-radius: 4px;
+    margin-top: 8px;
+  }
+
+  .titulo {
+    @include tokens.text-preset-responsive(6,6);
+    @include tokens.regular;
+    color: var(--textPrimaryInverse);
+    text-align: center;
+    margin-top: 7px;
+  }  
+
+  .titulo_short {
+    @include tokens.text-preset-responsive(7);
+    @include tokens.regular;
+    color: var(--textPrimaryInverse);
+    text-align: center;
+  }
+  
+  #cards_planes {
+    margin-top: 23px;
+    
+    .cards-container {
+      .swiper-wrapper {
+        margin-left: 50px;
+      }
+
+      .card {
+        background: var(--backgroundContainer);
+        border-radius: 8px;
+        padding: 32px 24px;
+        max-width: 392px;
+
+        .tag-card {
+          @include tokens.roboto-medium;
+          @include tokens.text-preset-responsive(1);
+          width: fit-content;
+          padding: 4px 8px 4px 4px;
+          background-color: var(--highlightLow);
+          color: var(--highlightHigh);
+          display: flex;
+          align-items: baseline;
+          gap: 3.5px;
+          border-radius: 4px;
+
+          span {
+            width: 16px;
+            height: 16px;
+            position: relative;
+            top: 2px;
+          }
+
+          .star-filled {
+            background-color: var(--highlightHigh);
+            mask-image: url(/imagenes/icons-Kenos/filled/star-filled.svg);
+            mask-size: contain;
+          }
+
+        }
+
+        .titulo-card{
+          @include tokens.roboto-regular;
+          @include tokens.text-preset-responsive(4);
+          margin-top: 8px;
+          color: var(--textPrimary);
+        }
+
+        .descripcion-card{
+          @include tokens.roboto-regular;
+          @include tokens.text-preset-responsive(1);
+          margin-top: 16px;
+          color: var(--textSecondary);
+        }
+
+        .precio-oferta-card{
+          @include tokens.regular;
+          @include tokens.text-preset-responsive(6);
+          color: var(--textPrimary);
+
+          span {
+            @include tokens.text-preset-responsive(5)
+          }
+        }
+
+        .precio-lista-card{
+          @include tokens.roboto-regular;
+          @include tokens.text-preset-responsive(1);
+          color: var(--textSecondary);
+        }
+
+        .descripcion-plan {
+          @include tokens.roboto-regular;
+          @include tokens.text-preset-responsive(1);
+          margin-top: 24px;
+          background-color: var(--backgroundAlternative);
+          border-radius: 8px;
+          padding: 12px;
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+          color: var(--textPrimary);
+
+          .item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            span {
+              width: 24px;
+              height: 24px;
+            }
+
+          }
+        }
+
+        .leyenda-no-cliente{
+          @include tokens.roboto-regular;
+          @include tokens.text-preset-responsive(1);
+          margin-top: 16px;
+          color: var(--textPrimary);
+        }
+
+        .botones-container {
+          margin-top: 16px;
+          display: flex; 
+          align-items: center;
+          gap: 16px;
+        }
+      }
+    }
+
+    .swiper-button-next{
+      width: 40px;
+      height: 40px;
+      right: -40px;
+      top: 190px;
+    }
+
+    .swiper-button-next::after {
+      content: "";
+      background-image: url("/imagenes/icons-Kenos/regular/chevron-left-regular.svg");
+      width: 40px;
+      height: 40px;
+      background-size: contain;
+      transform: rotate(180deg);
+      filter: invert(0) brightness(10000);
+    }
+
+    .swiper-button-prev{
+      width: 40px;
+      height: 40px;
+      left: -40px;
+      top: 190px;
+    }
+
+    .swiper-button-prev::after {
+      content: "";
+      background-image: url("/imagenes/icons-Kenos/regular/chevron-left-regular.svg");
+      width: 40px;
+      height: 40px;
+      background-size: contain;
+      filter: invert(0) brightness(10000);
+    }
+
+    .swiper-pagination-bullets.swiper-pagination-horizontal {
+      position: relative;
+      margin-top: -13px;
+    }
+
+    .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+      width: 12px;
+      height: 12px;
+      background-color: var(--inverse);
+      opacity: .5;
+      border-radius: 8px;
+      margin: 0 6px;
+    }
+
+    .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet-active {
+      background-color: var(--inverse);
+      width: 28px;
+      opacity: 1;
+    }
+
+    .precio-sin-impuestos {
+      @include tokens.roboto-regular;
+      @include tokens.text-preset-responsive(1);
+      color: var(--textSecondaryInverse);
+      text-align: center;
+      margin-top: 48px;
+      margin-bottom: 70px;
+    }
+  } 
+
+  #que__es {
+    @include flexCenter(column);
+    
+    .description {
+      @include tokens.text-preset-responsive(4);
+      @include tokens.regular;
+      color: var(--textPrimaryInverse);
+    }
+
+    .description_short {
+      margin-top: 12px;
+    } 
+      
+  }
+
+  .cucarda {
+    width: auto;
+    height: 32px;
+    @include flexCenter(row);
+    border-radius: 4px;
+    background: var(--promo);
+    @include tokens.text-preset-responsive(3);
+    @include tokens.roboto-regular;
+    text-align: center;
+    color: var(--textPrimaryInverse);
+    margin: 0 auto;
+    padding: 0 15px;
+    gap: 10px
+  }
+
+  #planes {
+    @include flexCenter(column);
+
+
+    // Disfrutá nuestros planes con Disney+...
+    .titular {
+      @include tokens.text-preset-responsive(6,5);
+      @include tokens.regular;
+      text-align: center;
+      color: var(--textPrimaryInverse);
+      span {@include tokens.bold; }
+    }
+
+    // Caja principal de borde
+    .caja__blanca {
+      width: 808px;
+      height: auto;
+      @include flexCenter(row);
+      border-radius: 16px;
+      margin:20px auto;
+      gap: 20px;
+    }
+
+    
+    // Contenedor de las cajas de TV y la linea divisora
+    .caja__blanca .ofertas__main-container {
+      @include flexCenter(column);
+      gap: 20px;
+
+      // Contenedor principal de cada oferta
+      .box__info {
+        @include tokens.roboto-regular;
+        width: 496px;
+        height: 245px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row;
+        color: var(--blanco);
+        gap: 20px;
+        border-radius: 16px;
+        border: 1px solid var(--blanco);
+
+        // TV [...] con Disney+ Premium
+        .tv__text {
+          @include flexCenter(column);
+          align-items: start;
+          gap: 9px;
+          width: 100%;
+          margin-left: 30px;
+
+          // TV Digital/Max
+          .oferta-tv {
+            @include tokens.text-preset-responsive(3);
+            @include tokens.roboto-regular;
+            text-align: left;
+          }
+        }
+
+        .logo-mtv{
+          min-width: 100px;
+          height: 100%;
+          background-color: #113A54;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 0px 16px 16px 0; 
+        }
+
+        .logo-mtv source,
+        .logo-mtv img{
+          width: 55px;
+        }
+        // Contenedor grilla + precio
+        .grilla-precio {
+          @include tokens.roboto-regular;
+          @include tokens.text-preset-responsive(2);
+          @include flexCenter(column);
+          align-items: flex-start;
+          
+
+          // Precio x mes
+          .precio {
+            @include tokens.text-preset-responsive(3);
+            text-align: left;
+            color: var(--textPrimaryInverse);
+          }
+          // Grilla
+          .grilla {
+            @include tokens.text-preset-responsive(3);
+            text-align: center;
+            color: var(--celeste-accesible);
+            text-decoration: none;
+            border-bottom: 1px solid var(--celeste-accesible);
+            padding-bottom: 1px;
+            @include tokens.roboto-medium;
+          }
+
+
+        }
+
+        //Precio sin impuestos
+        .info-sin-iva-tv{
+          @include tokens.text-preset-responsive(1);
+          @include tokens.roboto-regular;
+          color: var(--textSecondaryInverse);
+          margin: 10px 0 0 0px;
+          width: 100%;
+          text-align: left;
+        }
+      }
+    }
+  }
+
+  #que__trae {
+    @include flexCenter(column);
+    margin-bottom: 30px;
+  
+    .titular {
+      @include tokens.text-preset-responsive(5);
+      @include tokens.regular;
+      text-align: center;
+      color: var(--textPrimaryInverse);
+      max-width: 808px;
+      margin-bottom: 32px;
+    }   
+
+    .content {
+      @include flexCenter(row);
+      align-items: start;
+      gap: 27px;
+      margin-bottom: 40px;
+    }
+
+    .content .disney-plus-carrusel {
+      width: 392px;
+      height: 220.5px;
+      border-radius: 8px;
+      overflow-x: clip !important;
+      position: relative;
+
+      .img-item {
+        object-fit: cover;
+      }
+
+      .swiper-button-next {
+        position: relative;
+        top: -14px;
+        right: -85px;
+        margin: auto;
+        transform: rotate(180deg);        
+      }
+
+      .swiper-button-prev{
+        position: relative;
+        top: -57px;
+        left: -85px;
+        margin: auto;        
+      }
+
+      .swiper-button-next::after,
+      .swiper-button-prev::after {
+        background-image: url("/imagenes/icons-Kenos/regular/chevron-left-regular.svg");
+        width: 20px;
+        height: 30px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        content: "";
+        filter: invert(0) brightness(10000);
+      }
+
+      .swiper-pagination-bullets.swiper-pagination-horizontal {
+        position: relative;
+        top: 20px;
+      }
+
+      .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+        width: 12px;
+        height: 12px;
+        background-color: var(--blanco);
+        opacity: 1;
+        border-radius: 8px;
+        margin: 0 8px;
+      }
+
+      .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet-active {
+        width: 28px;
+        background-color: var(--inverse);
+      }
+    }
+
+    .content .oferta {
+      @include flexCenter(column);
+      align-items: flex-start;
+      justify-content: flex-start;
+
+      .d__premium {
+        @include tokens.text-preset-responsive(5);
+        @include tokens.regular;
+        text-align: left;
+        margin: 0;
+        color: var(--textPrimaryInverse);
+      }
+
+      .cajita {
+        @include flexCenter(row);
+        justify-content: unset;
+        max-width: 308px;
+        gap: 12px;
+        margin: 12px 0;
+
+        .txt {
+          @include tokens.text-preset-responsive(2);
+          @include tokens.roboto-regular;
+          text-align: left;
+          color: var(--textPrimaryInverse);
+        }
+      }
+    }    
+  }
+
+  #boxes {
+    width: 100%;
+    @include flexCenter(row);
+    gap: 23px;
+
+    .box_1 {
+      @include flexCenter(column);
+      background: var(--blanco);
+      width: 496px;
+      height: 531px;
+      border-radius: 12px;
+      gap: 32px;
+
+      .titulo {
+        @include tokens.text-preset-responsive(6);
+        @include tokens.regular;
+        text-align: center;
+        color: var(--textPrimary);
+      }
+
+      .app__tv {
+        width: 415px;
+        height: 104px;
+        @include flexCenter(row);
+        gap: 16px;
+        color: var(--textPrimary) !important;
+
+        img {
+          width: 80px;
+          height: 80px;
+        }
+
+        .texto {
+          p, span {
+            @include tokens.text-preset-responsive(4);
+            @include tokens.roboto-regular;
+            color: var(--textPrimary);
+            text-align: left;
+          }
+
+          .descarga {
+            @include tokens.roboto-medium;
+            @include tokens.text-preset-responsive(4,2);
+          }
+
+          .compatibles {
+              @include tokens.text-preset-responsive(4,2);
+          }
+        } 
+      }
+
+      .devices-txt {
+        @include tokens.text-preset-responsive(3,1);
+        @include tokens.roboto-regular;
+        text-align: left;
+        color: var(--textPrimary);
+      }
+
+      .devices-img {
+        width: 372px;
+        height: 83px;
+        object-fit: contain;
+      }
+
+      .final-txt {
+        @include tokens.text-preset-responsive(4,2);
+        @include tokens.roboto-regular;
+        text-align: left;
+        color: var(--textPrimary);
+      }
+    }
+
+
+    // * Caja Derecha
+    .box_2 {
+      @include flexCenter(column);
+      background: var(--background);
+      width: 496px;
+      height: 531px;
+      border-radius: 12px;
+      border: 1px solid vvar(--borderLight);
+      gap: 24px;
+
+      .introduccion {
+        @include tokens.text-preset-responsive(4,2);
+        @include tokens.roboto-regular;
+        text-align: left;
+        color: var(--textPrimary);
+        
+        span {
+          @include tokens.roboto-medium;
+        }
+      }
+
+      .caja__oferta {
+        width: 404px;
+        height: 350px;
+        @include flexCenter(column);
+        align-items: start;
+        gap: 16px;
+        border-radius: 8px;
+        border: 1px solid var(--border);
+
+        .item {
+          display: flex;
+          flex-direction: row;
+          align-items: flex-start;
+          justify-content: flex-start;
+          gap: 10px;
+          max-width: 339px;
+          padding-left: 32px;
+
+          p {
+            @include tokens.text-preset-responsive(3,2);
+            @include tokens.roboto-medium;
+            text-align: left;
+            color: var(--textPrimary);
+          }
+
+          span {
+            @include tokens.text-preset-responsive(2,1);
+            @include tokens.roboto-regular;
+            text-align: left;
+            color: var(--textSecondary);
+          }
+          
+          img { padding-top: 3px; }
+        }
+
+        .deco {
+          width: 204px;
+          margin: 0 auto;
+        }
+
+        .info-sin-iva{
+          @include tokens.text-preset-responsive(1);
+          @include tokens.roboto-regular;
+          color: var(--textSecondary);
+          text-align: left;
+          margin: 0px 0 0px 20px;
+        }
+      }
+    }
+  }
+
+  %icon-mask-gray {
+    width: 24px;
+    min-height: 24px;
+    background-color: var(--textPrimary);
+    mask-size: cover;
+  }
+
+  %icon-mask-blue {
+    min-width: 24px;
+    height: 24px;
+    background-color: var(--brand);
+    mask-size: cover;
+  }
+
+}
+
+@media (max-width: 992px) {
+  #tv__con-todo {
+    width: 100%;
+    height: auto;
+
+    .titulo {
+      padding: 0 16px;
+    }
+
+    #cards_planes {
+      width: 100%;
+
+      .cards-container {
+        overflow: hidden;
+
+        .swiper-wrapper {
+          margin: 0 auto;
+
+          .card {
+            width: 100% !important;
+            max-width: 296px;
+            margin: 0 auto;
+            padding: 24px 16px;
+
+            .botones-container {
+              gap: 0;
+              width: max-content;
+            }
+          }
+        }
+      }
+      .swiper-button-next {
+        width: 28px;
+        position: relative;
+        top: -35px;
+        right: -40px;
+        margin: auto;
+      }
+
+      .swiper-button-prev{
+        width: 28px;
+        position: relative;
+        top: -75px;
+        left: -40px;
+        margin: auto;
+      }
+
+      .swiper-button-next::after,
+      .swiper-button-prev::after {
+        background-image: url("/imagenes/icons-Kenos/regular/chevron-left-regular.svg");
+        width: 30px;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+
+      .swiper-pagination-bullets.swiper-pagination-horizontal {
+        margin-top: 32px;
+      }
+
+      .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+        width: 8px;
+        height: 8px;
+      }
+
+      .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet-active {
+        width: 18px;
+      }
+
+      .precio-sin-impuestos {
+        padding: 0 16px;
+      }
+    }
+
+    #que__trae {
+      @include flexCenter(column);
+      margin-bottom: 0px;
+      margin-top: 20px;
+      
+      .content {
+        @include flexCenter(column);
+        align-items: center;
+        gap: 16px;
+      }
+
+      .content .disney-plus-carrusel {
+        width: 328px;
+        height: 220px;
+        margin-bottom: 20px;
+
+        .img-item { object-fit: contain; }
+
+        .swiper-button-next {
+          position: relative;
+          top: -40px;
+          right: -58px;
+          margin: auto;
+          transform: rotate(180deg);        
+        }
+  
+        .swiper-button-prev{
+          position: relative;
+          top: -83px;
+          left: -58px;
+          margin: auto;        
+        }
+  
+        .swiper-button-next::after,
+        .swiper-button-prev::after {
+          width: 24px;
+          height: 24px;
+        }
+  
+        .swiper-pagination-bullets.swiper-pagination-horizontal {
+          top: -8px;
+        }
+  
+        .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+          width: 8px;
+          height: 8px;
+          margin: 0 4px;
+        }
+  
+        .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet-active {
+          width: 18px;
+        }
+      }
+
+      .content .oferta {
+        @include flexCenter(column);
+        gap: 15px;
+        
+        .cajita {
+          @include flexCenter(row);
+          justify-content: unset;
+          max-width: 317px;
+          gap: 8px;
+          margin: 5px 0;
+        }
+      }        
+    }
+
+    #boxes {
+      @include flexCenter(column);
+      width: 329px;
+      margin: auto;
+      gap: 0;
+      background: var(--blanco);
+      border-radius: 12px;
+      border: 1px solid var(--gris)-accesible;
+      overflow: hidden;
+      padding: 20px 0;
+
+      .box_1 {
+        width: 329px;
+        height: 296px;
+        gap: 0;
+
+        .titulo {        
+          margin-bottom: 24px;
+        }
+
+        .app__tv {
+          width: 276px;
+          height: 63px;
+          border-radius: 8px;
+          margin-bottom: 16px;
+          gap: 12px;
+
+          img {
+            width: 47px;
+            height: 47px;
+          }
+
+          .texto {
+            .descarga {            
+              margin-bottom: -5px;
+            }
+
+          } 
+        }
+
+        .devices-img {
+          width: 245.53px;
+          height: 51px;
+          object-fit: contain;
+          margin: 4px 0 10px;
+        }
+
+        .final-txt {        
+          span {@include tokens.roboto-medium; }
+        }
+      }
+
+      .division {
+        width: 280px;
+        height: 1px;
+        position: absolute;
+        transform: translateY(-67px);
+        border-radius: 24px;
+        background: var(--divider);
+      }
+
+      .box_2 {
+        @include flexCenter(column);
+        justify-content: flex-start;
+        width: 329px;
+        height: auto;
+        border: none !important;
+        gap: 24px;
+        
+        .caja__oferta {
+          width: 280px;
+          height: auto;
+          border-radius: 8px;
+          padding: 16px 0;
+
+          .item {
+            gap: 8px;
+            max-width: 255px;
+            padding-left: 18.5px;           
+
+            img { padding-top: 3px; }
+          }
+
+          .deco {
+            width: 180px;
+            height: auto;
+          }
+
+          .info-sin-iva{
+            margin: 10px 0 0px 20px;
+          }
+        }
+      }
+    }  
+  }
+}
+
+//// ICONOS SVG
+
+            
+.wifi-regular {
+  @extend %icon-mask-gray;
+  mask-image: url(/imagenes/icons-Kenos/regular/wifi-regular.svg);
+}
+.tvcontent-regular-gray {
+  @extend %icon-mask-gray;
+  mask-image: url(/imagenes/icons-Kenos/regular/tv-content-regular.svg);
+}
+.dollar-symbol-regular {
+  @extend %icon-mask-gray;
+  mask-image: url(/imagenes/icons-Kenos/regular/dollar-symbol-circle-regular.svg);
+}
+
+// blue
+
+.football-ball-regular {
+  @extend %icon-mask-blue;
+  mask-image: url(/imagenes/icons-Kenos/regular/football-ball-regular.svg);
+}
+
+.tv-content-regular {
+  @extend %icon-mask-blue;
+  mask-image: url(/imagenes/icons-Kenos/regular/tv-content-regular.svg);
+}
+
+.audio-regular {
+  @extend %icon-mask-blue;
+  mask-image: url(/imagenes/icons-Kenos/regular/audio-regular.svg);
+}
+
+.multideviceo-regular {
+  @extend %icon-mask-blue;
+  mask-image: url(/imagenes/icons-Kenos/regular/audio-regular.svg);
+}
+
+.download-cloud-regular {
+  @extend %icon-mask-blue;
+  mask-image: url(/imagenes/icons-Kenos/regular/download-cloud-regular.svg);
+}
+
+.check-regular {
+  @extend %icon-mask-blue;
+  mask-image: url(/imagenes/icons-Kenos/regular/check-regular.svg);
+}
+
+

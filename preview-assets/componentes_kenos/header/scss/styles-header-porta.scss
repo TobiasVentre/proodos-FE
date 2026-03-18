@@ -1,0 +1,96 @@
+@use 'general-kenos' as tokens;
+
+header {
+    margin-right: -20px;
+    overflow: hidden;
+  }
+
+header.section_main_header {
+    display: block;
+    -webkit-animation-duration: .7s;
+    animation-duration: .7s;
+    top: 0px;
+    right: 0px;
+    margin: 0 auto;
+    position: fixed;
+    float: left;
+    width: 100%;
+    height: 105px;
+    z-index: 1000;
+    background: var(--backgroundContainer);
+    -webkit-box-shadow: 0 7px 8px -5px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 7px 8px -5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 7px 8px -5px rgba(0, 0, 0, 0.1);
+  }
+
+  .section_main_header .container {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .section_main_header .container .row {
+  }
+  
+  .container .logoWrapper {
+    width: 60px;
+    position: relative;
+    top: 8px;
+    left: 35px;
+  }
+  .container .navigation-empresas {
+    @include tokens.roboto-regular;
+    @include tokens.text-preset-responsive(1);
+    height: 44px;
+    display: flex;
+    background-color: var(--backgroundBrandSecondary);
+    width: 100%;
+    align-items: center;
+    padding: 0 25px;
+    color: var(--inverse);
+    gap: 10px;
+  }
+
+  .navigation-empresas .btn-individuos {
+    font-weight: 700;
+    background-color: rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    padding: 4px 12px;
+  }
+  .navigation-empresas .btn-empresas {
+    padding: 4px 12px;
+  }
+  .navigation-empresas .btn-empresas a {
+    color: var(--inverse);
+    text-decoration: none;
+  }
+
+  .navigation-empresas .btn-empresas:hover {
+    border-radius: 8px;
+    padding: 4px 11px;
+    border: 1.5px solid var(--borderSelected);
+  }
+  @media (min-width: 768px) {
+    header.section_main_header {
+      height: 115px;
+    }
+    .section_main_header .container {
+      margin: 0px;
+      padding: 0px;
+      width: 100%;
+    }
+
+    .container .logoWrapper {
+      width: 60px;
+      position: relative;
+      top: 15px;
+      left: 35px;
+    }
+    
+  }
+
+  @media (max-width: 768px) {
+    .container .navigation-empresas {
+      padding: 0 15px;
+  }
+}

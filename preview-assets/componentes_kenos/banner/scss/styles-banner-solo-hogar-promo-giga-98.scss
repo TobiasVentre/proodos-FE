@@ -1,0 +1,219 @@
+@use 'general-kenos' as tokens;
+
+
+@mixin flexCenter($direct) {
+  display: flex;
+  flex-direction: $direct;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.banner__solo-hogar {
+    width: 100%;
+    margin-top: 80px;
+    
+    .contenido {
+        height: 300px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 33px;
+        margin-top: 100px;
+
+        .texto {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            color: var(--textPrimary);
+            gap: 0px;
+
+            
+            .tag {
+              color: var(--brand);
+              background-color: var(--brandLow);
+              @include tokens.text-preset-responsive(1,2);
+              @include tokens.roboto-medium;
+              display: flex;
+              gap: 3px;
+              padding: 3px 8px 2px 2px;
+              border-radius: 4px;
+              justify-content: center;
+              align-items: center;
+              margin-bottom: 10px;
+            }
+
+            .pre_titulo {
+                @include tokens.text-preset-responsive(4);
+                @include tokens.roboto-regular;
+            }
+            
+            .titulo {
+                @include tokens.text-preset-responsive(7,6);
+                @include tokens.regular;
+                max-width: 500px;
+                margin-top: 10px;
+            }
+
+            .bajada {
+                @include tokens.text-preset-responsive(3);
+                @include tokens.roboto-regular;
+                color: var(--textSecondary);
+                margin: 16px 0 0 0;
+                span { font-weight: 700; }
+            }
+        }    
+        
+        .right-container {
+          position: relative;
+          background-image: url("/imagenes/hogar_kenos/banner/verano/bg-verano-hogar-small-desk.png");
+          width: 704px;
+          min-height: 266px;
+          display: flex;
+          object-fit: cover;
+          background-size: cover;
+          background-position: center;
+          border-radius: 16px;
+          color: var(--textSecondaryInverse);
+          padding: 25px;
+          .contenedor-principal {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-end;
+            flex-direction: column;
+            .box-top {
+              width: 227px;
+              display: flex;
+              flex-direction: column;
+              justify-content: flex-start;
+              align-items: flex-start;
+              .box-up {
+                padding: 0px 5px;
+                background-color: #0066FF;
+                @include tokens.text-preset-responsive(4,5);
+                @include tokens.movistar-medium;  
+              }
+              .box-middle {
+                color: var(--textPrimaryInverse);
+                @include tokens.movistar-bold;
+                text-align: center;
+                display: inline-flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                @include tokens.text-preset-responsive(10);
+                gap: 5px;
+              }
+            }
+            .box-down {
+              width: fit-content;
+              color: #262433;
+              padding: 0px 5px;
+              background-color: #D3EEFF;
+              display: inline-block;
+              @include tokens.text-preset-responsive(4, 3);
+              @include tokens.movistar-regular;
+            }
+          }      
+    
+          .info-sin-iva {
+          margin: 10px 0 0 0;
+          @include tokens.text-preset-responsive(1);
+          @include tokens.movistar-regular;
+          color: #262433;
+          text-align: left;
+          }
+        }
+    }
+}
+
+
+@media (max-width: 992px) {
+
+    .banner__solo-hogar {
+        height: 320px;
+        align-items: flex-start;
+        margin-top: 113px;
+    
+        .contenido {
+            height: 250px;
+            flex-direction: column-reverse;
+            align-items: center;
+            gap:0px;
+
+            .texto {
+                margin-top: 18px;
+                gap: 8px;
+                padding: 0 16px;
+
+                .tag{
+                  margin-bottom: 0px;
+                  
+                  padding: 1px 8px 2px 2px;
+        
+                  svg{
+                    width: 16px;
+                    height: 16px;
+                  }
+                }
+
+                // .pre_titulo { }
+                .titulo {
+                    margin-top: 0;
+                    text-wrap: pretty;
+                }
+
+                .bajada {
+                    margin: 0;
+                    margin-top: -5px;
+                }
+            }
+
+            .right-container {
+              background-image: url("/imagenes/hogar_kenos/banner/verano/bg-verano-hogar-small-mob.png");
+              width: 100%;
+              min-height: 200px;
+              border-radius: 0px;
+              padding: 0px 0 12px;
+
+              .contenedor-principal {
+                margin: 26px 0 0 16px;
+                .box-top {
+                  min-height: 70px;
+                  .box-up {
+                    padding: 2px 5px;
+                  }
+                  .box-middle {
+                    padding: 0 10px 0 6px;
+                    div {
+                      display: flex;
+                      flex-direction: column;
+                      align-items: center;
+                      justify-content: center;
+                      height: 5px;
+                      margin-top: 5px;
+
+                      span:first-child {
+                        line-height: 22px;
+                      }
+
+                      span:last-child {
+                        font-size: 10px;
+                        line-height: 18px;
+                      }
+                    }
+                  }
+                }
+                .box-down {
+                  padding: 2px 4px;
+                }
+              }
+              .info-sin-iva {
+                margin: 5px 0 0 0;
+              }
+            }
+        }
+    }
+}

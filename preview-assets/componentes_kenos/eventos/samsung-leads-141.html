@@ -1,0 +1,113 @@
+<section id="lead">
+  <div class="izq">
+
+    <div class="encabezado">
+      <span class="cucarda">Lanzamiento </span>
+      <p class="titulo">Dejanos tus datos para recibir las mejores promos que tenemos para vos</p>
+      <span class="bajada">Todos los datos obligatorios. </span>
+    </div>
+
+    <div class="formulario">
+      <form class="form-group form-ic-c2c" autocomplete="off" id="hidden-modal">
+    
+          <!-- NOMBRE -->
+          <input
+            id="nombreC2C"
+            type="text"
+            name="name"
+            placeholder="Nombre y apellido"
+            minlength="2"
+            required
+            data-ic-form-field="name"
+            onfocus="textInputFocus(this)"
+          />
+          <span class="icono-input nombre"></span>
+    
+    
+          <!-- TELEFONO -->
+          <input
+            id="ani2"
+            type="tel"
+            maxlength="10"
+            pattern="\d{10}"
+            name="phone"
+            placeholder="Celular de contacto"
+            required
+            data-ic-form-field="phone"
+            class="anictc"
+            onfocus="phoneInputFocus(this)"
+          />
+          <span class="icono-input telefono"></span>
+          <div class="input-focus-hint ingresalo">Ingresalo con cód. de área, sin 0 ni 15.</div>
+    
+    
+          <!-- EMAIL -->
+          <input
+            id="emailC2C"
+            type="email"
+            name="email"
+            placeholder="Email"
+            required
+            data-ic-form-field="email"
+            class="emailctc"
+            onfocus="emailInputFocus(this)"
+          />
+          <span class="icono-input email"></span>
+          <div class="input-focus-hint-email"></div>
+
+    
+    
+          <!-- CHECKBOX -->
+          <div class="checkbox-field">
+            <input
+              type="checkbox"
+              id="checkC2C"
+              name="acepto"
+              required
+              data-ic-form-field="checkbox"
+            />
+            <label for="checkC2C">
+              Leí y acepto los
+              <a href="https://www.movistar.com.ar/legales/promociones/lanzamiento-samsung-galaxy-unpacked" target="_blank">
+                términos y condiciones
+              </a>
+            </label>
+          </div>
+    
+    
+          <!-- HIDDEN -->
+          <input id="codigoOrigenModal" type="hidden" name="Codigo_Origen" value="" class="orig" />
+          <input id="codigoCampanaModal" type="hidden" name="Codigo_Campana" value="" class="camp" />
+          <input id="infoModal" type="hidden" name="Codigo_Descripcion" value="" class="desc" />
+          <input id="horarioModal" type="hidden" name="Franja_Horaria" data-ic-form-field="scheduleTime" value="">
+          <input id="SessionID" type="hidden" name="SessionID" value="1" class="orig">
+    
+    
+          <div class="button-container">
+            <button
+              type="submit"
+              class="form-ic-c2c-submit btn-primary-kenos"
+              data-valor-origen=""
+              data-form-ic-c2c-send="true"
+              data-valor-plan=""
+              data-nombre-landing=""
+              data-accion=""
+              data-disponibilidad-call-center=""
+            >
+            
+            <span>Enviar</span>
+            <svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3.35874 9.00002L0.0518663 0.945373C-0.17828 0.384781 0.398805 -0.151328 0.969675 0.0392364L1.05965 0.0754668L18.596 8.3809C19.101 8.62009 19.1326 9.27484 18.6907 9.5659L18.596 9.61906L1.05965 17.9245C0.49168 18.1935 -0.12532 17.6989 0.0221226 17.1428L0.0518663 17.0546L3.35874 9.00002L0.0518663 0.945373L3.35874 9.00002ZM2.10048 2.11605L4.64228 8.30735L11.0992 8.3079C11.4691 8.3079 11.7748 8.56823 11.8232 8.90608L11.8299 9.00002C11.8299 9.35042 11.555 9.64001 11.1983 9.68578L11.0992 9.69215L4.64228 9.69159L2.10048 15.884L16.6355 9.00002L2.10048 2.11605Z" fill="white"/>
+            </svg>
+            
+            </button>
+          </div>
+    
+      </form>
+    </div>
+  </div>
+
+  <div class="der">
+    <img src="/imagenes/terminales_kenos/leads-samsung-2026.webp" alt="Galaxy Unpacked - 25 de Febrero del 2026 a las 15hs - Accedé a beneficios exclusivos">
+  </div>
+</section>

@@ -1,0 +1,167 @@
+@use 'general-kenos' as tokens;
+
+.section_planes_movistar {
+  padding-top: 48px;
+  background-color: var(--backgroundAlternative);
+  position: relative;
+
+
+  .slider-container {
+    position: relative;
+    width: fit-content;
+    margin: auto;
+
+    .slider-planes {
+      width: fit-content;
+      height: fit-content;
+      max-width: 100%;
+      overflow-x: hidden;
+      margin: 0 auto;
+      position: relative;
+      padding-top: 70px;
+
+      
+    }
+
+    .swiper-button-next{
+      width: 40px;
+      height: 40px;
+      right: -50px;
+      top: 190px;
+    }
+
+    .swiper-button-next::after {
+      content: "";
+      background-image: url("/imagenes/global/keyboard-left-arrow-button-fondo-blanco.svg");
+      width: 40px;
+      height: 40px;
+      background-size: contain;
+      transform: rotate(180deg);
+    }
+
+    .swiper-button-prev{
+      width: 40px;
+      height: 40px;
+      left: -60px;
+      top: 190px;
+    }
+
+    .swiper-button-prev::after {
+      content: "";
+      background-image: url("/imagenes/global/keyboard-left-arrow-button-fondo-blanco.svg");
+      width: 40px;
+      height: 40px;
+      background-size: contain;
+    }
+
+    .swiper-pagination,
+    .swiper-button-next, .swiper-button-prev {
+      z-index: 5;
+    }
+
+    .swiper-pagination-bullets.swiper-pagination-horizontal {
+      position: relative;
+      margin-top: 30px;
+    }
+
+    .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+      width: 12px;
+      height: 12px;
+      background-color: var(--control);
+      opacity: 1;
+      border-radius: 8px;
+      margin: 0 6px;
+    }
+
+    .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet-active {
+      background-color: var(--controlActivated);
+      width: 28px;
+    }
+
+    .planes__legales {
+      @include tokens.text-preset-responsive(2);
+      @include tokens.roboto-medium;
+      color: var(--textLink);
+      text-decoration: underline !important;
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .planes__legales a:focus, .planes__legales a:hover {
+        color: var(--textLink);
+        @include tokens.roboto-medium;
+    }
+  }
+}
+@media (max-width: 992px) {
+  .section_planes_movistar {
+
+    .slider-container {
+      width: 100%;
+
+      .slider-planes {
+
+        .swiper-wrapper {
+          gap: 0px;
+        }
+      }
+
+      .swiper-button-next {
+        position: relative;
+        top: -38px;
+        right: -75px;
+        margin: auto;
+      }
+
+      .swiper-button-prev{
+        position: relative;
+        top: -78px;
+        left: -75px;
+        margin: auto;
+      }
+
+      
+%icon-mask-grey {
+  min-width: 36px;
+  height: 40px;
+  background-color: var(--neutralHigh);
+  mask-size: cover;
+  display: block;
+}
+
+.swiper-button-next::after {
+  content: "";
+  @extend %icon-mask-grey;
+  mask-image: url(/imagenes/icons-Kenos/regular/chevron-right-regular.svg);
+  background-image: none;
+  transform: rotate(0deg);
+}
+
+      .swiper-button-prev::after {
+        content: "";
+        @extend %icon-mask-grey;
+        mask-image: url(/imagenes/icons-Kenos/regular/chevron-left-regular.svg);
+        background-image: none;
+      }
+
+      .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+        width: 8px;
+        height: 8px;
+      }
+
+      .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet-active {
+        width: 18px;
+      }
+        
+    }
+  }
+}
+
+/*Clase para poner el fondo blanco en el slider*/
+.fondoblanco {
+  .section_planes_movistar {
+    background-color: var(--background);
+  }
+}
+

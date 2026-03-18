@@ -1,104 +1,130 @@
-# Proodos - FE (JS puro)
+# Proodos - FE
 
-Frontend basico con `HTML + CSS + JavaScript` sin TypeScript ni Vite.
+Frontend en `HTML + CSS + JavaScript` sin framework.
 
-Incluye:
-- Pantalla de login dedicada (simulando flujo real).
-- Persistencia de sesion en navegador.
-- Panel para testear endpoints Auth y BE.
-- Catalogo de landings y componentes separado por feature.
-- Preview endurecido con `iframe sandbox`, CSP y sanitizacion de templates.
+## Enfoque arquitectonico
+El FE usa una arquitectura hibrida:
 
-## Principios SOLID aplicados
-- `S`: responsabilidades separadas (`AuthService`, `ApiTesterService`, `ScreenController`).
-- `O`: podes agregar nuevos servicios sin tocar pantalla base.
-- `L`: componentes intercambiables por contrato (ej: reemplazar `AuthApi`).
-- `I`: modulos chicos y enfocados.
-- `D`: `app.js` depende de servicios, no de detalles de `fetch` o `localStorage`.
+- `app.js` y `config.js` quedan en la raiz de `src/` como composition root y configuracion global.
+- `app/` contiene shell y navegacion base.
+- `shared/` contiene piezas transversales reutilizables.
+- `features/` organiza la logica por dominio, con capas internas.
+
+Capas principales:
+
+- `presentation`: comportamiento de UI y render.
+- `application`: servicios y casos de uso.
+- `infrastructure`: integraciones tecnicas y adaptadores.
 
 ## Estructura
-```
-index.html
-styles.css
+```text
 src/
   app.js
   config.js
+
   app/
     elements.js
     viewAccess.js
     viewManager.js
-  core/
-    httpClient.js
-    logger.js
-  auth/
-    authApi.js
-    authService.js
-    sessionStore.js
-  be/
-    apiTesterService.js
-    landingCatalogService.js
-    landingPreviewService.js
-    componentCatalogService.js
-    componentPreviewService.js
-    preview/
-      previewAssetPolicy.js
-      previewEngine.js
-      previewTemplateSanitizer.js
-  use-cases/
-    auth/
-    apiTester/
-    landings/
-    components/
-    preview/
-    shared/
+
+  shared/
+    application/
+      normalizeApiData.js
+      requireValidToken.js
+    infrastructure/
+      httpClient.js
+      logger.js
+    presentation/
+      screenController.js
+      ui/
+        controllers/
+          appShellScreenController.js
+        shared/
+          renderUtils.js
+
   features/
     auth/
-      authFeature.js
+      infrastructure/
+        authApi.js
+        sessionStore.js
+      application/
+        authService.js
+        use-cases/
+      presentation/
+        authFeature.js
+
     apiTester/
-      apiTesterFeature.js
+      application/
+        apiTesterService.js
+        use-cases/
+      presentation/
+        apiTesterFeature.js
+
     landings/
-      landingsFeature.js
+      application/
+        landingCatalogService.js
+        use-cases/
+      presentation/
+        landingsFeature.js
+        landingsScreenController.js
+
     components/
-      componentsFeature.js
+      application/
+        componentCatalogService.js
+        componentManagementService.js
+        componentPreviewService.js
+        use-cases/
+      presentation/
+        componentsFeature.js
+        componentsScreenController.js
+
     preview/
-      landingPreviewFeature.js
-  ui/
-    controllers/
-      appShellScreenController.js
-      landingsScreenController.js
-      componentsScreenController.js
-      previewScreenController.js
-    shared/
-      renderUtils.js
-    screenController.js
+      infrastructure/
+        previewAssetPolicy.js
+        previewEngine.js
+        previewTemplateSanitizer.js
+      application/
+        landingPreviewService.js
+        use-cases/
+      presentation/
+        landingPreviewFeature.js
+        previewScreenController.js
+
+    navigation/
+      presentation/
+        navigationFeature.js
 ```
 
 ## Configuracion
 Editar `src/config.js`:
-- `DEV_LOGS` para habilitar trazas por consola en desarrollo
-- `AUTH_API_BASE` (default `http://localhost:3030/api`)
-- `BE_API_BASE` (default `http://localhost:8000/api`)
-- `PREVIEW_ASSETS_BASE` para assets locales del preview
-- `PREVIEW_ALLOWED_ORIGINS` para whitelistear origenes absolutos permitidos en templates/CSS
+
+- `DEV_LOGS`
+- `AUTH_API_BASE`
+- `BE_API_BASE`
+- `PREVIEW_ASSETS_BASE`
+- `PREVIEW_ALLOWED_ORIGINS`
 
 ## Ejecucion
 Servir la carpeta con cualquier servidor estatico.
 
-Ejemplo con Python:
+Ejemplo:
 ```bash
 python -m http.server 5500
 ```
 
 Luego abrir:
-- `http://localhost:5500`
+```text
+http://localhost:5500
+```
 
-## Notas de arquitectura
-- `src/app.js` ahora es bootstrap/composition root.
-- Cada vista principal tiene su modulo propio en `src/features/`.
-- Los `service` del FE ahora son fachadas finas; la logica de negocio vive en `src/use-cases/`.
-- `src/ui/screenController.js` ahora es una fachada sobre controladores de UI mas chicos en `src/ui/controllers/`.
-- `src/core/logger.js` centraliza trazas de desarrollo y se controla con `DEV_LOGS`.
-- La sesion nueva vive en `sessionStorage`; si existia una sesion vieja en `localStorage`, se migra y limpia.
-- Los previews usan templates sanitizados y iframes sandboxeados para reducir riesgo de XSS/escape.
-- `LandingPreviewService` y `ComponentPreviewService` comparten motor comun en `src/be/preview/previewEngine.js`.
-"# proodos-FE" 
+## Notas
+- `src/app.js` compone dependencias y arranca la aplicacion.
+- `shared/infrastructure` concentra logging y HTTP.
+- `shared/presentation/screenController.js` es la fachada global de render.
+- `features/*/application` contiene servicios y casos de uso.
+- `features/*/presentation` contiene features y controladores de pantalla.
+- `features/preview/infrastructure` encapsula el motor tecnico de preview.
+
+## Documentacion adicional
+- Ver `ARCHITECTURE.md` para una explicacion mas detallada de la arquitectura y los flujos principales.
+- Ver `IMPLEMENTATION_PROMPT.md` para un prompt base reusable al pedir o implementar cambios sobre el FE.

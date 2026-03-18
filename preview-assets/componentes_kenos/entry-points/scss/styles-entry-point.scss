@@ -1,0 +1,134 @@
+@use 'general-kenos' as tokens;
+
+/* CARDS */
+
+#cards-entry-points {
+    background-color: var(--backgroundAlternative);
+    padding: 80px 0px 80px;
+}
+
+.cards-ofertas-exclusivas .title-ofertas-exclusivas {
+    text-align: center;
+}
+
+.cards-ofertas-exclusivas .title-ofertas-exclusivas .title {
+    @include tokens.text-preset-responsive(6);
+    @include tokens.regular;
+    margin-bottom: 10px;
+    color: var(--textPrimary);
+}
+
+.cards-ofertas-exclusivas .title-ofertas-exclusivas .sub-title {
+    @include tokens.text-preset-responsive(3);
+    @include tokens.roboto-regular;
+    color: var(--textSecondary);
+    padding-bottom: 48px;
+}
+
+.cards-exclusivas-grid .box {
+    background-color: var(--background);
+    border: 1px solid var(--skeletonWave);
+    border-radius: 16px;
+    width: 600px;
+    height: 200px;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+}
+
+.cards-exclusivas-grid .box .title { 
+    @include tokens.text-preset-responsive(5); 
+    @include tokens.regular;
+    color: var(--textPrimary);
+    margin-bottom: 8px;
+}
+
+.cards-exclusivas-grid .box .sub-title {
+    @include tokens.text-preset-responsive(3,2);
+    @include tokens.roboto-regular;
+    color: var(--textPrimary);
+    margin-bottom: 8px;
+}
+
+.cards-exclusivas-grid .box-blue {
+    background-color: var(--backgroundBrand);  
+
+    .title, .sub-title {
+        color: var(--textPrimaryInverse);
+    }
+}
+.cards-exclusivas-grid .pasate-movistar .cont-img{
+    text-align: center;
+}
+
+.cards-exclusivas-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 1200px;
+  }
+
+.cards-exclusivas-grid .box {
+    background-color: var(--blanco);
+    border: 1px solid var(--skeletonWave);
+    border-radius: 16px;
+    width: 600px;
+    height: 200px;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+}
+
+@media (max-width: 992px) {
+
+    #cards-entry-points {
+        padding: 32px 0px;
+    }
+
+    .cards-ofertas-exclusivas .title-ofertas-exclusivas {
+    
+    .title {
+        margin-bottom: 16px;
+    }
+}
+
+    .cards-ofertas-exclusivas .title-ofertas-exclusivas .sub-title {
+        padding-bottom: 0;
+    }
+
+    .cards-ofertas-exclusivas {
+        padding: 0px 8px;
+    }
+    
+    .cards-exclusivas-grid {
+        grid-template-columns: 1fr;
+        margin-top: 32px;  
+        gap: 16px;
+        width: 340px;
+    }
+
+    .cards-exclusivas-grid .box {
+        width: 100%;
+        flex-direction: row-reverse;
+        padding: 24px;
+        height: auto;
+        gap: 8px;
+        border-radius: 8px;
+        width: auto;
+
+        .img-1,
+        .img-2,
+        .img-3,
+        .img-4 {
+            width: 104px;   
+        }    
+    }
+}
+

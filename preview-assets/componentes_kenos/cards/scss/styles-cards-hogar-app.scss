@@ -1,0 +1,252 @@
+@use 'general-kenos' as tokens;
+
+/* ES MOBILE FIRST */
+
+.cards-hogar-app {
+  padding-bottom: 50px;
+
+  %icon-mask {
+    min-width: 28px;
+    min-height: 28px;
+    background-color: var(--textPrimaryInverse);
+    mask-size: cover;
+  }
+
+  .hogar-app {
+    &__text {
+      h1 {
+        text-align: center;
+        color: var(--textSecondary);
+        @include tokens.roboto-regular;
+        @include tokens.text-preset-responsive(6);
+      }
+    }
+
+    &__box {
+      padding: 45px 0;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    &__card {
+      align-self: flex-start;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 2px solid var(--celeste-accesible);
+
+      .card-top {
+        position: relative;
+        background-color: var(--celeste-accesible);
+        text-align: center;
+        padding: 25px 15px 35px;
+
+        &__name {
+          color: var(--textButtonPrimary);
+          @include tokens.text-preset-responsive(6, 8);
+          @include tokens.roboto-light;
+        }
+
+        &__description {}
+
+        &__tag {
+          position: absolute;
+          bottom: 0;
+          right: 50%;
+          transform: translate(50%, 50%);
+          width: max-content;
+          background-color: var(--purpura);
+          border-radius: 4px;
+          padding: 4px 10px;
+          color: var(--textButtonPrimary);
+          @include tokens.text-preset-responsive(1, 3);
+          @include tokens.regular;
+        }
+      }
+
+      .card-middle {
+        text-align: center;
+        padding: 35px 16px 15px;
+        background-color: var(--background);
+        &__offer {
+          display: grid;
+          gap: 5px;
+          .full-price,
+          .offer-price {
+            &::before {
+              content: '$';
+            }
+          }
+          p {
+            color: var(--textSecondary);
+            @include tokens.text-preset-responsive(3, 4);
+            @include tokens.roboto-light;
+            &.full-price {
+              text-decoration: line-through;
+            }
+            .offer-price {
+              color: var(--textPrimary);
+              @include tokens.text-preset-responsive(6, 8);
+              @include tokens.roboto-medium;
+            }
+          }
+        }
+        &__buttons {
+          margin-top: 20px;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          .btn-cards {
+            color: var(--textButtonPrimary);
+            border: 2px solid var(--verde);
+            border-radius: 4px;
+            &:hover {
+              border-color: var(--verde-oscuro);
+            }
+            &.btn-primary-kenos {
+              background-color: var(--verde);
+              &:hover {
+                background-color: var(--verde-oscuro);
+              }
+            }
+            &.btn-secondary-kenos {
+              background-color: transparent;
+              color: var(--verde);
+              &:hover {
+                color: var(--verde-oscuro);
+              }
+            }
+          }
+        }
+        &__siniva {
+          margin-top: 15px;
+          color: var(--textSecondary);
+          @include tokens.text-preset-responsive(1, 2);
+          @include tokens.roboto-light;
+        }
+        &__ahorro {
+          text-align: left;
+          margin: 20px 0 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+          border: 1px solid var(--border);
+          border-radius: 12px;
+          padding: 10px;
+          color: var(--textSecondary);
+          @include tokens.text-preset-responsive(1, 2);
+          @include tokens.light;
+
+          .gift-regular {
+            @extend %icon-mask;
+            background-color: var(--celeste);
+            mask-image: url(/imagenes/icons-Kenos/regular/gift-regular.svg);
+          }
+        }
+        &__tv {
+          .title {
+            text-align: left;
+            margin: 20px 0 30px;
+            @include tokens.text-preset-responsive(2, 2);
+            @include tokens.regular;
+            color: var(--textSecondary);
+          }
+          .box-tv {
+            position: relative;
+            display: flex;
+            border: 1px solid var(--celeste);
+            border-radius: 12px;
+            padding: 20px 15px 15px;
+            margin: 20px 0 10px;
+            &__tag {
+              position: absolute;
+              top: 0;
+              right: 50%;
+              transform: translate(50%, -50%);
+              width: max-content;
+              background-color: var(--celeste);
+              border-radius: 4px;
+              padding: 3px 12px;
+              color: var(--textPrimaryInverse);
+              @include tokens.text-preset-responsive(1, 1);
+              @include tokens.regular;
+              text-transform: uppercase;
+            }
+            &__icon {
+              width: 55px;
+            }
+            &__list {
+              text-align: left;
+              margin: 0;
+              @include tokens.text-preset-responsive(1, 1);
+              @include tokens.light;
+              color: var(--textSecondary);
+              img {
+                vertical-align: middle;
+                margin-left: 3px;
+              }
+            }
+          }
+        }
+        &__benefits {
+          .benefits-box {
+            display: flex;
+            align-items: center;
+            padding: 20px 0px;
+            border-bottom: 1px solid var(--border);
+            color: var(--gris-oscuro);
+            &__icon {
+              @extend %icon-mask;
+              background-color: currentColor;
+              margin: 0 10px;
+              &.inst-modem {
+                mask-image: url(/imagenes/icons-Kenos/regular/configure-modem-regular.svg);
+              }
+              &.tachometer {
+                mask-image: url(/imagenes/icons-Kenos/regular/tachometer-regular.svg);
+              }
+              &.phone {
+                mask-image: url(/imagenes/icons-Kenos/regular/call-landline-regular.svg);
+              }
+            }
+            &__text {
+              text-align: left;
+              @include tokens.text-preset-responsive(1, 3);
+              @include tokens.roboto-light;
+            }
+          }
+          .benefits-extra {
+            text-align: left;
+            color: var(--gris-oscuro);
+            @include tokens.light;
+            p {
+              margin-top: 15px;
+              @include tokens.text-preset-responsive(3, 2);
+            }
+            &__box {
+              border: 1px solid var(--border);
+              border-radius: 12px;
+              padding: 10px;
+              margin: 10px auto 20px;
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              gap: 10px;
+            }
+            &__text {
+              margin: 0;
+              @include tokens.text-preset-responsive(1, 1);
+              padding-inline-start: 30px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.chevron-down {
+  --icon-mask: url('/imagenes/icons-Kenos/regular/chevron-down-regular.svg');
+}

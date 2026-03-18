@@ -1,0 +1,273 @@
+@use 'general-kenos' as tokens;
+
+
+
+.vp-porta-pasos{
+  width: 100%;
+  background-color: var(--backgroundBrandSecondary);
+  padding: 80px 112px;
+
+  .contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 64px;
+
+    .titulo {
+      @include tokens.text-preset-responsive(7,6);
+      @include tokens.regular;
+      color: var(--textPrimaryInverse);
+    }
+
+    .pasos {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+
+      .item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 24px;
+        padding: 0px 20px;
+
+        .numero {
+          @include tokens.text-preset-responsive(4);
+          @include tokens.roboto-regular;
+          font-weight: 500;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: var(--brand);
+          color: var(--backgroundBrandSecondary);
+        }
+
+        .texto {
+          @include tokens.text-preset-responsive(4);
+          @include tokens.roboto-regular;
+          color: var(--textPrimaryInverse);
+          text-wrap: wrap;
+          max-width: 200px;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .vp-porta-pasos {
+    padding: 48px 16px;
+
+    .contenedor {
+      gap: 32px;
+
+      .titulo {
+        text-align: center;
+        padding: 2px 45px;
+      }
+
+      .pasos {
+        flex-direction: column;
+        gap: 32px;
+
+        .item {
+          gap: 18px;
+
+          .texto {
+            max-width: 100%;
+          }
+        }
+      }
+
+    }
+
+  }
+}
+
+
+
+/****** VERSION PORTA PASOS LIGHT ********/
+.vp-porta-pasos-light{
+  width: 100%;
+  padding: 80px 112px;
+  background-color: var(--backgroundAlternative);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 70px;
+  
+  .titulo {
+    @include tokens.text-preset-responsive(6);
+    @include tokens.regular;
+    color: var(--textPrimary);
+  }
+
+  .swiper-container {
+    width: 100%;
+    position: relative;
+    
+    .swiper-wrapper {
+      // Swiper maneja el width automáticamente
+      align-items: flex-start;
+      width: 100%;
+      gap: 24px;
+      justify-content: center;
+      
+   
+    
+      .swiper-slide {
+        height: auto; // Permite que el slide crezca según contenido
+        max-width: 290px;
+        
+        .item {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 24px;
+          padding: 0px 20px;
+          height: 100%; // Asegura que ocupe todo el slide
+          
+          .numero {
+            @include tokens.text-preset-responsive(4);
+            @include tokens.roboto-regular;
+            font-weight: 500;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--brand);
+            color: var(--backgroundAlternative);
+          }
+          
+          .texto {
+            @include tokens.text-preset-responsive(4);
+            @include tokens.roboto-regular;
+            color: var(--textPrimary);
+            text-wrap: wrap;
+            text-align: center;
+            width: 100%; // Asegura que el texto ocupe el ancho disponible
+          }
+        }
+      }
+    }
+    
+    // Ocultar flechas por defecto (solo mobile)
+    .swiper-button-next,
+    .swiper-button-prev {
+      display: none;
+    }
+    
+    // Pagination por defecto (solo mobile)
+    .swiper-pagination {
+      display: none;
+      position: absolute;
+      bottom: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+    }
+    
+    .swiper-pagination-bullet {
+      width: 8px;
+      height: 8px;
+      background-color: var(--control);
+      opacity: 1;
+      border-radius: 8px;
+      margin: 0 4px;
+    }
+    
+    .swiper-pagination-bullet-active {
+      width: 18px;
+      background-color: var(--controlActivated);
+    }
+  }
+}
+
+@media (max-width: 992px){
+  .vp-porta-pasos-light{
+    padding: 35px 30px;
+    height: auto;
+    gap: 0px;
+    overflow-x: hidden;
+
+    .titulo{
+      
+      text-align: center;
+      margin: 0;
+      width: 100%;
+    }
+    
+    .swiper-container{
+      width: 100%;
+      height: 192px;
+      position: relative;
+      padding: 0;
+      
+      .swiper-wrapper{
+      justify-content: unset;
+      align-items: unset;
+      gap: 0;
+        .swiper-slide {
+          max-width: unset;
+          .item{
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 20px;        
+          }
+        }
+      }
+      .swiper-button-next,
+      .swiper-button-prev {
+        display: block;
+        width: 30px;
+        height: 30px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        top: 100%;
+        margin-top: 0;
+      }
+      
+      %icon-mask-grey {
+        min-width: 30px;
+        height: 30px;
+        background-color: var(--neutralHigh);
+        mask-size: cover;
+        display: block;
+      }
+
+      .swiper-button-next {
+        @extend %icon-mask-grey;
+        right: 70px;
+        mask-image: url("/imagenes/icons-Kenos/regular/chevron-right-regular.svg");
+      }
+      
+      .swiper-button-prev {
+        @extend %icon-mask-grey;
+        left: 70px;
+        mask-image: url("/imagenes/icons-Kenos/regular/chevron-left-regular.svg");
+      }
+      
+      .swiper-button-next::after,
+      .swiper-button-prev::after {
+        display: none; // Oculta el contenido por defecto de Swiper
+      }
+      
+      // Mostrar pagination SOLO en mobile
+      .swiper-pagination {
+        display: block;
+        bottom: -23px;
+      }
+    }    
+  }
+}

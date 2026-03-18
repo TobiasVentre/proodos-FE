@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Proodos FE</title>
-  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./styles.css?v=20260317-2">
 </head>
 <body>
   <div id="app">
@@ -12,14 +12,14 @@
       <div class="card login-card">
         <h1>Proodos</h1>
         <p class="muted">Ingresá con tus credenciales para acceder al panel.</p>
-        <form id="loginForm" class="form">
+        <form id="loginForm" class="form" method="post" autocomplete="on">
           <label>
             Usuario
-            <input type="text" name="username" placeholder="usuario" required>
+            <input type="text" name="username" placeholder="usuario" autocomplete="username" required>
           </label>
           <label>
             Contraseña
-            <input type="password" name="password" placeholder="******" required>
+            <input type="password" name="password" placeholder="******" autocomplete="current-password" required>
           </label>
           <button id="loginBtn" type="submit">Iniciar sesión</button>
         </form>
@@ -32,7 +32,7 @@
         <div class="app-brand">
           <p class="eyebrow">Proodos</p>
           <h2>Consola interna</h2>
-          <p class="muted">Tester de endpoints, catálogo de landings y componentes en una sola interfaz.</p>
+          <p class="muted">Tester de endpoints, catálogo de landings, componentes, variaciones y planes en una sola interfaz.</p>
         </div>
 
         <div class="app-header-meta">
@@ -65,6 +65,22 @@
           data-view="componentes"
         >
           Componentes
+        </button>
+        <button
+          id="navVariationsBtn"
+          type="button"
+          class="nav-link"
+          data-view="variaciones"
+        >
+          Variaciones
+        </button>
+        <button
+          id="navPlansBtn"
+          type="button"
+          class="nav-link"
+          data-view="planes"
+        >
+          Planes
         </button>
       </nav>
 
@@ -154,28 +170,88 @@
                 Consulta los componentes disponibles en `BE` con su estado y relaciones principales.
               </p>
             </div>
-            <button id="loadComponentsBtn" type="button" class="secondary">Actualizar listado</button>
+            <div class="view-actions">
+              <button id="createComponentBtn" type="button" class="secondary">Crear componente</button>
+              <button id="loadComponentsBtn" type="button" class="secondary">Actualizar listado</button>
+            </div>
           </div>
 
-          <div class="components-layout">
-            <article class="card components-card">
+          <section id="componentsListSection" class="components-flow">
+            <article class="card components-card components-list-card">
               <p id="componentsStatus" class="status"></p>
               <div id="componentListContainer" class="component-list"></div>
             </article>
+          </section>
 
-            <aside class="card component-detail-card">
-              <div class="component-detail-heading">
+          <section id="componentDetailSection" class="components-flow hidden">
+            <article class="card component-detail-page">
+              <div class="component-detail-page-heading">
+                <button id="componentBackBtn" type="button" class="secondary component-back-btn">
+                  Volver al listado
+                </button>
                 <div>
                   <h4>Detalle del componente</h4>
                   <p class="muted">
-                    Seleccioná un componente del listado para ver sus relaciones y metadatos.
+                    Vista completa del componente, sus relaciones y su preview asociado.
                   </p>
                 </div>
               </div>
               <p id="componentDetailStatus" class="status"></p>
               <div id="componentDetailContainer" class="component-detail-container"></div>
-            </aside>
-          </div>
+            </article>
+          </section>
+
+          <section id="componentCreateSection" class="components-flow hidden">
+            <article class="card component-create-page">
+              <div class="component-create-page-heading">
+                <button id="componentCreateBackBtn" type="button" class="secondary component-back-btn">
+                  Volver al listado
+                </button>
+                <div>
+                  <h4>Crear componente</h4>
+                  <p class="muted">
+                    Completá los datos requeridos por el backend para generar un nuevo componente.
+                  </p>
+                </div>
+              </div>
+
+              <form id="componentCreateForm" class="form component-create-form">
+                <div class="grid2">
+                  <label>
+                    Nombre
+                    <input
+                      id="componentCreateNameInput"
+                      name="nombre"
+                      type="text"
+                      placeholder="Ej: Banner Hero Fibra"
+                      required
+                    >
+                  </label>
+                  <label>
+                    Tipo de componente
+                    <select id="componentCreateTipoComponenteSelect" name="id_tipo_componente" required></select>
+                  </label>
+                </div>
+
+                <div class="grid2">
+                  <label>
+                    Tipo de variación
+                    <select id="componentCreateTipoVariacionSelect" name="id_tipo_variacion" required></select>
+                  </label>
+                  <label>
+                    Plan
+                    <select id="componentCreatePlanSelect" name="id_plan" required></select>
+                  </label>
+                </div>
+
+                <div class="component-create-actions">
+                  <button id="componentCreateSubmitBtn" type="submit">Crear componente</button>
+                </div>
+              </form>
+
+              <p id="componentCreateStatus" class="status"></p>
+            </article>
+          </section>
         </section>
 
         <section id="previewView" class="app-view hidden" data-view="preview-landing">
@@ -203,7 +279,10 @@
                       required
                     >
                   </label>
-                  <button id="previewBtn" type="submit">Generar preview</button>
+                  <div class="preview-actions">
+                    <button id="previewBtn" type="submit">Generar preview</button>
+                    <button id="previewExportBtn" type="button" class="secondary">Ver index.html</button>
+                  </div>
                 </div>
                 <p id="previewStatus" class="status"></p>
               </form>
@@ -219,10 +298,166 @@
                 ></iframe>
               </div>
 
+              <div class="preview-export">
+                <h4>Codigo del index.html</h4>
+                <pre id="previewExportOutput" class="preview-export-output"></pre>
+              </div>
+
               <div class="preview-debug">
-                <h4>Logs de preview</h4>
+                <h4>Logs de preview y export</h4>
                 <pre id="previewDebugOutput" class="preview-debug-output"></pre>
               </div>
+            </article>
+          </section>
+        </section>
+
+        <section id="variationsView" class="app-view hidden" data-view="variaciones">
+          <div class="view-heading">
+            <div>
+              <h3>Variaciones</h3>
+              <p class="muted">
+                Consulta todas las variaciones disponibles y filtralas por tipo de componente.
+              </p>
+            </div>
+            <div class="view-actions">
+              <button id="createVariationBtn" type="button" class="secondary">Crear variación</button>
+              <label class="toolbar-field">
+                Tipo de componente
+                <select id="variationTipoComponenteFilter" name="id_tipo_componente">
+                  <option value="">Todos los tipos de componente</option>
+                </select>
+              </label>
+              <button id="loadVariationsBtn" type="button" class="secondary">Actualizar listado</button>
+            </div>
+          </div>
+
+          <section id="variationCreateSection" class="hidden">
+            <article class="card variation-create-card">
+              <div class="variation-create-heading">
+                <div>
+                  <h4>Crear variación</h4>
+                  <p class="muted">
+                    Completá los campos requeridos por `BE` para generar una nueva variación.
+                  </p>
+                </div>
+              </div>
+
+              <form id="variationCreateForm" class="form variation-create-form">
+                <div class="grid2 variation-form-grid">
+                  <label class="variation-form-field">
+                    <span>Tipo de componente</span>
+                    <select id="variationCreateTipoComponenteSelect" name="id_tipo_componente" required></select>
+                  </label>
+                  <label class="variation-form-field">
+                    <span>Nombre</span>
+                    <input
+                      id="variationCreateNameInput"
+                      name="nombre"
+                      type="text"
+                      placeholder="Ej: Hero Fibra Full"
+                      required
+                    >
+                  </label>
+                </div>
+
+                <label class="variation-form-field">
+                  <span>Descripción</span>
+                  <textarea
+                    id="variationCreateDescriptionInput"
+                    name="descripcion"
+                    rows="3"
+                    placeholder="Descripción opcional"
+                  ></textarea>
+                </label>
+
+                <div class="grid2 variation-form-grid">
+                  <label class="variation-form-field">
+                    <span>HTML</span>
+                    <input
+                      id="variationCreateHtmlInput"
+                      name="html"
+                      type="text"
+                      placeholder="/templates/hero-fibra.html"
+                    >
+                  </label>
+                  <label class="variation-form-field">
+                    <span>CSS URL</span>
+                    <input
+                      id="variationCreateCssInput"
+                      name="css_url"
+                      type="text"
+                      placeholder="/assets/hero-fibra.css"
+                    >
+                  </label>
+                </div>
+
+                <label class="variation-form-field">
+                  <span>JS URL</span>
+                  <input
+                    id="variationCreateJsInput"
+                    name="js_url"
+                    type="text"
+                    placeholder="/assets/hero-fibra.js"
+                  >
+                </label>
+
+                <div class="variation-create-actions">
+                  <button id="variationCreateSubmitBtn" type="submit">Crear variación</button>
+                  <button id="variationCreateCancelBtn" type="button" class="secondary">Cancelar</button>
+                </div>
+              </form>
+
+              <p id="variationCreateStatus" class="status"></p>
+            </article>
+          </section>
+
+          <article class="card variations-card">
+            <p id="variationsStatus" class="status"></p>
+            <div id="variationListContainer" class="variation-list"></div>
+          </article>
+        </section>
+
+        <section id="plansView" class="app-view hidden" data-view="planes">
+          <div class="view-heading">
+            <div>
+              <h3>Planes</h3>
+              <p class="muted">
+                Consulta el catálogo de planes disponible en `BE` y usalo como referencia para la asignación de componentes.
+              </p>
+            </div>
+            <div class="view-actions">
+              <label class="toolbar-field">
+                Segmento
+                <select id="planSegmentFilter" name="segmento">
+                  <option value="">Todos los segmentos</option>
+                </select>
+              </label>
+              <button id="loadPlansBtn" type="button" class="secondary">Actualizar listado</button>
+            </div>
+          </div>
+
+          <section id="plansListSection" class="components-flow">
+            <article class="card plans-card">
+              <p id="plansStatus" class="status"></p>
+              <div id="planListContainer" class="plan-list"></div>
+            </article>
+          </section>
+
+          <section id="planDetailSection" class="components-flow hidden">
+            <article class="card component-detail-page plan-detail-page">
+              <div class="component-detail-page-heading">
+                <button id="planBackBtn" type="button" class="secondary component-back-btn">
+                  Volver al listado
+                </button>
+                <div>
+                  <h4>Detalle del plan</h4>
+                  <p class="muted">
+                    Vista completa del plan con edición habilitable desde este detalle.
+                  </p>
+                </div>
+              </div>
+              <p id="planDetailStatus" class="status"></p>
+              <div id="planDetailContainer" class="component-detail-container"></div>
             </article>
           </section>
         </section>
@@ -230,7 +465,7 @@
     </section>
   </div>
 
-  <script src="./src/config.js?v=20260310-6"></script>
-  <script type="module" src="./src/app.js?v=20260311-1"></script>
+  <script src="./src/config.js?v=20260317-7"></script>
+  <script type="module" src="./src/app.js?v=20260317-10"></script>
 </body>
 </html>

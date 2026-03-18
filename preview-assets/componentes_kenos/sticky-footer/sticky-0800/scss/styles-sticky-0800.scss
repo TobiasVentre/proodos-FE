@@ -1,0 +1,135 @@
+@use 'general-kenos' as tokens;
+
+
+
+
+    #sticky-footer-0800 {
+    height: 65px;
+    backdrop-filter: blur(10px);
+    z-index: 998;
+    display: flex;
+    justify-content: center;  
+    align-items: center;  
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0,0,0,.80);
+    color: var(--blanco);
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+
+     .promo {
+            @include tokens.roboto-bold;
+            @include tokens.text-preset-responsive(2);
+
+        .telefono {
+            color: var(--blanco);
+            @include tokens.roboto-bold;
+            @include tokens.text-preset-responsive(2);
+        }
+        }
+
+     .separador-footer {
+            width: 0.5px;
+            height: 48px;
+            background-color: var(--divider);
+            margin: 0 24px;
+        }
+    .container-right {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+    }
+  }
+
+#sticky-footer-0800 .sticky-footer {
+        justify-content: center;
+        display: flex;
+        align-items: baseline;
+
+  
+
+        p {       
+            margin: 0px;
+            @include tokens.text-preset-responsive(2);     
+            @include tokens.roboto-regular; 
+        }
+
+}
+
+ 
+#sticky-footer-0800 .sticky-footer .btn-sticky {
+        margin-left: 24px !important;
+        padding: 9px 23px !important;
+        border-radius: 50px !important;
+    }
+
+    #sticky-footer-0800 .sticky-footer .btn-sticky a {
+        color: var(--textButtonPrimary);
+        @include tokens.text-preset-responsive(3);
+        @include tokens.roboto-medium;
+    }
+
+    #sticky-footer-0800 .section_sticky_footer_container:hover {
+        background-color: var(--azul-oscuro);
+
+        & .sticky-footer .btn-sticky {
+            background-color: transparent;
+            border: solid 1.5px #019BEF;
+        }
+    } 
+    
+    #sticky-footer-0800 .section_sticky_footer_container.mct {
+        .sticky-footer .btn-sticky {
+            padding: 0 !important;
+
+            a {
+                button {
+                    all: unset;
+                    padding: 11px 25px !important;
+                }
+            }
+        }
+    }
+
+@media (max-width:992px) {
+
+    #sticky-footer-0800 {
+        display: block !important;
+        height: 96px;
+
+         .separador-footer {
+          height: 0.5px;
+          width: 93%;
+          margin: auto;
+            }
+
+        .container-right {
+            padding-top: 2px;
+        }    
+    }
+    #sticky-footer-0800 .sticky-footer {
+        border: none;
+        display: flex;    
+        justify-content: space-around; 
+        align-items: center;
+        padding: 2px;    
+        
+        p {
+            padding-top: 0; 
+            width: 200px;
+        }
+    }
+
+
+    #sticky-footer-0800 .sticky-footer .btn-sticky {
+        background-color: #019BEF;
+        padding: 12px 25px;
+        margin-left: 0 !important;
+    }
+    #sticky-footer-0800 .sticky-footer .btn-sticky a {
+        color: var(--blanco);
+    }
+}
+
